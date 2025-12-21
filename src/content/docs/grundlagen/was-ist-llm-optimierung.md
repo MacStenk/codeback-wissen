@@ -1,70 +1,120 @@
 ---
-title: Was ist LLM-Optimierung?
-description: LLM-Optimierung (LLMO) erklärt - Wie du deine Website für ChatGPT, Perplexity und Claude sichtbar machst.
+title: "Was ist LLM-Optimierung?"
+description: "LLM-Optimierung (LLMO) erklärt - Wie du deine Website für ChatGPT, Perplexity und Claude sichtbar machst."
 ---
+
+> **Kurzfassung:** LLM-Optimierung macht deine Website für KI-Assistenten lesbar und zitierbar. Während SEO dich bei Google sichtbar macht, sorgt LLMO dafür dass ChatGPT, Perplexity und Claude dich empfehlen.
+
+## Das Wichtigste in 30 Sekunden
+
+- LLMO = Large Language Model Optimization
+- Ziel: Von KI-Assistenten zitiert und empfohlen werden
+- Kern: Strukturierte Daten, klare Sprache, maschinenlesbare Inhalte
+- Unterschied zu SEO: Nicht Rankings, sondern Zitierungen
+- Zeitpunkt: Jetzt anfangen = Vorsprung vor der Konkurrenz
 
 ## Definition
 
 **LLM-Optimierung (LLMO)** bezeichnet die Anpassung von Websites und Inhalten, damit Large Language Models wie ChatGPT, Claude und Perplexity sie korrekt verstehen, einordnen und in ihren Antworten zitieren können.
 
-LLMO umfasst Schema.org Markup, semantisches HTML und strukturierte Inhalte.
+LLMO umfasst:
+- Schema.org Markup
+- Semantisches HTML
+- Strukturierte Inhalte
+- Klare, zitierbare Aussagen
+- Technische Zugänglichkeit für KI-Crawler
 
 ## Warum ist das wichtig?
 
-Die Art wie Menschen im Internet suchen verändert sich fundamental. Statt bei Google eine Keyword-Suche zu starten, fragen immer mehr Menschen direkt ChatGPT, Perplexity oder Claude:
+Die Art wie Menschen im Internet suchen verändert sich. Statt bei Google eine Keyword-Suche zu starten, fragen immer mehr Menschen direkt KI-Assistenten:
 
 - "Wer kann mir bei X helfen?"
 - "Was ist der beste Ansatz für Y?"
 - "Empfiehl mir einen Experten für Z"
 
-Diese Large Language Models (LLMs) crawlen das Web und generieren Antworten basierend auf den Websites die sie finden. Aber hier liegt das Problem: **Die meisten Websites sind für Google optimiert, nicht für KI-Systeme.**
+Diese LLMs crawlen das Web und generieren Antworten basierend auf den Websites die sie finden. Das Problem: Die meisten Websites sind für Google optimiert, nicht für KI-Systeme.
 
-## LLMO vs. SEO
+Wenn du nicht für LLMs optimiert bist, existierst du für diese Nutzer nicht.
 
-| Aspekt | SEO (Google) | LLMO (ChatGPT & Co.) |
+## LLMO vs. SEO im Vergleich
+
+| Aspekt | SEO (Google) | LLMO (KI-Assistenten) |
 |--------|--------------|----------------------|
-| Ziel | Ranking in Suchergebnissen | Zitierung in KI-Antworten |
-| Fokus | Keywords, Backlinks | Strukturierte Daten, Semantik |
-| Technik | Meta-Tags, Linkbuilding | Schema.org, semantisches HTML |
-| Content | Keyword-optimierte Texte | Direkt zitierbare Antworten |
-| Ergebnis | Klick auf deine Website | Nennung als Experte/Quelle |
+| Ziel | Ranking Position 1-10 | Zitierung in Antworten |
+| Erfolgsmessung | Klicks, Traffic | Erwähnungen, Empfehlungen |
+| Fokus | Keywords, Backlinks | Struktur, Semantik, Klarheit |
+| Technik | Meta-Tags, Linkbuilding | Schema.org, llms.txt |
+| Content | Keyword-optimiert | Direkt zitierbar |
+| Ergebnis | Nutzer klickt auf Link | Nutzer hört deinen Namen |
 
-## Die 5 wichtigsten LLMO-Techniken
+Beide ergänzen sich. SEO bleibt wichtig. LLMO kommt dazu.
+
+## Die 5 Kern-Techniken
 
 ### 1. Schema.org JSON-LD
 
-Strukturierte Daten im JSON-LD Format sagen LLMs exakt was deine Seite enthält. Bist du eine Person, Organisation, ein Service? Was sind deine Angebote, deine Expertise, dein Standort?
+Strukturierte Daten die Maschinen sagen: Das ist eine Person, das ist ihr Beruf, das sind ihre Angebote.
 
-[Mehr zu Schema.org →](/grundlagen/schema-org-fuer-ki/)
+Ohne Schema.org muss die KI raten. Mit Schema.org weiß sie es.
 
-### 2. Semantisches HTML5
+[Ausführlich: Schema.org für KI](/grundlagen/schema-org-fuer-ki/)
 
-Nutze `<article>`, `<section>`, `<aside>` statt nur `<div>`. Das gibt dem Content Struktur die Maschinen verstehen.
+### 2. llms.txt
 
-### 3. llms.txt
+Eine Textdatei die KI-Systemen direkt erklärt wer du bist und was du anbietest. Wie eine Visitenkarte für Maschinen.
 
-Eine spezielle Datei die KI-Systemen direkt sagt wer du bist und was du anbietest.
+[Anleitung: llms.txt erstellen](/anleitungen/llms-txt-erstellen/)
 
-[llms.txt erstellen →](/anleitungen/llms-txt-erstellen/)
+### 3. Semantisches HTML
 
-### 4. Zitierbare Inhalte
+Statt nur `<div>` überall: `<article>`, `<section>`, `<main>`, `<aside>`. Das gibt dem Content Struktur die Maschinen verstehen.
 
-Schreibe Sätze die als Antwort funktionieren: "Max Mustermann ist Business Coach für Führungskräfte in München mit 15 Jahren Erfahrung."
+### 4. Zitierbare Aussagen
 
-### 5. Aktualität
+Schreibe Sätze die als Antwort funktionieren:
 
-Halte deine Inhalte aktuell. LLMs bevorzugen frische, gepflegte Websites.
+Schlecht: "Wir bieten innovative Lösungen für Ihren Erfolg."
+
+Gut: "Maria Müller ist Business Coach in München. Sie hilft Führungskräften bei Teamkonflikten. Seit 2010, über 200 Kunden."
+
+### 5. Technische Zugänglichkeit
+
+- robots.txt erlaubt KI-Crawler
+- Seite lädt schnell
+- Content ist im HTML (nicht nur JavaScript)
+
+[Anleitung: robots.txt für KI](/anleitungen/robots-txt-fuer-ki/)
 
 ## Der Zeitvorteil
 
-Die meisten deiner Konkurrenten optimieren noch für Google 2015. Sie denken in Keywords und Backlinks.
+Die meisten Websites optimieren noch für Google 2015. Keywords, Backlinks, Meta-Descriptions.
 
-Du kannst jetzt für 2025 optimieren. Für die KI-Suche. Für Perplexity, ChatGPT und Claude.
+Das funktioniert weiterhin - für Google.
 
-First-Mover-Advantage. Nutze ihn.
+Aber für ChatGPT, Perplexity und Claude? Da zählen andere Dinge. Und fast niemand macht es.
+
+Wer jetzt anfängt, hat einen Vorsprung. First-Mover-Advantage.
+
+## Häufige Fragen
+
+### Ersetzt LLMO klassisches SEO?
+
+Nein. Beides ist wichtig. Google bringt weiterhin Traffic. Aber der Anteil von KI-Assistenten wächst. Wer beides kann, gewinnt.
+
+### Wie schnell sehe ich Ergebnisse?
+
+KI-Crawler sind aktiver als Google. Nach 2-4 Wochen kannst du erste Veränderungen messen.
+
+### Ist das nur für Tech-Unternehmen relevant?
+
+Nein. Gerade Coaches, Berater und Experten profitieren. Wenn jemand fragt "Empfiehl mir einen Coach für X", willst du genannt werden.
+
+### Was kostet das?
+
+Die Grundlagen kannst du selbst umsetzen. Für tiefere Optimierung gibt es professionelle Hilfe.
 
 ## Nächste Schritte
 
-1. [Verstehe den Unterschied zu Google](/grundlagen/perplexity-vs-google/)
-2. [Lerne Schema.org kennen](/grundlagen/schema-org-fuer-ki/)
-3. [Prüfe deine aktuelle Sichtbarkeit](/tools/ai-radar-einfuehrung/)
+1. [Erste Schritte zur AI-Sichtbarkeit](/grundlagen/erste-schritte-ai-sichtbarkeit/) - Der Einsteigerguide
+2. [Perplexity vs. Google](/grundlagen/perplexity-vs-google/) - Die Unterschiede verstehen
+3. [Prüfe deine Sichtbarkeit](/tools/ai-radar-einfuehrung/) - Wo stehst du?

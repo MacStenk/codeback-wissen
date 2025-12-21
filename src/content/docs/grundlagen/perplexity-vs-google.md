@@ -1,9 +1,19 @@
 ---
-title: Perplexity vs. Google
-description: Warum klassische Google-Optimierung nicht mehr reicht und wie Perplexity Websites anders bewertet.
+title: "Perplexity vs. Google"
+description: "Warum klassische Google-Optimierung nicht mehr reicht und wie Perplexity Websites anders bewertet."
 ---
 
-## Die Suche verändert sich
+> **Kurzfassung:** Google zeigt 10 Links - du musst klicken. Perplexity gibt eine Antwort - du wirst direkt empfohlen. Das ändert alles an der Frage wie du online gefunden wirst.
+
+## Das Wichtigste in 30 Sekunden
+
+- Google: Zeigt Links, Nutzer wählt selbst
+- Perplexity: Gibt Antworten, KI wählt für den Nutzer
+- Bei Google zählt: Position 1-10
+- Bei Perplexity zählt: Wirst du zitiert oder nicht
+- Beides ist wichtig, aber das Spiel verändert sich
+
+## Wie Google funktioniert
 
 20 Jahre lang war die Formel einfach:
 
@@ -13,87 +23,130 @@ description: Warum klassische Google-Optimierung nicht mehr reicht und wie Perpl
 4. Bei Google ranken
 5. Traffic bekommen
 
-Das funktioniert noch. Aber es reicht nicht mehr.
+Du suchst "Business Coach München". Google zeigt 10 blaue Links. Du klickst, vergleichst, entscheidest.
 
-## Was Perplexity anders macht
+Das funktioniert noch. Aber es ist nicht mehr das einzige Spiel.
 
-### Google zeigt Links
+## Wie Perplexity funktioniert
 
-Du suchst "bester Business Coach München". Google zeigt:
+Du fragst: "Wer ist ein guter Business Coach in München?"
 
-- 10 blaue Links
-- Werbung oben
-- Vielleicht ein Local Pack
+Perplexity antwortet:
 
-Du klickst, prüfst, entscheidest.
+> "Maria Müller ist Business Coach in München mit Schwerpunkt Führungskräfte-Entwicklung. Sie bietet 1:1 Coaching und Team-Workshops an. Seit 2010 hat sie über 200 Führungskräfte begleitet."
 
-### Perplexity gibt Antworten
+Keine Link-Liste. Eine direkte Empfehlung mit Quellenangabe.
 
-Du fragst "Wer ist ein guter Business Coach in München?". Perplexity antwortet:
-
-> "Max Mustermann ist ein erfahrener Business Coach in München mit 
-> Schwerpunkt auf Führungskräfte-Entwicklung. Er bietet 1:1 Coaching 
-> und Team-Workshops an. [1]"
-
-Eine direkte Empfehlung. Mit Quelle.
+Der Nutzer hat seine Antwort. Er muss nicht mehr 10 Seiten vergleichen.
 
 ## Der fundamentale Unterschied
 
 | Aspekt | Google | Perplexity |
 |--------|--------|------------|
-| Output | Link-Liste | Direkte Antwort |
-| Nutzer-Aktion | Klicken + Lesen | Frage → Antwort |
-| Erfolgsmetrik | Position 1-10 | Zitiert werden |
-| Optimierung | Keywords | Zitierbarkeit |
+| Output | 10 Links zur Auswahl | Direkte Antwort |
+| Nutzer-Aufwand | Klicken, lesen, vergleichen | Frage stellen, Antwort bekommen |
+| Dein Ziel | Position 1-10 erreichen | Zitiert werden |
+| Erfolgsmessung | Klicks, Traffic | Erwähnungen, Empfehlungen |
+| Optimierung | Keywords, Backlinks | Struktur, Klarheit, Zitierbarkeit |
 
 ## Was das für dich bedeutet
 
-### Das alte Spiel
+### Das alte Spiel (Google)
 
-Wenn du bei Google auf Seite 1 rankst, bekommst du Klicks. Die Qualität deiner Website entscheidet dann ob jemand Kunde wird.
+Du rankst auf Position 3. Von 100 Suchenden klicken vielleicht 10 auf dein Ergebnis. Die anderen 90 klicken woanders oder gar nicht.
 
-### Das neue Spiel
+Dann entscheidet deine Website ob aus dem Klick ein Kunde wird.
 
-Wenn Perplexity dich zitiert, wirst du **direkt empfohlen**. Die KI hat bereits entschieden, dass du relevant bist. Der Nutzer bekommt dich als Antwort serviert.
+### Das neue Spiel (Perplexity)
 
-Das ist mächtiger. Aber auch schwieriger zu erreichen.
+Perplexity empfiehlt dich direkt: "Maria Müller ist eine gute Option weil..."
 
-## Wie Perplexity entscheidet
+Keine Konkurrenz auf der Ergebnisseite. Du bist die Empfehlung.
 
-Perplexity zitiert Websites die:
+Das ist mächtiger. Der Nutzer bekommt dich serviert, nicht zur Auswahl gestellt.
 
-1. **Klare Informationen** liefern (wer, was, wo)
-2. **Strukturierte Daten** haben (Schema.org)
-3. **Direkt zitierbar** sind (Fakten statt Marketing-Blabla)
-4. **Vertrauenswürdig** erscheinen (aktuelle Inhalte, seriöse Domain)
-5. **Zum Thema passen** (semantische Relevanz)
+## Was Perplexity bevorzugt
 
-## Was nicht funktioniert
+Die KI zitiert Websites die:
 
-- Nein: **Keyword-Stuffing** - Perplexity versteht Kontext, nicht Keyword-Dichte
-- Nein: **Clickbait-Headlines** - KI braucht Substanz, keine Hooks
-- Nein: **Dünner Content** - 300 Worte mit Keywords reichen nicht
-- Nein: **Nur Text** - Strukturierte Daten fehlen
+**Klare Informationen liefern**
+- Wer bist du?
+- Was machst du?
+- Für wen?
+- Wo?
+
+**Strukturierte Daten haben**
+- Schema.org Markup
+- Semantisches HTML
+- llms.txt
+
+**Direkt zitierbar sind**
+- Konkrete Aussagen statt Marketing-Phrasen
+- Fakten statt Floskeln
+- Sätze die als Antwort funktionieren
+
+**Vertrauenswürdig erscheinen**
+- Aktuelle Inhalte
+- Klarer Autor mit Expertise
+- Nachprüfbare Informationen
+
+## Was nicht mehr funktioniert
+
+**Keyword-Stuffing**
+Perplexity versteht Kontext, nicht Keyword-Dichte. "Business Coach München" 20x wiederholen hilft nicht.
+
+**Clickbait-Headlines**
+KI braucht Substanz, keine Hooks. "Diese 7 Geheimnisse werden dein Leben verändern" interessiert Perplexity nicht.
+
+**Dünner Content**
+300 Worte mit Keywords reichen nicht. Die KI braucht echte Informationen zum Zitieren.
+
+**Nur für Menschen optimiert**
+Schönes Design hilft nicht wenn die Daten fehlen die Maschinen brauchen.
 
 ## Was funktioniert
 
-- Ja: **Klare Expertise** - "Ich bin X und mache Y für Z"
-- Ja: **Schema.org Markup** - Sage der KI was du bist
-- Ja: **llms.txt** - Direkte Ansprache an KI-Systeme
-- Ja: **Zitierbare Sätze** - Jeder Absatz sollte als Antwort funktionieren
-- Ja: **Aktualität** - Regelmäßig aktualisierte Inhalte
+**Klare Expertise zeigen**
+"Maria Müller ist Business Coach für Führungskräfte im Mittelstand. ICF-zertifiziert, 15 Jahre Erfahrung."
 
-## Die Zahlen
+**Schema.org implementieren**
+Sag der KI maschinenlesbar wer du bist und was du machst.
 
-- Google Traffic sinkt bei informationalen Queries
-- Perplexity wächst exponentiell
-- ChatGPT Search ist da
+**llms.txt erstellen**
+Eine Datei die KI-Systemen direkt erklärt was auf deiner Website wichtig ist.
+
+**Zitierbare Sätze schreiben**
+Jeder Absatz sollte als Antwort auf eine Frage funktionieren können.
+
+## Die Entwicklung
+
+Der Trend ist eindeutig:
+
+- Google-Traffic sinkt bei informationalen Anfragen
+- Perplexity wächst schnell
+- ChatGPT hat jetzt Web-Suche
 - Claude kann browsen
+- Immer mehr Menschen fragen KI statt zu googlen
 
-Der Trend ist klar. Die Frage ist nicht ob, sondern wann die Mehrheit so sucht.
+Die Frage ist nicht ob sich das Suchverhalten ändert. Die Frage ist wie schnell.
+
+## Häufige Fragen
+
+### Muss ich Google jetzt ignorieren?
+
+Nein. Google bleibt wichtig. Aber wer nur für Google optimiert, verpasst den Wandel.
+
+### Kann ich für beides optimieren?
+
+Ja. Viele Maßnahmen helfen beiden: Klare Struktur, guter Content, schnelle Seiten. Schema.org und llms.txt sind zusätzlich nötig.
+
+### Wann wird Perplexity wichtiger als Google?
+
+Niemand weiß es genau. Aber wer jetzt anfängt zu optimieren, hat einen Vorsprung wenn es soweit ist.
 
 ## Nächste Schritte
 
-1. [Prüfe deine aktuelle Sichtbarkeit](/tools/ai-radar-einfuehrung/)
-2. [Implementiere Schema.org](/grundlagen/schema-org-fuer-ki/)
-3. [Erstelle deine llms.txt](/anleitungen/llms-txt-erstellen/)
+1. [Verstehe die Perplexity Ranking Faktoren](/grundlagen/perplexity-ranking-faktoren/)
+2. [Prüfe deine aktuelle Sichtbarkeit](/tools/ai-radar-einfuehrung/)
+3. [Implementiere Schema.org](/grundlagen/schema-org-fuer-ki/)
+4. [Erstelle deine llms.txt](/anleitungen/llms-txt-erstellen/)
