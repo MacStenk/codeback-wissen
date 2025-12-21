@@ -3,13 +3,15 @@ title: "robots.txt für KI-Crawler"
 description: "Wie du robots.txt richtig konfigurierst damit ChatGPT, Claude und Perplexity deine Website crawlen können."
 ---
 
+import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
 > **Kurzfassung:** Viele Websites blockieren versehentlich KI-Crawler in ihrer robots.txt. Das macht dich unsichtbar für ChatGPT, Perplexity und Claude. Hier erfährst du wie du es richtig machst.
 
 ## Das Wichtigste in 30 Sekunden
 
 - robots.txt steuert welche Bots deine Website crawlen dürfen
 - Viele Standardkonfigurationen blockieren KI-Crawler
-- GPTBot (OpenAI), ClaudeBot (Anthropic), PerplexityBot müssen erlaubt sein
+- GPTBot, ClaudeBot, PerplexityBot müssen erlaubt sein
 - Einmal falsch konfiguriert = unsichtbar für KI-Assistenten
 - Prüfen und anpassen dauert 5 Minuten
 
@@ -32,17 +34,15 @@ Erreichbar unter: `https://deine-domain.de/robots.txt`
 
 ## Problematische Konfigurationen
 
-### Alles blockiert (schlecht)
-
+<Aside type="danger" title="Alles blockiert">
 ```
 User-agent: *
 Disallow: /
 ```
-
 Das blockiert ALLE Crawler - auch Google und KI.
+</Aside>
 
-### Nur Google erlaubt (auch schlecht)
-
+<Aside type="caution" title="Nur Google erlaubt">
 ```
 User-agent: Googlebot
 Allow: /
@@ -50,28 +50,26 @@ Allow: /
 User-agent: *
 Disallow: /
 ```
-
 Google darf rein, aber alle KI-Crawler sind ausgesperrt.
+</Aside>
 
-### Standardkonfiguration vieler CMS (oft problematisch)
-
+<Aside type="caution" title="CMS-Standard">
 Manche WordPress-Themes oder Plugins fügen automatisch Regeln hinzu die KI-Crawler blockieren.
+</Aside>
 
 ## Die richtige Konfiguration
 
-### Minimale Version (KI erlauben)
-
+<Tabs>
+  <TabItem label="Minimal" icon="approve-check">
 ```
 User-agent: *
 Allow: /
 
 Sitemap: https://deine-domain.de/sitemap.xml
 ```
-
-Das erlaubt allen Crawlern den Zugang.
-
-### Empfohlene Version (explizit und klar)
-
+Das erlaubt allen Crawlern den Zugang. Einfach und effektiv.
+  </TabItem>
+  <TabItem label="Empfohlen" icon="star">
 ```
 # Suchmaschinen
 User-agent: Googlebot
@@ -103,9 +101,9 @@ Allow: /
 # Sitemap
 Sitemap: https://deine-domain.de/sitemap.xml
 ```
-
-### Version mit llms.txt Hinweis
-
+Explizit und klar - jeder Crawler einzeln aufgeführt.
+  </TabItem>
+  <TabItem label="Mit llms.txt" icon="document">
 ```
 User-agent: *
 Allow: /
@@ -115,22 +113,29 @@ Allow: /
 
 Sitemap: https://deine-domain.de/sitemap.xml
 ```
+Verweist zusätzlich auf deine llms.txt.
+  </TabItem>
+</Tabs>
 
 ## So prüfst du deine robots.txt
 
-### Schritt 1: Datei aufrufen
+<Steps>
 
-Gehe zu `https://deine-domain.de/robots.txt`
+1. **Datei aufrufen**
+   
+   Gehe zu `https://deine-domain.de/robots.txt`
 
-### Schritt 2: Nach Blockierungen suchen
+2. **Nach Blockierungen suchen**
+   
+   Suche nach:
+   - `Disallow: /` ohne vorheriges `User-agent: [spezifisch]`
+   - Explizite Blockierungen wie `User-agent: GPTBot` gefolgt von `Disallow: /`
 
-Suche nach:
-- `Disallow: /` ohne vorheriges `User-agent: [spezifisch]`
-- Explizite Blockierungen wie `User-agent: GPTBot` gefolgt von `Disallow: /`
+3. **Mit Tool prüfen**
+   
+   Der [LLM Readability Checker](/tools/llm-readability-checker/) prüft automatisch ob KI-Crawler blockiert sind.
 
-### Schritt 3: Mit Tool prüfen
-
-Der [LLM Readability Checker](/tools/llm-readability-checker/) prüft automatisch ob KI-Crawler blockiert sind.
+</Steps>
 
 ## Spezielle Bereiche blockieren
 
@@ -148,20 +153,34 @@ Disallow: /mitglieder/
 
 Das erlaubt Crawlern den öffentlichen Bereich, schützt aber interne Seiten.
 
-## WordPress-Nutzer: Achtung
+## WordPress-Nutzer
 
-Viele SEO-Plugins (Yoast, Rank Math) verwalten die robots.txt. Prüfe:
+<Aside type="tip" title="Plugin-Einstellungen prüfen">
+Viele SEO-Plugins verwalten die robots.txt:
 
-1. **Yoast:** SEO → Werkzeuge → Datei-Editor → robots.txt
-2. **Rank Math:** Allgemeine Einstellungen → robots.txt bearbeiten
+- **Yoast:** SEO → Werkzeuge → Datei-Editor → robots.txt
+- **Rank Math:** Allgemeine Einstellungen → robots.txt bearbeiten
 
 Manche Security-Plugins blockieren automatisch "unbekannte" Bots - das trifft oft KI-Crawler.
+</Aside>
 
 ## Nach der Änderung
 
-1. **Warten** - Crawler lesen robots.txt nicht sofort neu
-2. **Prüfen** - Nach 1-2 Wochen mit AI Radar checken
-3. **Monitoring** - Regelmäßig prüfen ob Änderungen durch Updates überschrieben wurden
+<Steps>
+
+1. **Warten**
+   
+   Crawler lesen robots.txt nicht sofort neu. Gib ihnen ein paar Tage.
+
+2. **Prüfen**
+   
+   Nach 1-2 Wochen mit [AI Radar](/tools/ai-radar-einfuehrung/) checken ob du sichtbar wirst.
+
+3. **Monitoring**
+   
+   Regelmäßig prüfen ob Änderungen durch Updates überschrieben wurden.
+
+</Steps>
 
 ## Häufige Fragen
 
@@ -187,7 +206,15 @@ Nein. Es ist die Grundvoraussetzung. Ohne Zugang kann keine KI deinen Content le
 
 ## Nächste Schritte
 
-1. Prüfe deine aktuelle robots.txt
-2. Passe sie an falls nötig
-3. [Erstelle eine llms.txt](/anleitungen/llms-txt-erstellen/) für zusätzliche KI-Optimierung
-4. [Prüfe deine Sichtbarkeit](/tools/ai-radar-einfuehrung/) nach 1-2 Wochen
+<CardGrid>
+  <Card title="llms.txt erstellen" icon="document">
+    Die nächste Ebene der KI-Optimierung.
+    
+    [Zur Anleitung →](/anleitungen/llms-txt-erstellen/)
+  </Card>
+  <Card title="Sichtbarkeit prüfen" icon="magnifier">
+    Check nach 1-2 Wochen.
+    
+    [AI Radar →](/tools/ai-radar-einfuehrung/)
+  </Card>
+</CardGrid>

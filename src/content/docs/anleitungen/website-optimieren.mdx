@@ -3,6 +3,8 @@ title: "Website optimieren"
 description: "Praktische Anleitung zur LLM-Optimierung deiner Website in 3 Stufen."
 ---
 
+import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
 > **Kurzfassung:** LLM-Optimierung in 3 Stufen: Erst sichtbar werden (Technik), dann verständlich sein (Struktur), dann zitierbar werden (Content). Hier ist der konkrete Plan.
 
 ## Das Wichtigste in 30 Sekunden
@@ -15,16 +17,25 @@ description: "Praktische Anleitung zur LLM-Optimierung deiner Website in 3 Stufe
 
 ## Der Optimierungs-Prozess
 
-```
-     Stufe 1              Stufe 2              Stufe 3
-   ┌─────────┐         ┌─────────┐         ┌─────────┐
-   │SICHTBAR │   →     │VERSTÄND-│   →     │ZITIER-  │
-   │         │         │  LICH   │         │  BAR    │
-   └─────────┘         └─────────┘         └─────────┘
-   
-   Technik OK          Struktur OK         Content OK
-   KI kann rein        KI versteht         KI empfiehlt
-```
+<CardGrid>
+  <Card title="Stufe 1: Sichtbar" icon="approve-check">
+    **Technik OK**
+    
+    KI-Crawler können deine Website erreichen und lesen.
+  </Card>
+  <Card title="Stufe 2: Verständlich" icon="open-book">
+    **Struktur OK**
+    
+    KI versteht was auf deiner Website steht.
+  </Card>
+  <Card title="Stufe 3: Zitierbar" icon="star">
+    **Content OK**
+    
+    KI will dich als Quelle empfehlen.
+  </Card>
+</CardGrid>
+
+---
 
 ## Stufe 1: Sichtbar werden
 
@@ -40,21 +51,33 @@ description: "Praktische Anleitung zur LLM-Optimierung deiner Website in 3 Stufe
 
 ### robots.txt prüfen
 
-Rufe auf: `https://deine-domain.de/robots.txt`
+<Steps>
 
-**Gut:**
-```
-User-agent: *
-Allow: /
-```
+1. **Aufrufen**
+   
+   Gehe zu `https://deine-domain.de/robots.txt`
 
-**Schlecht:**
-```
-User-agent: *
-Disallow: /
-```
+2. **Prüfen**
+   
+   <Aside type="tip" title="Gut">
+   ```
+   User-agent: *
+   Allow: /
+   ```
+   </Aside>
+   
+   <Aside type="danger" title="Schlecht">
+   ```
+   User-agent: *
+   Disallow: /
+   ```
+   </Aside>
 
-Ausführliche Anleitung: [robots.txt für KI](/anleitungen/robots-txt-fuer-ki/)
+3. **Bei Problemen**
+   
+   [Ausführliche Anleitung: robots.txt für KI →](/anleitungen/robots-txt-fuer-ki/)
+
+</Steps>
 
 ### Ladezeit prüfen
 
@@ -79,16 +102,30 @@ Ausführliche Anleitung: [robots.txt für KI](/anleitungen/robots-txt-fuer-ki/)
 
 ### Überschriften-Struktur
 
+<Tabs>
+  <TabItem label="Gut" icon="approve-check">
 ```
-Gut:                          Schlecht:
-                              
-H1: Business Coaching         H1: Willkommen
-  H2: Meine Angebote          H2: Über mich
-    H3: 1:1 Coaching          H2: Willkommen
-    H3: Team-Workshops        H3: Hallo
-  H2: Über mich               H1: Kontakt
-  H2: Kontakt                 H4: Angebote
+H1: Business Coaching
+  H2: Meine Angebote
+    H3: 1:1 Coaching
+    H3: Team-Workshops
+  H2: Über mich
+  H2: Kontakt
 ```
+Logische Hierarchie, klare Struktur.
+  </TabItem>
+  <TabItem label="Schlecht" icon="close">
+```
+H1: Willkommen
+H2: Über mich
+H2: Willkommen
+H3: Hallo
+H1: Kontakt
+H4: Angebote
+```
+Keine Logik, Ebenen durcheinander.
+  </TabItem>
+</Tabs>
 
 ### Meta-Informationen
 
@@ -99,10 +136,16 @@ Jede Seite braucht:
 | Title | "Business Coaching München - Maria Müller" |
 | Description | "Führungskräfte-Coaching für den Mittelstand. ICF-zertifiziert, 15 Jahre Erfahrung." |
 
-### llms.txt und Schema.org
+### Technische Optimierung
 
-- [llms.txt erstellen](/anleitungen/llms-txt-erstellen/)
-- [Schema.org für KI](/grundlagen/schema-org-fuer-ki/)
+<CardGrid>
+  <Card title="llms.txt erstellen" icon="document">
+    [Zur Anleitung →](/anleitungen/llms-txt-erstellen/)
+  </Card>
+  <Card title="Schema.org einbauen" icon="setting">
+    [Zur Anleitung →](/grundlagen/schema-org-fuer-ki/)
+  </Card>
+</CardGrid>
 
 ---
 
@@ -121,20 +164,25 @@ Jede Seite braucht:
 
 ### Vorher/Nachher Content
 
-**Nicht zitierbar:**
+<Tabs>
+  <TabItem label="Nicht zitierbar" icon="close">
 ```
 Wir bieten innovative Lösungen für Ihren Erfolg. 
 Mit unserem ganzheitlichen Ansatz begleiten wir Sie 
 auf Ihrem Weg zu mehr Erfüllung und Wachstum.
 ```
-
-**Zitierbar:**
+Marketing-Phrasen ohne Substanz. KI kann nichts Konkretes zitieren.
+  </TabItem>
+  <TabItem label="Zitierbar" icon="approve-check">
 ```
 Maria Müller ist Business Coach in München. 
 Sie hilft Führungskräften bei Teamkonflikten 
 und schwierigen Mitarbeitergesprächen. 
 Seit 2010, über 200 Kunden, ICF-zertifiziert (PCC).
 ```
+Name, Beruf, Ort, Angebot, Erfahrung, Qualifikation. Alles da.
+  </TabItem>
+</Tabs>
 
 ### Die Fakten-Checkliste
 
@@ -152,74 +200,67 @@ Deine Über-Seite sollte enthalten:
 
 ### FAQ-Sektion aufbauen
 
-Die 5 wichtigsten Fragen für jeden Coach/Berater:
-
-```markdown
-## Häufige Fragen
-
-### Was kostet ein Coaching bei dir?
-Ein Coaching kostet 180€ pro Stunde (90 Minuten). 
-Die meisten Kunden buchen 6 Sitzungen für 950€.
-
-### Arbeitest du auch online?
-Ja. Etwa 70% meiner Coachings finden online 
-via Zoom statt. Die Qualität ist gleichwertig.
-
-### Wie läuft das Erstgespräch ab?
-Das Erstgespräch ist kostenlos und dauert 30 Minuten. 
-Wir klären dein Anliegen und ob wir zusammenpassen.
-
-### Für wen ist dein Coaching geeignet?
-Für Führungskräfte im Mittelstand mit 3-15 Jahren 
-Führungserfahrung, die vor neuen Herausforderungen stehen.
-
-### Wie viele Sitzungen brauche ich?
-Typischerweise 6-10 Sitzungen über 3-6 Monate. 
-Das besprechen wir im Erstgespräch genauer.
-```
+<Aside type="tip" title="Die 5 wichtigsten Fragen">
+1. Was kostet dein Angebot?
+2. Für wen ist es geeignet?
+3. Wie läuft es ab?
+4. Wie lange dauert es?
+5. Was unterscheidet dich von anderen?
+</Aside>
 
 ---
 
 ## 4-Wochen-Plan
 
-```
-Woche 1: SICHTBAR
-├── Tag 1-2: robots.txt prüfen/fixen
-├── Tag 3-4: Ladezeit optimieren
-└── Tag 5-7: SSL und Basis-Check
+<Steps>
 
-Woche 2: VERSTÄNDLICH (Struktur)
-├── Tag 1-2: Überschriften korrigieren
-├── Tag 3-4: Meta-Titles und Descriptions
-└── Tag 5-7: llms.txt erstellen
+1. **Woche 1: Sichtbar**
+   
+   - Tag 1-2: robots.txt prüfen/fixen
+   - Tag 3-4: Ladezeit optimieren
+   - Tag 5-7: SSL und Basis-Check
 
-Woche 3: VERSTÄNDLICH (Technik)
-├── Tag 1-3: Schema.org implementieren
-├── Tag 4-5: Testen und korrigieren
-└── Tag 6-7: Puffer
+2. **Woche 2: Verständlich (Struktur)**
+   
+   - Tag 1-2: Überschriften korrigieren
+   - Tag 3-4: Meta-Titles und Descriptions
+   - Tag 5-7: llms.txt erstellen
 
-Woche 4: ZITIERBAR
-├── Tag 1-2: Über-Seite überarbeiten
-├── Tag 3-4: FAQ erstellen
-├── Tag 5-6: Content-Check alle Seiten
-└── Tag 7: Sichtbarkeit messen
-```
+3. **Woche 3: Verständlich (Technik)**
+   
+   - Tag 1-3: Schema.org implementieren
+   - Tag 4-5: Testen und korrigieren
+   - Tag 6-7: Puffer
+
+4. **Woche 4: Zitierbar**
+   
+   - Tag 1-2: Über-Seite überarbeiten
+   - Tag 3-4: FAQ erstellen
+   - Tag 5-6: Content-Check alle Seiten
+   - Tag 7: Sichtbarkeit messen
+
+</Steps>
 
 ## Erfolgsmessung
 
 Nach 4 Wochen prüfen:
 
-1. **LLM Readability Checker** 
-   Ziel: Score über 70
-   [Jetzt prüfen →](/tools/llm-readability-checker/)
+<CardGrid>
+  <Card title="LLM Readability Checker" icon="magnifier">
+    Ziel: Score über 70
+    
+    [Jetzt prüfen →](/tools/llm-readability-checker/)
+  </Card>
+  <Card title="AI Radar" icon="star">
+    Wirst du bei relevanten Fragen zitiert?
+    
+    [Mehr erfahren →](/tools/ai-radar-einfuehrung/)
+  </Card>
+</CardGrid>
 
-2. **AI Radar**
-   Prüfen ob du bei relevanten Fragen zitiert wirst
-   [Mehr erfahren →](/tools/ai-radar-einfuehrung/)
+**Google Rich Results Test:** https://search.google.com/test/rich-results
 
-3. **Google Rich Results Test**
-   Schema.org korrekt implementiert?
-   https://search.google.com/test/rich-results
+Schema.org korrekt implementiert? Dort prüfen.
 
 ## Häufige Fragen
 
@@ -238,10 +279,3 @@ Nicht empfohlen. Ohne Stufe 1 (Sichtbar) nützt der beste Content nichts - die K
 ### Brauche ich Hilfe von einem Entwickler?
 
 Für Stufe 1 und die meisten Teile von Stufe 2+3: Nein. Für komplexes Schema.org oder technische Probleme kann ein Entwickler helfen.
-
-## Nächste Schritte
-
-1. [Prüfe deine aktuelle Sichtbarkeit](/tools/llm-readability-checker/)
-2. Starte mit der Checkliste für Stufe 1
-3. Arbeite dich Woche für Woche durch
-4. [Nutze AI Radar](/tools/ai-radar-einfuehrung/) nach 4 Wochen für den Reality-Check

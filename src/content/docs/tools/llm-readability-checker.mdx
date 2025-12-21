@@ -1,0 +1,253 @@
+---
+title: "LLM Readability Checker"
+description: "Was der LLM Readability Checker prüft und wie du deinen Score interpretierst."
+---
+
+import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+> **Kurzfassung:** Der LLM Readability Checker gibt dir einen Score von 0-100 der zeigt wie gut deine Website für KI-Systeme lesbar ist. Kostenlos, sofort, ohne Anmeldung.
+
+## Das Wichtigste in 30 Sekunden
+
+- Prüft: Ist deine Website bereit für ChatGPT, Perplexity, Claude?
+- Score: 0-100 (je höher, desto besser)
+- Bereiche: Technik, Struktur, Meta-Daten, LLM-spezifisch
+- Kostenlos und ohne Anmeldung
+- Ergebnis in Sekunden
+
+## Was wird geprüft
+
+<CardGrid>
+  <Card title="1. Robots" icon="setting">
+    Dürfen KI-Crawler rein?
+    
+    GPTBot, ClaudeBot, PerplexityBot erlaubt?
+  </Card>
+  <Card title="2. llms.txt" icon="document">
+    Gibt es eine llms.txt?
+    
+    Vorhanden? Vollständig? Strukturiert?
+  </Card>
+  <Card title="3. Schema.org" icon="list-format">
+    Strukturierte Daten?
+    
+    JSON-LD vorhanden? Welche Typen?
+  </Card>
+  <Card title="4. Content" icon="open-book">
+    Ist der Content zitierbar?
+    
+    Struktur, Klarheit, Meta-Daten
+  </Card>
+</CardGrid>
+
+## Die Prüfbereiche im Detail
+
+<Tabs>
+  <TabItem label="Robots" icon="setting">
+Prüft ob KI-Crawler deine Website besuchen dürfen.
+
+| Prüfpunkt | Gut | Schlecht |
+|-----------|-----|----------|
+| robots.txt | `Allow: /` | `Disallow: /` |
+| GPTBot | Erlaubt | Blockiert |
+| ClaudeBot | Erlaubt | Blockiert |
+| PerplexityBot | Erlaubt | Blockiert |
+
+**Score 100:** Alle Crawler erlaubt  
+**Score 0:** Alle Crawler blockiert
+  </TabItem>
+  <TabItem label="llms.txt" icon="document">
+Prüft ob und wie gut deine llms.txt ist.
+
+| Prüfpunkt | Punkte |
+|-----------|--------|
+| llms.txt existiert | +30 |
+| Enthält Beschreibung | +20 |
+| Enthält Kontakt | +15 |
+| Enthält Seitenlinks | +15 |
+| Gut strukturiert | +20 |
+
+**Score 0:** Keine llms.txt vorhanden
+  </TabItem>
+  <TabItem label="Schema.org" icon="list-format">
+Prüft strukturierte Daten.
+
+| Prüfpunkt | Punkte |
+|-----------|--------|
+| JSON-LD vorhanden | +30 |
+| Person oder Organization | +25 |
+| Kontaktdaten | +15 |
+| Service/Angebote | +15 |
+| Breadcrumbs | +15 |
+
+**Score 0:** Kein Schema.org gefunden
+  </TabItem>
+  <TabItem label="Content" icon="open-book">
+Prüft die Content-Qualität für KI.
+
+| Prüfpunkt | Punkte |
+|-----------|--------|
+| Meta-Title vorhanden | +20 |
+| Meta-Description | +20 |
+| H1 Überschrift | +15 |
+| Klare Struktur (H2, H3) | +20 |
+| Ausreichend Content | +25 |
+  </TabItem>
+</Tabs>
+
+## Gesamt-Score
+
+Der Gesamt-Score ist der Durchschnitt aller Bereiche:
+
+```
+Robots:   100
+llms.txt:  65
+Schema:    90
+Content:   75
+─────────────
+Gesamt:    82
+```
+
+## Score-Interpretation
+
+| Score | Bewertung | Was tun |
+|-------|-----------|---------|
+| 90-100 | Exzellent | Weiter so, nur Details verbessern |
+| 70-89 | Gut | Gezielt Schwachstellen angehen |
+| 50-69 | Mittel | Systematisch optimieren |
+| 30-49 | Schwach | Dringend handeln |
+| 0-29 | Kritisch | Grundlagen fehlen komplett |
+
+## Beispiel-Ergebnisse
+
+<Tabs>
+  <TabItem label="Gut optimiert" icon="approve-check">
+```
+Domain: example-coach.de
+Gesamt-Score: 84
+
+Robots:     100  Alle Crawler erlaubt
+llms.txt:    65  Vorhanden, ausbaufähig
+Schema:      90  Person + Service
+Content:     75  Gute Struktur
+
+Empfehlung: llms.txt erweitern
+```
+  </TabItem>
+  <TabItem label="WordPress Standard" icon="warning">
+```
+Domain: wordpress-coach.de
+Gesamt-Score: 52
+
+Robots:     100  OK
+llms.txt:     0  Fehlt komplett
+Schema:      48  Nur Basics via Plugin
+Content:     60  Meta-Daten unvollständig
+
+Empfehlung: llms.txt erstellen, 
+            Schema.org erweitern
+```
+  </TabItem>
+  <TabItem label="Problematisch" icon="close">
+```
+Domain: problem-site.de
+Gesamt-Score: 23
+
+Robots:      50  GPTBot blockiert
+llms.txt:     0  Fehlt
+Schema:       0  Fehlt
+Content:     40  Kaum Struktur
+
+Empfehlung: Grundlagen fehlen,
+            komplett überarbeiten
+```
+  </TabItem>
+</Tabs>
+
+## Nach dem Check: Was tun?
+
+<Tabs>
+  <TabItem label="Score unter 50" icon="close">
+<Steps>
+
+1. **robots.txt fixen**
+   
+   [Anleitung: robots.txt für KI →](/anleitungen/robots-txt-fuer-ki/)
+
+2. **llms.txt erstellen**
+   
+   [Anleitung: llms.txt erstellen →](/anleitungen/llms-txt-erstellen/)
+
+3. **Erneut prüfen**
+
+</Steps>
+  </TabItem>
+  <TabItem label="Score 50-70" icon="warning">
+<Steps>
+
+1. **Schwächsten Bereich identifizieren**
+
+2. **Gezielt verbessern**
+   - llms.txt schwach? → [Anleitung](/anleitungen/llms-txt-erstellen/)
+   - Schema.org schwach? → [Anleitung](/grundlagen/schema-org-fuer-ki/)
+   - Content schwach? → [Website optimieren](/anleitungen/website-optimieren/)
+
+3. **Erneut prüfen**
+
+</Steps>
+  </TabItem>
+  <TabItem label="Score über 70" icon="approve-check">
+<Steps>
+
+1. **Details verbessern**
+
+2. **Reality-Check mit AI Radar**
+   
+   [AI Radar →](/tools/ai-radar-einfuehrung/)
+
+3. **Regelmäßig monitoren**
+
+</Steps>
+  </TabItem>
+</Tabs>
+
+## Häufige Fragen
+
+### Wie oft sollte ich prüfen?
+
+Nach jeder größeren Änderung und alle 4-8 Wochen zur Kontrolle.
+
+### Garantiert ein hoher Score dass ich zitiert werde?
+
+Nein. Der Score zeigt dass du technisch bereit bist. Ob du zitiert wirst, hängt auch von Content-Relevanz und Wettbewerb ab. Für den Reality-Check nutze [AI Radar](/tools/ai-radar-einfuehrung/).
+
+### Warum hat meine Seite einen niedrigen Content-Score?
+
+Häufige Gründe:
+- Meta-Description fehlt
+- Keine klare H1-Überschrift
+- Zu wenig strukturierter Text
+- Keine H2/H3 Unterüberschriften
+
+### Kann ich den Score manipulieren?
+
+Technisch ja, aber sinnlos. Der Score zeigt ob du für KI lesbar bist. Manipulation ohne echte Verbesserung bringt nichts.
+
+### Ist der Checker kostenlos?
+
+Ja. Unbegrenzt, ohne Anmeldung.
+
+## Nächste Schritte
+
+<CardGrid>
+  <Card title="Jetzt prüfen" icon="magnifier">
+    Teste deine Website.
+    
+    [LLM Checker auf CodeBack.de →](https://codeback.de/llm-checker)
+  </Card>
+  <Card title="Dann optimieren" icon="rocket">
+    Schwachstellen beheben.
+    
+    [Website optimieren →](/anleitungen/website-optimieren/)
+  </Card>
+</CardGrid>

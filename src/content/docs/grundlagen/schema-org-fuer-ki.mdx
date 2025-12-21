@@ -3,6 +3,8 @@ title: "Schema.org für KI"
 description: "Wie du mit Schema.org Markup deine Website für ChatGPT, Perplexity und Claude maschinenlesbar machst."
 ---
 
+import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
 > **Kurzfassung:** Schema.org ist wie eine Visitenkarte für Maschinen. Es sagt KI-Systemen exakt wer du bist, was du machst und für wen - ohne dass sie raten müssen.
 
 ## Das Wichtigste in 30 Sekunden
@@ -15,20 +17,14 @@ description: "Wie du mit Schema.org Markup deine Website für ChatGPT, Perplexit
 
 ## Was ist Schema.org?
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    Deine Website                     │
-├─────────────────────────────────────────────────────┤
-│                                                      │
-│  Für Menschen:        Für Maschinen:                │
-│  ┌─────────────┐      ┌─────────────┐               │
-│  │   Texte     │      │ Schema.org  │               │
-│  │   Bilder    │      │   JSON-LD   │               │
-│  │   Design    │      │             │               │
-│  └─────────────┘      └─────────────┘               │
-│                                                      │
-└─────────────────────────────────────────────────────┘
-```
+<CardGrid>
+  <Card title="Für Menschen" icon="open-book">
+    Texte, Bilder, Design - alles was du siehst und liest.
+  </Card>
+  <Card title="Für Maschinen" icon="setting">
+    Schema.org JSON-LD - strukturierte Daten im Hintergrund.
+  </Card>
+</CardGrid>
 
 Menschen lesen deine Texte und verstehen sie. Maschinen brauchen strukturierte Daten.
 
@@ -40,8 +36,8 @@ Schema.org ist ein standardisiertes Vokabular das sagt:
 
 ## Warum ist das wichtig für KI?
 
-**Ohne Schema.org:**
-
+<Tabs>
+  <TabItem label="Ohne Schema.org" icon="close">
 ```
 KI liest: "Herzlich willkommen! Ich begleite Sie 
 auf Ihrem Weg zum Erfolg..."
@@ -49,9 +45,8 @@ auf Ihrem Weg zum Erfolg..."
 KI denkt: "Irgendwas mit Coaching? Vielleicht? 
 Keine konkreten Daten. Kann ich nicht zitieren."
 ```
-
-**Mit Schema.org:**
-
+  </TabItem>
+  <TabItem label="Mit Schema.org" icon="approve-check">
 ```json
 {
   "@type": "Person",
@@ -65,10 +60,14 @@ Keine konkreten Daten. Kann ich nicht zitieren."
 KI weiß: "Maria Müller, Business Coach, München. 
 Kann ich empfehlen wenn jemand nach Coach in München fragt."
 ```
+  </TabItem>
+</Tabs>
 
 ## Die wichtigsten Schema-Typen
 
-### Für Personen (Coaches, Berater, Experten)
+<Tabs>
+  <TabItem label="Person" icon="star">
+Für Coaches, Berater, Experten:
 
 ```json
 {
@@ -90,8 +89,9 @@ Kann ich empfehlen wenn jemand nach Coach in München fragt."
   ]
 }
 ```
-
-### Für Unternehmen/Organisationen
+  </TabItem>
+  <TabItem label="Organization" icon="rocket">
+Für Unternehmen/Organisationen:
 
 ```json
 {
@@ -115,8 +115,9 @@ Kann ich empfehlen wenn jemand nach Coach in München fragt."
   }
 }
 ```
-
-### Für Services/Angebote
+  </TabItem>
+  <TabItem label="Service" icon="document">
+Für Services/Angebote:
 
 ```json
 {
@@ -132,8 +133,9 @@ Kann ich empfehlen wenn jemand nach Coach in München fragt."
   "serviceType": "Business Coaching"
 }
 ```
-
-### Für FAQ-Seiten
+  </TabItem>
+  <TabItem label="FAQPage" icon="list-format">
+Für FAQ-Seiten:
 
 ```json
 {
@@ -159,6 +161,8 @@ Kann ich empfehlen wenn jemand nach Coach in München fragt."
   ]
 }
 ```
+  </TabItem>
+</Tabs>
 
 ## Wo kommt der Code hin?
 
@@ -187,41 +191,48 @@ Kann ich empfehlen wenn jemand nach Coach in München fragt."
 
 ## Implementierung nach System
 
-| System | Methode |
-|--------|---------|
-| WordPress | Plugin (Yoast SEO, Rank Math) |
-| Squarespace | Code-Injection im Header |
-| Wix | Custom Code im Head |
-| Webflow | Custom Code in Page Settings |
-| Statische Seiten | Direkt im HTML |
-| Astro/Next.js | Component im Head |
-
-### WordPress mit Yoast SEO
-
-1. Yoast SEO installieren
+<Tabs>
+  <TabItem label="WordPress" icon="laptop">
+**Mit Plugin (einfach):**
+1. Yoast SEO oder Rank Math installieren
 2. SEO → Darstellung in der Suche → Inhaltstypen
 3. Schema-Typ pro Seitentyp einstellen
-4. Unter jeder Seite: Yoast-Box → Schema-Tab
-
-### Manuell
-
+4. Unter jeder Seite: SEO-Box → Schema-Tab
+  </TabItem>
+  <TabItem label="Manuell" icon="setting">
+**Direkt im Code:**
 1. JSON-LD Code erstellen (siehe Beispiele oben)
 2. In den `<head>` deiner Seite einfügen
 3. Mit Google Rich Results Test prüfen
+  </TabItem>
+  <TabItem label="Andere Systeme" icon="list-format">
+| System | Methode |
+|--------|---------|
+| Squarespace | Code-Injection im Header |
+| Wix | Custom Code im Head |
+| Webflow | Custom Code in Page Settings |
+| Astro/Next.js | Component im Head |
+  </TabItem>
+</Tabs>
 
 ## Prüfen ob es funktioniert
 
-**Google Rich Results Test:**
-https://search.google.com/test/rich-results
-
-**Schema.org Validator:**
-https://validator.schema.org
-
-Beide zeigen dir ob dein Markup korrekt ist und von Maschinen gelesen werden kann.
+<CardGrid>
+  <Card title="Google Rich Results Test" icon="magnifier">
+    https://search.google.com/test/rich-results
+    
+    Zeigt ob dein Markup korrekt ist.
+  </Card>
+  <Card title="Schema.org Validator" icon="approve-check">
+    https://validator.schema.org
+    
+    Detaillierte Validierung.
+  </Card>
+</CardGrid>
 
 ## Typische Fehler
 
-**Fehler 1: Zu wenig Informationen**
+<Aside type="danger" title="Zu wenig Informationen">
 ```json
 // Schlecht
 { "@type": "Person", "name": "Maria" }
@@ -233,8 +244,9 @@ Beide zeigen dir ob dein Markup korrekt ist und von Maschinen gelesen werden kan
   "address": {...}
 }
 ```
+</Aside>
 
-**Fehler 2: Falscher Typ**
+<Aside type="danger" title="Falscher Typ">
 ```json
 // Schlecht - Organization für Einzelperson
 { "@type": "Organization", "name": "Maria Müller" }
@@ -242,9 +254,11 @@ Beide zeigen dir ob dein Markup korrekt ist und von Maschinen gelesen werden kan
 // Gut
 { "@type": "Person", "name": "Maria Müller" }
 ```
+</Aside>
 
-**Fehler 3: Nicht im Head**
+<Aside type="caution" title="Nicht im Head">
 Schema.org muss im `<head>` sein, nicht irgendwo im Body versteckt.
+</Aside>
 
 ## Häufige Fragen
 
@@ -266,8 +280,26 @@ Bei Änderungen an den Fakten (neuer Standort, neue Angebote). Nicht ständig n�
 
 ## Nächste Schritte
 
-1. [Prüfe deine aktuelle Sichtbarkeit](/tools/llm-readability-checker/)
-2. Wähle den passenden Schema-Typ (Person, Organization, Service)
-3. Erstelle dein JSON-LD mit den Beispielen oben
-4. Füge es in den Head deiner Website ein
-5. Teste mit dem Google Rich Results Test
+<Steps>
+
+1. **Prüfe deine aktuelle Sichtbarkeit**
+   
+   [LLM Readability Checker →](/tools/llm-readability-checker/)
+
+2. **Wähle den passenden Schema-Typ**
+   
+   Person, Organization, oder Service - je nach deiner Situation.
+
+3. **Erstelle dein JSON-LD**
+   
+   Mit den Beispielen oben oder einem Plugin.
+
+4. **Füge es in den Head ein**
+   
+   Oder aktiviere es im Plugin.
+
+5. **Teste mit Google Rich Results Test**
+   
+   https://search.google.com/test/rich-results
+
+</Steps>
