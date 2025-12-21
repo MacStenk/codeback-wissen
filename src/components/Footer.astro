@@ -1,0 +1,90 @@
+---
+/**
+ * Custom Footer für CodeBack Wissen
+ * Backlinks zu Steven Noack, VisionFusen, CodeBack
+ */
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default {...Astro.props}><slot /></Default>
+
+<footer class="cb-footer">
+  <div class="cb-footer-content">
+    <div class="cb-footer-links">
+      <a href="https://stevennoack.de" target="_blank" rel="author">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Steven Noack
+      </a>
+      <span class="cb-divider">·</span>
+      <a href="https://visionfusen.org" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        VisionFusen
+      </a>
+      <span class="cb-divider">·</span>
+      <a href="https://codeback.de" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        CodeBack.de
+      </a>
+    </div>
+    <div class="cb-footer-meta">
+      Quelle: <a href="https://wissen.codeback.de">wissen.codeback.de</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .cb-footer {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--sl-color-gray-5);
+    font-size: 0.8rem;
+  }
+  
+  .cb-footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .cb-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cb-footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  
+  .cb-footer-links a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+  
+  .cb-footer-links svg {
+    opacity: 0.8;
+  }
+  
+  .cb-divider {
+    color: var(--sl-color-gray-4);
+  }
+  
+  .cb-footer-meta {
+    color: var(--sl-color-gray-3);
+    font-size: 0.75rem;
+  }
+  
+  .cb-footer-meta a {
+    color: var(--sl-color-gray-2);
+  }
+</style>

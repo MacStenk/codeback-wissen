@@ -16,6 +16,7 @@ export default defineConfig({
 			// Custom Head Component für Schema.org
 			components: {
 				Head: './src/components/Head.astro',
+				Footer: './src/components/Footer.astro',
 			},
 			
 			// Deutsche Lokalisierung
