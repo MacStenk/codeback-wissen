@@ -3,6 +3,8 @@ title: "llms.txt erstellen"
 description: "Schritt-für-Schritt Anleitung zum Erstellen deiner llms.txt Datei für bessere KI-Sichtbarkeit."
 ---
 
+import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
 > **Kurzfassung:** llms.txt ist eine Textdatei die KI-Systemen direkt erklärt wer du bist und was du anbietest. Wie eine Visitenkarte für ChatGPT, Perplexity und Claude.
 
 ## Das Wichtigste in 30 Sekunden
@@ -15,15 +17,17 @@ description: "Schritt-für-Schritt Anleitung zum Erstellen deiner llms.txt Datei
 
 ## Was ist llms.txt?
 
-```
-┌─────────────────────────────────────────────────────┐
-│                                                      │
-│   robots.txt    →  Sagt Crawlern was sie dürfen     │
-│   sitemap.xml   →  Zeigt alle Seiten der Website    │
-│   llms.txt      →  Erklärt KI wer du bist           │
-│                                                      │
-└─────────────────────────────────────────────────────┘
-```
+<CardGrid>
+  <Card title="robots.txt" icon="setting">
+    Sagt Crawlern was sie **dürfen**
+  </Card>
+  <Card title="sitemap.xml" icon="list-format">
+    Zeigt alle **Seiten** der Website
+  </Card>
+  <Card title="llms.txt" icon="document">
+    Erklärt KI **wer du bist**
+  </Card>
+</CardGrid>
 
 Während robots.txt technische Regeln definiert, ist llms.txt inhaltlich. Sie beantwortet:
 
@@ -40,7 +44,9 @@ Während robots.txt technische Regeln definiert, ist llms.txt inhaltlich. Sie be
 | llms-full.txt | Komplette Inhalte | Lang (alles) |
 | llms-small.txt | Minimale Version | Sehr kurz |
 
-Für die meisten reicht **llms.txt** als Einstieg.
+<Aside>
+Für die meisten reicht **llms.txt** als Einstieg. Die anderen Varianten sind optional.
+</Aside>
 
 ## Grundstruktur
 
@@ -70,8 +76,10 @@ Für die meisten reicht **llms.txt** als Einstieg.
 [Wie man dich erreicht]
 ```
 
-## Beispiel: Coach
+## Beispiele
 
+<Tabs>
+  <TabItem label="Coach" icon="star">
 ```markdown
 # Maria Müller - Business Coach
 
@@ -113,9 +121,8 @@ Telefon: +49 89 123456
 Standort: München (Schwabing)
 Online: Zoom-Coaching möglich
 ```
-
-## Beispiel: Berater
-
+  </TabItem>
+  <TabItem label="Berater" icon="rocket">
 ```markdown
 # Schmidt Consulting
 
@@ -140,75 +147,87 @@ heute 8 Berater mit Branchenfokus auf Software und IT-Services.
 - [/referenzen](/referenzen): Projektbeispiele
 - [/kontakt](/kontakt): Erstgespräch vereinbaren
 ```
+  </TabItem>
+</Tabs>
 
 ## So erstellst du deine llms.txt
 
-### Schritt 1: Datei erstellen
+<Steps>
 
-Erstelle eine neue Textdatei namens `llms.txt`
+1. **Datei erstellen**
+   
+   Erstelle eine neue Textdatei namens `llms.txt`
 
-### Schritt 2: Inhalte schreiben
+2. **Inhalte schreiben**
+   
+   Nutze die Vorlage oben. Ersetze die Platzhalter mit deinen Infos.
+   
+   <Aside type="tip">
+   Klartext, keine Marketing-Floskeln. Konkrete Fakten (Jahre, Zahlen, Orte). Kurze Sätze.
+   </Aside>
 
-Nutze die Vorlage oben. Ersetze die Platzhalter mit deinen Infos.
+3. **Hochladen**
+   
+   Lade die Datei ins Hauptverzeichnis deiner Website:
+   ```
+   https://deine-domain.de/llms.txt
+   ```
 
-**Wichtig:**
-- Klartext, keine Marketing-Floskeln
-- Konkrete Fakten (Jahre, Zahlen, Orte)
-- Kurze Sätze
+4. **Prüfen**
+   
+   Rufe `https://deine-domain.de/llms.txt` im Browser auf. Wird der Inhalt angezeigt? Dann funktioniert es.
 
-### Schritt 3: Hochladen
-
-Lade die Datei ins Hauptverzeichnis deiner Website:
-
-```
-https://deine-domain.de/llms.txt
-```
-
-### Schritt 4: Prüfen
-
-Rufe `https://deine-domain.de/llms.txt` im Browser auf. Wird der Inhalt angezeigt? Dann funktioniert es.
+</Steps>
 
 ## Hochladen nach System
 
-| System | Methode |
-|--------|---------|
-| WordPress | FTP oder Dateimanager im Hosting |
-| Squarespace | Nicht direkt möglich (Workaround: Seite erstellen) |
-| Wix | Nicht direkt möglich |
-| Webflow | Projekt-Einstellungen → Custom Code |
-| Hosting (Hetzner, etc.) | FTP/SFTP Upload |
-| Netlify/Vercel | In /public oder /static Ordner |
-
-### WordPress via FTP
-
-1. FTP-Programm öffnen (FileZilla, Cyberduck)
-2. Mit Server verbinden
-3. In den Ordner navigieren wo `wp-config.php` liegt
-4. `llms.txt` hochladen
-5. Fertig
+<Tabs>
+  <TabItem label="WordPress" icon="laptop">
+    **Via FTP:**
+    1. FTP-Programm öffnen (FileZilla, Cyberduck)
+    2. Mit Server verbinden
+    3. In den Ordner navigieren wo `wp-config.php` liegt
+    4. `llms.txt` hochladen
+    5. Fertig
+    
+    **Via Hosting-Panel:**
+    Die meisten Hoster haben einen Dateimanager im Kundenbereich.
+  </TabItem>
+  <TabItem label="Statisch" icon="seti:html">
+    Bei Netlify, Vercel, Cloudflare Pages:
+    - Datei in `/public` oder `/static` Ordner legen
+    - Wird automatisch ins Root deployed
+  </TabItem>
+  <TabItem label="Eingeschränkt" icon="warning">
+    **Squarespace, Wix:**
+    - Kein direkter Dateizugriff möglich
+    - Workaround: Seite unter `/llms-txt` erstellen
+    - Nicht ideal, aber besser als nichts
+  </TabItem>
+</Tabs>
 
 ## Häufige Fehler
 
-**Fehler 1: Falscher Ort**
+<Aside type="danger" title="Falscher Ort">
 ```
 Falsch: deine-domain.de/pages/llms.txt
 Richtig: deine-domain.de/llms.txt
 ```
+</Aside>
 
-**Fehler 2: Falsche Dateiendung**
+<Aside type="danger" title="Falsche Dateiendung">
 ```
 Falsch: llms.txt.txt oder llms.md
 Richtig: llms.txt
 ```
+</Aside>
 
-**Fehler 3: Zu vage**
+<Aside type="caution" title="Zu vage">
 ```
 Falsch: "Wir bieten innovative Lösungen"
 Richtig: "Wir entwickeln CRM-Systeme für Handwerksbetriebe"
 ```
-
-**Fehler 4: Zu lang**
-Die Hauptdatei llms.txt sollte übersichtlich bleiben. Details gehören auf die verlinkten Seiten.
+</Aside>
 
 ## Häufige Fragen
 
@@ -234,8 +253,15 @@ Nein. Beides ergänzt sich. Schema.org ist technischer und strukturierter. llms.
 
 ## Nächste Schritte
 
-1. Erstelle deine llms.txt mit der Vorlage oben
-2. Lade sie ins Hauptverzeichnis hoch
-3. Prüfe ob sie unter `deine-domain.de/llms.txt` erreichbar ist
-4. [Implementiere Schema.org](/grundlagen/schema-org-fuer-ki/) als Ergänzung
-5. [Prüfe deine Sichtbarkeit](/tools/llm-readability-checker/) nach 1-2 Wochen
+<CardGrid>
+  <Card title="Schema.org einbauen" icon="add-document">
+    Als technische Ergänzung zur llms.txt.
+    
+    [Zur Anleitung →](/grundlagen/schema-org-fuer-ki/)
+  </Card>
+  <Card title="Sichtbarkeit prüfen" icon="magnifier">
+    Nach 1-2 Wochen checken ob es wirkt.
+    
+    [Zum Checker →](/tools/llm-readability-checker/)
+  </Card>
+</CardGrid>
