@@ -46,8 +46,10 @@ export default defineConfig({
 				{
 					label: 'Grundlagen',
 					items: [
+						{ label: 'Erste Schritte zur AI-Sichtbarkeit', slug: 'grundlagen/erste-schritte-ai-sichtbarkeit' },
 						{ label: 'Was ist LLM-Optimierung?', slug: 'grundlagen/was-ist-llm-optimierung' },
 						{ label: 'LLM-Readability vs SEO', slug: 'grundlagen/llm-readability-vs-seo' },
+						{ label: 'Perplexity Ranking Faktoren', slug: 'grundlagen/perplexity-ranking-faktoren' },
 						{ label: 'KI-Sichtbarkeit für Coaches', slug: 'grundlagen/ki-sichtbarkeit-fuer-coaches' },
 						{ label: 'Perplexity vs. Google', slug: 'grundlagen/perplexity-vs-google' },
 						{ label: 'Schema.org für KI', slug: 'grundlagen/schema-org-fuer-ki' },
