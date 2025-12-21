@@ -12,6 +12,31 @@ Fachliches Nachschlagewerk zu LLM-Optimierung, Schema.org und AI Sichtbarkeit f�
 - Schema.org JSON-LD (Custom Component)
 - VF-1064 Signing (VisionFusen Bunker)
 
+## Content-Strategie: MD/MDX Hybrid
+
+### MDX für Anleitungen
+Nutzt Starlight-Komponenten für bessere Struktur und semantisches HTML:
+
+```jsx
+import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+```
+
+- `<Steps>` - Schritt-für-Schritt Anleitungen
+- `<Tabs>` - Alternativen zeigen (WordPress/Statisch/etc.)
+- `<Aside>` - Hinweise (tip, caution, danger)
+- `<CardGrid>` + `<Card>` - Übersichten mit Icons
+
+### MD für Konzept-Artikel
+Reine Markdown-Dateien für:
+- Glossar, FAQ
+- Erklärende Artikel ohne Prozesse
+- Vergleichsartikel
+
+### Warum Hybrid?
+- MDX-Komponenten erzeugen semantisches HTML (besser für LLMs)
+- MD bleibt lesbar in Obsidian
+- Kein Overhead wo nicht nötig
+
 ## Development
 
 ```bash
@@ -36,7 +61,7 @@ npm run preview
 Seiten werden kryptographisch mit VF-1064 signiert. Dafür braucht es:
 
 1. `.env` Datei mit `BUNKER_API_TOKEN`
-2. Key "codeback" im VisionFusen Bunker
+2. Key "stevennoack" im VisionFusen Bunker
 
 ```bash
 # Dry Run (zeigt was signiert würde)
@@ -51,10 +76,19 @@ npm run sign
 ```
 src/content/docs/
 ├── grundlagen/          # Was ist LLMO, Schema.org, etc.
-├── anleitungen/         # How-tos
-├── tools/               # AI Radar, LLM Checker
-└── referenz/            # Glossar, FAQ
+│   ├── *.mdx            # Anleitungen mit Steps/Tabs
+│   └── *.md             # Konzept-Artikel
+├── anleitungen/         # How-tos (alle MDX)
+├── tools/               # AI Radar, LLM Checker (MDX)
+└── referenz/            # Glossar, FAQ (MD)
 ```
+
+## Design-Regeln
+
+- Keine Emojis in Content
+- Keine ASCII-Art Diagramme
+- Starlight-Komponenten für visuelle Struktur
+- "Ja/Nein" statt Symbole
 
 ## Related
 
