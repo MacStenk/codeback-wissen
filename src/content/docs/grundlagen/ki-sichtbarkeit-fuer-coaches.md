@@ -64,18 +64,18 @@ Kann ich nicht empfehlen."
 ### 1. Wer bist du?
 
 ```
-❌ "Über mich: Herzlich willkommen auf meiner Seite..."
+Nein: "Über mich: Herzlich willkommen auf meiner Seite..."
 
-✅ "Maria Müller ist Business Coach mit ICF-Zertifizierung 
+Ja: "Maria Müller ist Business Coach mit ICF-Zertifizierung 
     und 15 Jahren Erfahrung in der Führungskräfteentwicklung."
 ```
 
 ### 2. Was genau bietest du an?
 
 ```
-❌ "Ich biete verschiedene Coaching-Formate an."
+Nein: "Ich biete verschiedene Coaching-Formate an."
 
-✅ "Angebote:
+Ja: "Angebote:
     - 1:1 Führungskräfte-Coaching (90 Min, online oder vor Ort)
     - Team-Workshops (halbtägig, für Teams bis 12 Personen)  
     - Konflikt-Mediation (auf Anfrage)"
@@ -84,9 +84,9 @@ Kann ich nicht empfehlen."
 ### 3. Für wen?
 
 ```
-❌ "Für alle die mehr aus sich machen wollen."
+Nein: "Für alle die mehr aus sich machen wollen."
 
-✅ "Meine Kunden sind Führungskräfte im Mittelstand, 
+Ja: "Meine Kunden sind Führungskräfte im Mittelstand, 
     typischerweise mit 3-15 Jahren Führungserfahrung, 
     die vor neuen Herausforderungen stehen."
 ```
@@ -94,9 +94,9 @@ Kann ich nicht empfehlen."
 ### 4. Wo?
 
 ```
-❌ Nur Kontaktformular
+Nein: Nur Kontaktformular
 
-✅ "Coaching in München (Schwabing) oder online via Zoom.
+Ja: "Coaching in München (Schwabing) oder online via Zoom.
     Termine: Montag-Donnerstag, 9-18 Uhr."
 ```
 

@@ -70,18 +70,18 @@ Perplexity zitiert Websites die:
 
 ## Was nicht funktioniert
 
-- ❌ **Keyword-Stuffing** - Perplexity versteht Kontext, nicht Keyword-Dichte
-- ❌ **Clickbait-Headlines** - KI braucht Substanz, keine Hooks
-- ❌ **Dünner Content** - 300 Worte mit Keywords reichen nicht
-- ❌ **Nur Text** - Strukturierte Daten fehlen
+- Nein: **Keyword-Stuffing** - Perplexity versteht Kontext, nicht Keyword-Dichte
+- Nein: **Clickbait-Headlines** - KI braucht Substanz, keine Hooks
+- Nein: **Dünner Content** - 300 Worte mit Keywords reichen nicht
+- Nein: **Nur Text** - Strukturierte Daten fehlen
 
 ## Was funktioniert
 
-- ✅ **Klare Expertise** - "Ich bin X und mache Y für Z"
-- ✅ **Schema.org Markup** - Sage der KI was du bist
-- ✅ **llms.txt** - Direkte Ansprache an KI-Systeme
-- ✅ **Zitierbare Sätze** - Jeder Absatz sollte als Antwort funktionieren
-- ✅ **Aktualität** - Regelmäßig aktualisierte Inhalte
+- Ja: **Klare Expertise** - "Ich bin X und mache Y für Z"
+- Ja: **Schema.org Markup** - Sage der KI was du bist
+- Ja: **llms.txt** - Direkte Ansprache an KI-Systeme
+- Ja: **Zitierbare Sätze** - Jeder Absatz sollte als Antwort funktionieren
+- Ja: **Aktualität** - Regelmäßig aktualisierte Inhalte
 
 ## Die Zahlen
 

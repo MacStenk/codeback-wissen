@@ -46,9 +46,9 @@ KI muss verstehen worum es geht.
 **Guter Content für KI:**
 
 ```
-❌ "Wir bieten innovative Lösungen für Ihren Erfolg"
+Nein: "Wir bieten innovative Lösungen für Ihren Erfolg"
 
-✅ "Maria Müller ist Business Coach in München. 
+Ja: "Maria Müller ist Business Coach in München. 
     Sie hilft Führungskräften bei Teamkonflikten 
     und Mitarbeitergesprächen."
 ```

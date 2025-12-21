@@ -32,10 +32,10 @@ Du wirst zitiert wenn dein Content in Schritt 3 und 4 als nützlich erkannt wird
 Perplexity liebt Content der Fragen direkt beantwortet.
 
 ```
-❌ "Coaching ist ein vielschichtiges Thema mit 
+Nein: "Coaching ist ein vielschichtiges Thema mit 
     vielen Facetten und Ansätzen..."
 
-✅ "Business Coaching kostet typischerweise 150-300€ 
+Ja: "Business Coaching kostet typischerweise 150-300€ 
     pro Stunde. Ein Coaching-Paket mit 6 Sitzungen 
     liegt bei 1.000-2.500€."
 ```

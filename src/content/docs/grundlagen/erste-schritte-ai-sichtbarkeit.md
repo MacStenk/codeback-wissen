@@ -60,7 +60,7 @@ Allow: /
 Sitemap: https://deine-domain.de/sitemap.xml
 ```
 
-📖 [Ausführliche Anleitung: robots.txt für KI](/anleitungen/robots-txt-fuer-ki/)
+[Ausführliche Anleitung: robots.txt für KI](/anleitungen/robots-txt-fuer-ki/)
 
 ---
 
@@ -147,7 +147,7 @@ Erstelle eine Datei `llms.txt` im Hauptverzeichnis:
 [Wie man dich erreicht]
 ```
 
-📖 [Ausführliche Anleitung: llms.txt erstellen](/anleitungen/llms-txt-erstellen/)
+[Ausführliche Anleitung: llms.txt erstellen](/anleitungen/llms-txt-erstellen/)
 
 ---
 
