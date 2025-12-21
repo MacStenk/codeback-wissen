@@ -47,6 +47,8 @@ export default defineConfig({
 					label: 'Grundlagen',
 					items: [
 						{ label: 'Was ist LLM-Optimierung?', slug: 'grundlagen/was-ist-llm-optimierung' },
+						{ label: 'LLM-Readability vs SEO', slug: 'grundlagen/llm-readability-vs-seo' },
+						{ label: 'KI-Sichtbarkeit für Coaches', slug: 'grundlagen/ki-sichtbarkeit-fuer-coaches' },
 						{ label: 'Perplexity vs. Google', slug: 'grundlagen/perplexity-vs-google' },
 						{ label: 'Schema.org für KI', slug: 'grundlagen/schema-org-fuer-ki' },
 					],
@@ -55,6 +57,7 @@ export default defineConfig({
 					label: 'Anleitungen',
 					items: [
 						{ label: 'llms.txt erstellen', slug: 'anleitungen/llms-txt-erstellen' },
+						{ label: 'robots.txt für KI', slug: 'anleitungen/robots-txt-fuer-ki' },
 						{ label: 'Website optimieren', slug: 'anleitungen/website-optimieren' },
 					],
 				},
