@@ -1,0 +1,161 @@
+---
+/**
+ * Schema.org JSON-LD Component für CodeBack Wissen
+ * Injiziert strukturierte Daten für LLM-Optimierung
+ */
+
+interface Props {
+  title: string;
+  description?: string;
+  slug?: string;
+  dateModified?: Date;
+}
+
+const { title, description, slug = '', dateModified } = Astro.props;
+
+const baseUrl = 'https://wissen.codeback.de';
+const canonicalUrl = `${baseUrl}${slug ? `/${slug}/` : '/'}`;
+const dateStr = dateModified?.toISOString().split('T')[0] || new Date().toISOString().split('T')[0];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    // Person (Autor)
+    {
+      "@type": "Person",
+      "@id": "https://stevennoack.de/#person",
+      "name": "Steven Noack",
+      "url": "https://stevennoack.de",
+      "jobTitle": "System Architect",
+      "description": "System Builder für digitale Souveränität und LLM-optimierte Infrastrukturen.",
+      "sameAs": [
+        "https://github.com/MacStenk",
+        "https://garten.stevennoack.de",
+        "https://x.com/stevennoack_de"
+      ]
+    },
+    
+    // CodeBack (Hauptprojekt)
+    {
+      "@type": "WebApplication",
+      "@id": "https://codeback.de/#software",
+      "name": "CodeBack.de",
+      "url": "https://codeback.de",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "LLM Tools",
+      "description": "LLM-native Websites für Coaches und Consultants. Tools für AI Sichtbarkeit, Schema.org und LLM-Optimierung.",
+      "creator": {
+        "@id": "https://stevennoack.de/#person"
+      },
+      "featureList": [
+        "LLM-Readability Checker",
+        "AI Radar - Perplexity Visibility",
+        "llms.txt Generator",
+        "Schema.org Generator",
+        "Image Optimizer mit XMP-Metadaten"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "description": "Kostenlose Tools verfügbar"
+      }
+    },
+    
+    // VisionFusen (verwandtes Projekt)
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://visionfusen.org/#software",
+      "name": "VisionFusen",
+      "url": "https://visionfusen.org",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Identity Infrastructure",
+      "description": "Identitätsinfrastruktur für das neue Internet. Signiert · Sichtbar · Souverän.",
+      "creator": {
+        "@id": "https://stevennoack.de/#person"
+      }
+    },
+    
+    // WebSite (Wissensbasis)
+    {
+      "@type": "WebSite",
+      "@id": `${baseUrl}/#website`,
+      "name": "CodeBack Wissensbasis",
+      "alternateName": "CodeBack Wissen",
+      "url": baseUrl,
+      "description": "Fachliches Nachschlagewerk zu LLM-Optimierung, Schema.org und AI Sichtbarkeit für Coaches und Berater im DACH-Raum.",
+      "inLanguage": "de",
+      "publisher": {
+        "@id": "https://stevennoack.de/#person"
+      },
+      "about": {
+        "@id": "https://codeback.de/#software"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${baseUrl}/?search={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    
+    // TechArticle (aktuelle Seite)
+    {
+      "@type": "TechArticle",
+      "@id": `${canonicalUrl}#article`,
+      "headline": title,
+      "description": description || `${title} - CodeBack Wissensbasis`,
+      "url": canonicalUrl,
+      "inLanguage": "de",
+      "isPartOf": {
+        "@id": `${baseUrl}/#website`
+      },
+      "about": {
+        "@id": "https://codeback.de/#software"
+      },
+      "author": {
+        "@id": "https://stevennoack.de/#person"
+      },
+      "publisher": {
+        "@id": "https://stevennoack.de/#person"
+      },
+      "datePublished": "2025-01-01",
+      "dateModified": dateStr,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      }
+    },
+    
+    // BreadcrumbList
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "CodeBack",
+          "item": "https://codeback.de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wissen",
+          "item": baseUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

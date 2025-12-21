@@ -1,0 +1,46 @@
+/* CodeBack Wissen - Custom Styles */
+
+:root {
+  /* Primary: CodeBack Green */
+  --sl-color-accent-low: #d1fae5;
+  --sl-color-accent: #10b981;
+  --sl-color-accent-high: #065f46;
+  
+  /* Fonts */
+  --sl-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+/* Dark mode adjustments */
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #064e3b;
+  --sl-color-accent: #34d399;
+  --sl-color-accent-high: #a7f3d0;
+}
+
+/* Hero section styling */
+.hero {
+  padding-block: 3rem;
+}
+
+/* Card hover effect */
+.card:hover {
+  border-color: var(--sl-color-accent);
+}
+
+/* Verified badge (for signed pages) */
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--sl-color-accent);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 9999px;
+}
+
+.verified-badge::before {
+  content: '✓';
+  font-weight: bold;
+}
