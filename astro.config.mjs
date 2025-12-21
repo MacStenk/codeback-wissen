@@ -26,8 +26,8 @@ export default defineConfig({
 			
 			// Social Links
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/codeback-de' },
-				{ icon: 'x.com', label: 'X', href: 'https://x.com/codeback_de' },
+				{ icon: 'external', label: 'VisionFusen', href: 'https://visionfusen.org' },
+				{ icon: 'external', label: 'Steven Noack', href: 'https://stevennoack.de' },
 			],
 			
 			// Plugins
