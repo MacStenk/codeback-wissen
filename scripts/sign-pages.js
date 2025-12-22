@@ -24,6 +24,7 @@ import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from '
 import { join, relative } from 'path';
 import { createHash } from 'crypto';
 import * as cheerio from 'cheerio';
+import { nip19 } from 'nostr-tools';
 
 // ============================================
 // KONFIGURATION
@@ -62,6 +63,33 @@ const CONFIG = {
 // ============================================
 // HILFSFUNKTIONEN
 // ============================================
+
+/**
+ * naddr (NIP-19) aus Event-Daten generieren
+ * Für permanente, stabile Links zu addressable Events (Kind 30064)
+ */
+function generateNaddr(signedEvent, relay) {
+  // d-tag aus Event extrahieren
+  const dTag = signedEvent.tags.find(t => t[0] === 'd')?.[1];
+  
+  if (!dTag) {
+    console.warn('   ⚠️  Kein d-tag gefunden, naddr kann nicht generiert werden');
+    return null;
+  }
+  
+  try {
+    const naddr = nip19.naddrEncode({
+      kind: signedEvent.kind,
+      pubkey: signedEvent.pubkey,
+      identifier: dTag,
+      relays: relay ? [relay] : [],
+    });
+    return naddr;
+  } catch (error) {
+    console.warn(`   ⚠️  naddr-Encoding fehlgeschlagen: ${error.message}`);
+    return null;
+  }
+}
 
 /**
  * SHA-256 Hash berechnen
@@ -116,6 +144,11 @@ function injectMetaTags(html, eventData) {
   // Alte Badge entfernen (falls vorhanden)
   $('.vf-signature-badge').remove();
   
+  // naddr Meta-Tag (falls vorhanden)
+  const naddrMeta = eventData.naddr 
+    ? `<meta name="nostr:naddr" content="${eventData.naddr}">`
+    : '';
+  
   // Neue Meta-Tags am Ende von <head> einfügen
   const metaTags = `
     <!-- VisionFusen Signature (VF-1064) -->
@@ -123,6 +156,7 @@ function injectMetaTags(html, eventData) {
     <meta name="nostr:pubkey" content="${eventData.pubkey}">
     <meta name="nostr:hash" content="${eventData.hash}">
     <meta name="nostr:signed" content="${eventData.signedAt}">
+    ${naddrMeta}
     <link rel="nostr-verification" href="https://visionfusen.org/verify/${eventData.id}">
   `;
   
@@ -136,6 +170,19 @@ function injectMetaTags(html, eventData) {
  */
 function injectSignatureBadge(html, eventData) {
   const $ = cheerio.load(html);
+  
+  // naddr für permanenten Link (falls vorhanden)
+  const naddrDisplay = eventData.naddr 
+    ? `<span style="color: #505050;">·</span>
+       <a href="https://njump.me/${eventData.naddr}"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Permanenter Nostr-Link (naddr)"
+          style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #7c3aed; text-decoration: none;"
+          onmouseover="this.style.textDecoration='underline'"
+          onmouseout="this.style.textDecoration='none'"
+       >naddr</a>`
+    : '';
   
   // Badge HTML mit inline Styles (funktioniert überall)
   const badgeHtml = `
@@ -176,6 +223,7 @@ function injectSignatureBadge(html, eventData) {
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #606060;">
         ${eventData.id.slice(0, 8)}...
       </span>
+      ${naddrDisplay}
       <span style="color: #505050;">·</span>
       <a href="https://creativecommons.org/licenses/by/4.0/" 
          target="_blank" 
@@ -549,11 +597,18 @@ async function signPages() {
       }
       
       // Meta-Tags injizieren (mit cheerio - robust!)
+      // naddr generieren für permanenten Link
+      const naddr = generateNaddr(signedEvent, CONFIG.relay);
+      if (naddr) {
+        console.log(`   📍 naddr: ${naddr.slice(0, 20)}...`);
+      }
+      
       const eventDataForInjection = {
         id: signedEvent.id,
         pubkey: signedEvent.pubkey,
         hash: hash,
         signedAt: new Date().toISOString(),
+        naddr: naddr,
       };
       
       let updatedHtml = injectMetaTags(html, eventDataForInjection);
