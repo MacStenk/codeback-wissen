@@ -174,7 +174,7 @@ function injectSignatureBadge(html, eventData) {
   // naddr für permanenten Link (falls vorhanden)
   const naddrDisplay = eventData.naddr 
     ? `<span style="color: #505050;">·</span>
-       <a href="https://njump.me/${eventData.naddr}"
+       <a href="https://visionfusen.org/verify/${eventData.naddr}"
           target="_blank"
           rel="noopener noreferrer"
           title="Permanenter Nostr-Link (naddr)"
