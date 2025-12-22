@@ -73,6 +73,7 @@ export default defineConfig({
 				{
 					label: 'Referenz',
 					items: [
+						{ label: 'LLM-Optimierung Leitfaden', slug: 'referenz/llm-optimierung' },
 						{ label: 'Glossar', slug: 'referenz/glossar' },
 						{ label: 'FAQ', slug: 'referenz/faq' },
 					],
