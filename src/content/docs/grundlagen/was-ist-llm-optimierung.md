@@ -125,4 +125,4 @@ Die Grundlagen kannst du selbst umsetzen. Für tiefere Optimierung gibt es profe
 
 Für eine ausführliche Anleitung mit wissenschaftlichen Grundlagen, konkreten Methoden und Checklisten:
 
-→ [LLM-Optimierung: Der komplette Leitfaden](/grundlagen/llm-optimierung/)
+→ [LLM-Optimierung: Der komplette Leitfaden](/referenz/llm-optimierung/)
