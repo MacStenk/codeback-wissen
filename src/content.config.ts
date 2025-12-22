@@ -19,6 +19,11 @@ export const collections = {
         // === AUTOR ===
         author: z.string().default('Steven Noack'),
         author_npub: z.string().optional(),
+        
+        // === MULTI-MODAL ===
+        image: z.string().optional(),        // Hero/Banner-Bild
+        audio: z.string().optional(),        // Audio-Version URL
+        audioDuration: z.string().optional(), // z.B. "12:34"
       }),
     }),
   }),
