@@ -40,29 +40,29 @@ function mdxToMd(content, filename) {
   // 2. Aside-Komponenten konvertieren
   // <Aside type="tip" title="TL;DR">content</Aside>
   md = md.replace(/<Aside\s+type="tip"(?:\s+title="([^"]*)")?\s*>([\s\S]*?)<\/Aside>/g, (_, title, content) => {
-    const header = title ? `**${title}:** ` : '**Tipp:** ';
-    return `> ${header}${content.trim().replace(/\n/g, '\n> ')}`;
+    const header = title ? `**${title}:** ` : '';
+    return `> [!TIP]${header ? '\n> ' + header : ''}\n> ${content.trim().replace(/\n/g, '\n> ')}`;
   });
   
   md = md.replace(/<Aside\s+type="caution"(?:\s+title="([^"]*)")?\s*>([\s\S]*?)<\/Aside>/g, (_, title, content) => {
-    const header = title ? `**${title}:** ` : '**Achtung:** ';
-    return `> ⚠️ ${header}${content.trim().replace(/\n/g, '\n> ')}`;
+    const header = title ? `**${title}:** ` : '';
+    return `> [!CAUTION]${header ? '\n> ' + header : ''}\n> ${content.trim().replace(/\n/g, '\n> ')}`;
   });
   
   md = md.replace(/<Aside\s+type="note"(?:\s+title="([^"]*)")?\s*>([\s\S]*?)<\/Aside>/g, (_, title, content) => {
-    const header = title ? `**${title}:** ` : '**Hinweis:** ';
-    return `> ${header}${content.trim().replace(/\n/g, '\n> ')}`;
+    const header = title ? `**${title}:** ` : '';
+    return `> [!NOTE]${header ? '\n> ' + header : ''}\n> ${content.trim().replace(/\n/g, '\n> ')}`;
   });
   
   md = md.replace(/<Aside\s+type="danger"(?:\s+title="([^"]*)")?\s*>([\s\S]*?)<\/Aside>/g, (_, title, content) => {
-    const header = title ? `**${title}:** ` : '**Warnung:** ';
-    return `> 🚨 ${header}${content.trim().replace(/\n/g, '\n> ')}`;
+    const header = title ? `**${title}:** ` : '';
+    return `> [!WARNING]${header ? '\n> ' + header : ''}\n> ${content.trim().replace(/\n/g, '\n> ')}`;
   });
   
   // Generische Aside ohne type
   md = md.replace(/<Aside(?:\s+title="([^"]*)")?\s*>([\s\S]*?)<\/Aside>/g, (_, title, content) => {
     const header = title ? `**${title}:** ` : '';
-    return `> ${header}${content.trim().replace(/\n/g, '\n> ')}`;
+    return `> [!NOTE]${header ? '\n> ' + header : ''}\n> ${content.trim().replace(/\n/g, '\n> ')}`;
   });
   
   // 3. Tabs konvertieren
