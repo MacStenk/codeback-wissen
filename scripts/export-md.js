@@ -145,8 +145,15 @@ async function main() {
     const relativePath = file.replace(CONTENT_DIR + '/', '');
     const content = await readFile(file, 'utf-8');
     
-    // Konvertieren
-    const md = mdxToMd(content, basename(file));
+    // Source URL berechnen (wissen.codeback.de/path/)
+    const slug = relativePath.replace(/\.(mdx?|md)$/, '').replace(/\/index$/, '');
+    const sourceUrl = `https://wissen.codeback.de/${slug}/`;
+    
+    // Konvertieren und source_url ins Frontmatter einfügen
+    let md = mdxToMd(content, basename(file));
+    
+    // source_url ins Frontmatter einfügen (falls Frontmatter vorhanden)
+    md = md.replace(/^(---\n[\s\S]*?)(---)/, `$1source_url: "${sourceUrl}"\n$2`);
     
     // Output-Pfad bestimmen (Verzeichnisstruktur beibehalten)
     const outputRelative = relativePath.replace(/\.mdx$/, '.md');
