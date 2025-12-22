@@ -8,14 +8,28 @@ interface Props {
   title: string;
   description?: string;
   slug?: string;
+  author?: string;
+  authorNpub?: string;
+  datePublished?: Date;
   dateModified?: Date;
 }
 
-const { title, description, slug = '', dateModified } = Astro.props;
+const { 
+  title, 
+  description, 
+  slug = '',
+  author = 'Steven Noack',
+  authorNpub = 'npub1cxa0fa6vmq5evwpgk8dg6ul99ny5e2nd3hy5fa72g598t39nxy0surzuva',
+  datePublished,
+  dateModified,
+} = Astro.props;
 
 const baseUrl = 'https://wissen.codeback.de';
 const canonicalUrl = `${baseUrl}${slug ? `/${slug}/` : '/'}`;
-const dateStr = dateModified?.toISOString().split('T')[0] || new Date().toISOString().split('T')[0];
+
+// Datum-Formatierung
+const publishedStr = datePublished?.toISOString().split('T')[0] || '2025-01-01';
+const modifiedStr = dateModified?.toISOString().split('T')[0] || datePublished?.toISOString().split('T')[0] || new Date().toISOString().split('T')[0];
 
 const schema = {
   "@context": "https://schema.org",
@@ -24,10 +38,15 @@ const schema = {
     {
       "@type": "Person",
       "@id": "https://stevennoack.de/#person",
-      "name": "Steven Noack",
+      "name": author,
       "url": "https://stevennoack.de",
       "jobTitle": "System Architect",
       "description": "System Builder für digitale Souveränität und LLM-optimierte Infrastrukturen.",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "nostr",
+        "value": authorNpub
+      },
       "sameAs": [
         "https://github.com/MacStenk",
         "https://garten.stevennoack.de",
@@ -121,8 +140,8 @@ const schema = {
       "publisher": {
         "@id": "https://stevennoack.de/#person"
       },
-      "datePublished": "2025-01-01",
-      "dateModified": dateStr,
+      "datePublished": publishedStr,
+      "dateModified": modifiedStr,
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": canonicalUrl

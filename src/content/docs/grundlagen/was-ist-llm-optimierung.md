@@ -118,3 +118,11 @@ Die Grundlagen kannst du selbst umsetzen. Für tiefere Optimierung gibt es profe
 1. [Erste Schritte zur AI-Sichtbarkeit](/grundlagen/erste-schritte-ai-sichtbarkeit/) - Der Einsteigerguide
 2. [Perplexity vs. Google](/grundlagen/perplexity-vs-google/) - Die Unterschiede verstehen
 3. [Prüfe deine Sichtbarkeit](/tools/ai-radar-einfuehrung/) - Wo stehst du?
+
+---
+
+## Weiterführend
+
+Für eine ausführliche Anleitung mit wissenschaftlichen Grundlagen, konkreten Methoden und Checklisten:
+
+→ [LLM-Optimierung: Der komplette Leitfaden](/grundlagen/llm-optimierung/)

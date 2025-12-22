@@ -1,7 +1,7 @@
 ---
 /**
  * Custom Head Component für CodeBack Wissen
- * Erweitert den Standard-Head um Schema.org JSON-LD
+ * Erweitert den Standard-Head um Schema.org JSON-LD und Autor-Meta-Tags
  */
 import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/Head.astro';
@@ -10,17 +10,51 @@ import SchemaOrg from './SchemaOrg.astro';
 // Alle Props durchreichen
 const props = Astro.props;
 
-// Extrahiere was wir brauchen - defensiv
-const title = props?.entry?.data?.title || 'CodeBack Wissen';
-const description = props?.entry?.data?.description;
-const slug = props?.entry?.id?.replace(/\/index$/, '').replace(/\.mdx?$/, '') || '';
+// Extrahiere Frontmatter-Daten - defensiv
+const entry = props?.entry;
+const data = entry?.data || {};
+
+const title = data.title || 'CodeBack Wissen';
+const description = data.description;
+const slug = entry?.id?.replace(/\/index$/, '').replace(/\.mdx?$/, '') || '';
+
+// Custom Frontmatter-Felder
+const author = data.author || 'Steven Noack';
+const authorNpub = data.author_npub || 'npub1cxa0fa6vmq5evwpgk8dg6ul99ny5e2nd3hy5fa72g598t39nxy0surzuva';
+const tags = data.tags || [];
+const date = data.date;
+const modified = data.modified;
 ---
 
 <Default {...props} />
+
+<!-- Autor Meta-Tags -->
+<meta name="author" content={author} />
+<meta name="nostr:author" content={authorNpub} />
+
+<!-- Keywords aus Tags -->
+{tags.length > 0 && (
+  <meta name="keywords" content={tags.join(', ')} />
+)}
+
+<!-- Datum Meta-Tags -->
+{date && (
+  <meta name="article:published_time" content={date.toISOString()} />
+)}
+{modified && (
+  <meta name="article:modified_time" content={modified.toISOString()} />
+)}
+
+<!-- Schema.org JSON-LD -->
 <SchemaOrg 
   title={title} 
   description={description} 
   slug={slug}
+  author={author}
+  authorNpub={authorNpub}
+  datePublished={date}
+  dateModified={modified}
 />
+
 <!-- Umami Analytics -->
 <script defer src="https://stats.stevennoack.de/script.js" data-website-id="4dc525ac-7c93-4907-8693-7c16e4f2a7c0"></script>
