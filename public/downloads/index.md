@@ -1,0 +1,55 @@
+---
+title: Wissensbasis
+description: LLM-Optimierung, AI Sichtbarkeit und das neue Internet verstehen.
+template: splash
+hero:
+  tagline: Alles was du brauchst, um von ChatGPT, Perplexity und Claude gefunden zu werden.
+  actions:
+    - text: Grundlagen lernen
+      link: /grundlagen/erste-schritte-ai-sichtbarkeit/
+      icon: right-arrow
+      variant: primary
+    - text: Tools entdecken
+      link: /tools/ai-radar-einfuehrung/
+      icon: external
+---
+
+## Schnellstart
+
+<CardGrid>
+	<Card title="Was ist LLM-Optimierung?" icon="open-book">
+		Verstehe warum klassisches SEO nicht mehr reicht und wie KI-Systeme Websites anders bewerten.
+		[Mehr erfahren →](/grundlagen/was-ist-llm-optimierung/)
+	</Card>
+	<Card title="llms.txt erstellen" icon="document">
+		Schritt-für-Schritt Anleitung für deine eigene llms.txt Datei.
+		[Zur Anleitung →](/anleitungen/llms-txt-erstellen/)
+	</Card>
+	<Card title="AI Radar nutzen" icon="magnifier">
+		Prüfe deine Sichtbarkeit in Perplexity AI und finde Content-Gaps.
+		[Tool kennenlernen →](/tools/ai-radar-einfuehrung/)
+	</Card>
+	<Card title="Schema.org verstehen" icon="setting">
+		Strukturierte Daten die KI-Systeme wirklich lesen können.
+		[Grundlagen →](/grundlagen/schema-org-fuer-ki/)
+	</Card>
+</CardGrid>
+
+---
+
+## Für wen ist das?
+
+Diese Wissensbasis richtet sich an **Coaches, Berater und Experten** im DACH-Raum, die:
+
+- Bei KI-Assistenten gefunden werden wollen
+- Ihre Website für die Zukunft der Suche optimieren möchten
+- Verstehen wollen, wie Perplexity & Co. funktionieren
+- Konkrete Anleitungen statt Marketing-Blabla suchen
+
+---
+
+## Über CodeBack
+
+CodeBack.de hilft dir, von KI gefunden zu werden. Mit Tools, Wissen und Umsetzung.
+
+[Mehr über CodeBack →](https://codeback.de)

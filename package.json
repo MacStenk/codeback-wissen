@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "build:sign": "astro build && node scripts/sign-pages.js",
+    "build": "astro build && node scripts/export-md.js",
+    "build:sign": "astro build && node scripts/export-md.js && node scripts/sign-pages.js",
+    "export-md": "node scripts/export-md.js",
     "sign": "node scripts/sign-pages.js",
     "sign:dry": "node scripts/sign-pages.js --dry-run --verbose",
     "preview": "astro preview",
