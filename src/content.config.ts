@@ -22,8 +22,21 @@ export const collections = {
         
         // === MULTI-MODAL ===
         image: z.string().optional(),        // Hero/Banner-Bild
+        heroImage: z.string().optional(),    // CDN URL (VisionFusen signiert)
+        heroImageAlt: z.string().optional(), // Barrierefreie Bildbeschreibung
+        heroImageHash: z.string().optional(), // SHA-256 Hash
+        heroImageEvent: z.string().optional(), // Nostr Event ID des Bildes
+        pHash: z.string().optional(),        // Perceptual Hash
         audio: z.string().optional(),        // Audio-Version URL
         audioDuration: z.string().optional(), // z.B. "12:34"
+        
+        // === NOSTR / SIGNATUR ===
+        sig: z.string().optional(),          // Nostr Schnorr-Signatur
+        note_id: z.string().optional(),      // Nostr Event ID (hex)
+        naddr: z.string().optional(),        // Nostr addressable identifier
+        
+        // === SCHEMA.ORG ===
+        schema_type: z.string().default('TechArticle'), // TechArticle | DefinedTerm
       }),
     }),
   }),

@@ -1,0 +1,63 @@
+---
+/**
+ * Nostr Event JSON-LD Component
+ * Rendert das signierte Nostr Kind 30023 Event als JSON-LD
+ * Ermöglicht LLMs die kryptographische Verifizierung des Autors
+ */
+import { nip19 } from 'nostr-tools';
+
+interface Props {
+  title: string;
+  description?: string;
+  slug?: string;
+  sig: string;
+  noteId?: string;
+  authorNpub?: string;
+  date?: Date;
+  tags?: string[];
+  heroImage?: string;
+}
+
+const {
+  title,
+  description = '',
+  slug = '',
+  sig,
+  noteId = '',
+  authorNpub = 'npub1cxa0fa6vmq5evwpgk8dg6ul99ny5e2nd3hy5fa72g598t39nxy0surzuva',
+  date,
+  tags = [],
+  heroImage,
+} = Astro.props;
+
+// npub → hex pubkey
+let pubkeyHex = '';
+try {
+  const decoded = nip19.decode(authorNpub);
+  if (decoded.type === 'npub') {
+    pubkeyHex = decoded.data as string;
+  }
+} catch {
+  pubkeyHex = '';
+}
+
+const createdAt = date ? Math.floor(date.getTime() / 1000) : Math.floor(Date.now() / 1000);
+
+const nostrEvent = {
+  id: noteId,
+  pubkey: pubkeyHex,
+  created_at: createdAt,
+  kind: 30023,
+  tags: [
+    ['d', slug],
+    ['title', title],
+    ['summary', description],
+    ['published_at', String(createdAt)],
+    ...(heroImage ? [['image', heroImage]] : []),
+    ...tags.map(tag => ['t', tag]),
+  ],
+  sig: sig,
+};
+---
+
+<script type="application/ld+json" id="nostr-event" set:html={JSON.stringify(nostrEvent)} />

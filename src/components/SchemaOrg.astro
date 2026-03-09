@@ -12,6 +12,8 @@ interface Props {
   authorNpub?: string;
   datePublished?: Date;
   dateModified?: Date;
+  tags?: string[];
+  schemaType?: string;
 }
 
 const { 
@@ -22,6 +24,8 @@ const {
   authorNpub = 'npub1cxa0fa6vmq5evwpgk8dg6ul99ny5e2nd3hy5fa72g598t39nxy0surzuva',
   datePublished,
   dateModified,
+  tags = [],
+  schemaType = 'TechArticle',
 } = Astro.props;
 
 const baseUrl = 'https://wissen.codeback.de';
@@ -120,9 +124,9 @@ const schema = {
       }
     },
     
-    // TechArticle (aktuelle Seite)
+    // Article (aktuelle Seite)
     {
-      "@type": "TechArticle",
+      "@type": schemaType,
       "@id": `${canonicalUrl}#article`,
       "headline": title,
       "description": description || `${title} - CodeBack Wissensbasis`,
@@ -142,11 +146,26 @@ const schema = {
       },
       "datePublished": publishedStr,
       "dateModified": modifiedStr,
+      ...(tags.length > 0 && { "keywords": tags.join(', ') }),
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": canonicalUrl
       }
     },
+    
+    // DefinedTerm (nur bei Definitions-Artikeln)
+    ...(schemaType === 'DefinedTerm' ? [{
+      "@type": "DefinedTerm",
+      "@id": `${canonicalUrl}#term`,
+      "name": title.replace(/^Was ist /, '').replace(/\?.*$/, ''),
+      "description": description || title,
+      "url": canonicalUrl,
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "LLMO-Glossar",
+        "url": `${baseUrl}/referenz/glossar/`
+      }
+    }] : []),
     
     // BreadcrumbList
     {

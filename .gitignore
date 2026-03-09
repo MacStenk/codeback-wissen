@@ -24,3 +24,7 @@ Thumbs.db
 
 # Wrangler (falls Cloudflare)
 .wrangler/
+
+# repo-intel index
+.repo-intel.sqlite
+*.bak

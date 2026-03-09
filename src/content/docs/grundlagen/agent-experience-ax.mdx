@@ -1,0 +1,161 @@
+---
+title: "Was ist Agent Experience (AX)?"
+description: "Agent Experience (AX) beschreibt, wie KI-Agenten Webseiten bewerten und nutzen. Erfahren Sie, warum AX wichtiger wird als SEO und wie Sie Ihre Seite optimieren."
+author: "Steven Noack"
+date: 2026-03-08
+slug: "agent-experience-ax"
+tags: ["Agent Experience", "AX", "KI-Agenten", "LLM-Optimierung", "Machine UX", "Bot-Optimierung", "LLMO"]
+schema_type: "DefinedTerm"
+sig: "07571b610027e0ef510a0ff55293c0e2920a14446072526ddaf9d8d441788db5efbff43f04655110b2cc2252bda3f555c16ad6245e3c04460f14695aa2fb6e0e"
+note_id: "d2a561e0a1464e47101620e0184ca0627e4e89d2ac06c2ce80fdf0c2ec77b244"
+naddr: "naddr1qqfkzem9de6z6etcwpjhy6t9de3k2ttp0qq35amnwvaz7tmjv4kxz7fwwd6x2an9dehx7ctrdvhxgegpzemhxue69uhhyetvv9ujuurjd9kkzmpwdejhgq3qcxa0fa6vmq5evwpgk8dg6ul99ny5e2nd3hy5fa72g598t39nxy0sxpqqqp65w8gjrkj"
+---
+
+import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+> **Kurzfassung:** Agent Experience (AX) beschreibt die Summe aller Eigenschaften einer digitalen Ressource, die es einem autonomen KI-Agenten ermöglichen, den Inhalt zuverlässig zu finden, zu verstehen, zu verifizieren und zu nutzen. Wer AX vernachlässigt, ist für die Software unsichtbar, die Menschen zunehmend beim Recherchieren und Einkaufen ersetzt.
+
+## Das Wichtigste in 30 Sekunden
+
+- AX = Agent Experience — das UX für Maschinen
+- Ziel: Von KI-Agenten verstanden, verifiziert und zitiert werden
+- Kern: Strukturierte Daten, klare Sprache, maschinenlesbare Identität
+- Unterschied zu SEO: Nicht Rankings, sondern Vertrauen
+- Unterschied zu UX: Nicht Emotion, sondern Logik
+
+## Definition
+
+**Agent Experience (AX)** beschreibt die Summe aller Eigenschaften einer digitalen Ressource, die es einem autonomen KI-Agenten ermöglichen, den Inhalt zuverlässig zu finden, zu verstehen, zu verifizieren und zu nutzen. Anders als UX, die auf menschliche Intuition und Emotion ausgerichtet ist, oder SEO, das auf die Indexierung durch Google-Crawler zielt, optimiert AX eine Webseite für die Logik, das Sicherheitsbedürfnis und die Entscheidungsfindung von Maschinen.
+
+## Warum Agent Experience wichtiger wird als SEO
+
+Die Paradigmenverschiebung im Internet vollzieht sich leise, aber radikal. Wo früher die Suchmaschine das Tor zum Wissen war, übernehmen nun KI-Agenten (ChatGPT, Perplexity, autonome Browser-Agenten) diese Rolle. Sie suchen nicht nur Informationen — sie führen Aufgaben aus: Flüge buchen, Versicherungen vergleichen, Support-Tickets lösen, Produkte einkaufen — im Auftrag des Nutzers.
+
+Für Marketer bedeutet das eine fundamentale Umkehr der Prioritäten. Wer weiterhin nur für Google optimiert (Backlinks, Keyword-Density), optimiert für einen Kanal, der an struktureller Bedeutung verliert. Die neue Suchmaschine ist kein Algorithmus mehr, sondern eine Intelligenz, die Quellen prüft, bevor sie zitiert.
+
+Tools wie Google AI Mode, Perplexity oder Browser-native LLM-Integrationen zeigen bereits heute bevorzugt Quellen an, die maschinenlesbar, verifizierbar und strukturiert sind. Das ist kein Trend — das ist der neue Baseline-Standard für digitale Sichtbarkeit.
+
+## Wie KI-Agenten Webseiten bewerten
+
+Ein KI-Agent liest eine Webseite grundlegend anders als ein Mensch. Während Menschen sich von Farben, Bildern und emotionaler Ansprache leiten lassen, sieht ein Agent kalte Datenstrukturen.
+
+<CardGrid>
+  <Card title="1. Auffindbarkeit" icon="magnifier">
+    Der Agent prüft `robots.txt` und Sitemaps, um Zugriffsrechte zu klären.
+  </Card>
+  <Card title="2. Strukturanalyse" icon="document">
+    Er liest das HTML, ignoriert visuelles Markup und sucht nach semantischen Hinweisen (H1, H2, ARIA-Labels).
+  </Card>
+  <Card title="3. Datenextraktion" icon="setting">
+    Der Agent sucht aktiv nach **JSON-LD** (strukturierten Daten), um Fakten zu extrahieren — statt den Fließtext zu interpretieren.
+  </Card>
+  <Card title="4. Verifizierung" icon="approve-check">
+    Er prüft, ob die Identität des Anbieters maschinell überprüfbar ist (z.B. über NIP-05 oder Author-Markup).
+  </Card>
+</CardGrid>
+
+**Entscheidung:** Basierend auf Datenqualität und Vertrauenswürdigkeit entscheidet der Agent, ob er die Quelle nutzt oder übergeht.
+
+Eine Webseite, die nur für das menschliche Auge gestaltet ist — schöne Bilder, aber kein JSON-LD — ist für den Agenten ein schwarzes Loch. Er kann sie nicht lesen, nicht zitieren, nicht nutzen.
+
+## AX vs. SEO vs. UX — Was ist der Unterschied?
+
+Die drei Konzepte werden häufig verwechselt, weil sie alle „Optimierung" im Namen tragen. Dabei adressieren sie grundlegend unterschiedliche Zielgruppen.
+
+| | **UX** | **SEO** | **AX** |
+|---|---|---|---|
+| **Zielgruppe** | Mensch | Google-Bot | KI-Agent |
+| **Optimiert für** | Design, Emotion, Usability | Backlinks, Keywords, Meta-Tags | Struktur, Verifizierbarkeit, API |
+| **Erfolgskriterium** | Conversion Rate | Ranking | Zitierung |
+| **Werkzeuge** | Figma, Hotjar | Ahrefs, Search Console | Schema.org, JSON-LD, NIP-05 |
+
+Alle drei Konzepte schließen sich nicht aus — aber sie haben unterschiedliche Prioritäten, verschiedene Werkzeuge und verschiedene Erfolgskriterien. Wer nur UX und SEO beherrscht, hat für die nächste Infrastruktur-Schicht keine Grundlage gelegt.
+
+## Die 5 Säulen der Agent Experience
+
+<Aside type="tip" title="Faustregel">
+Wer auch nur eine Säule vernachlässigt, verschenkt Potenzial. Der Agent braucht alle fünf, um Ihre Quelle vertrauensvoll zu empfehlen.
+</Aside>
+
+### 1. Strukturierte Daten (JSON-LD)
+
+Der Agent muss die Welt nicht erraten. Mit Schema.org-Markup — z.B. `Product`, `Article`, `Organization` — liefern Sie die Fakten in maschinenlesbarer Form direkt im HTML-Head. Das ist das Fundament von AX. Ohne es arbeitet der Agent mit Vermutungen.
+
+### 2. Semantische Klarheit
+
+Verzichten Sie auf leere Marketing-Phrasen wie „Next Generation AI Solutions" oder „ganzheitliche Innovationsbegleitung". Schreiben Sie konkret: „Wir bieten Python-basierte LLM-Optimierung für mittelständische Unternehmen im DACH-Raum." Je präziser die Sprache, desto wahrscheinlicher das Zitat. Agenten optimieren nicht — sie selektieren.
+
+### 3. Maschinenlesbare Identität (NIP-05)
+
+Woher weiß der Agent, dass Sie sind, wer Sie behaupten zu sein? Im dezentralen Web etabliert sich der **NIP-05-Standard** (Nostr Improvement Proposal 05) als kryptografisch verankerte Identitätsprüfung: Eine DNS-basierte Verknüpfung zwischen einem Nutzernamen (`name@domain.tld`) und einem öffentlichen Nostr-Schlüssel erlaubt es jeder Maschine, die Identität ohne zentrale Instanz zu verifizieren. Klassisches `rel="author"`-Markup erfüllt im klassischen Web denselben Zweck.
+
+### 4. Agent-freundliche APIs
+
+Wenn ein Agent für Sie einkaufen oder recherchieren soll, darf keine Login-Wall den Weg versperren. Keine Captchas, die nur Menschen lösen können. Keine JavaScript-Loader, die Inhalte erst nach Interaktion sichtbar machen. Der maschinelle Zugang muss technisch friktionslos möglich sein — sonst bricht der Agent die Aufgabe ab.
+
+### 5. Verifizierbarkeit
+
+Kann der Agent die Information prüfen? Werden Quellen genannt? Gibt es digitale Signaturen — etwa für Bilder über [VisionFusen](https://visionfusen.org) — die Echtheit und Herkunft belegen? Vertrauen wird hier nicht behauptet, sondern technisch bewiesen. Das ist der Unterschied zwischen einer Quelle, die ein Agent zitiert, und einer, die er überspringt.
+
+## Praxisbeispiel: Wie eine optimierte Seite aussieht
+
+<Tabs>
+  <TabItem label="Vorher (Nur UX/SEO)">
+    - **Header:** Großes Hero-Image mit Text „Die Zukunft der Innovation ist jetzt."
+    - **Body:** „Wir revolutionieren Ihr Business mit unserer einzigartigen Next-Gen-Lösung."
+    - **Technisch:** Kein JSON-LD, keine Author-Infos, Captcha im Kontaktformular.
+  </TabItem>
+  <TabItem label="Nachher (Mit AX)">
+    - **H1:** „LLM-Optimierung für DACH-Unternehmen — von der Audit bis zur Implementierung."
+    - **Body:** „Wir bieten JSON-LD-Audits, Prompt-Engineering und strukturierte Daten-Implementierung für B2B-SaaS."
+    - **Technisch:** `Organization`- und `Product`-JSON-LD, NIP-05 im Footer, API-Doku öffentlich, `rel="author"` mit Signatur.
+  </TabItem>
+</Tabs>
+
+Das JSON-LD im HTML-Head sieht dann so aus:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://example.com",
+  "name": "Ihre Firma GmbH",
+  "description": "LLM-Optimierung für mittelständische Unternehmen im DACH-Raum.",
+  "url": "https://example.com",
+  "founder": {
+    "@type": "Person",
+    "name": "Max Mustermann",
+    "sameAs": ["https://linkedin.com/in/mustermann"]
+  },
+  "knowsAbout": ["LLM-Optimierung", "Agent Experience", "Strukturierte Daten"],
+  "offers": {
+    "@type": "Service",
+    "name": "JSON-LD Audit",
+    "description": "Analyse und Implementierung strukturierter Daten für KI-Sichtbarkeit."
+  }
+}
+```
+
+Der Agent liest diesen Block und weiß sofort: Wer steht dahinter, was wird angeboten, für wen. Kein Raten, kein Interpretieren.
+
+## So fangen Sie an
+
+<Steps>
+
+1. **Schema.org-Markup implementieren.** Fügen Sie Ihrer Seite `Article`-, `Organization`- oder `Product`-JSON-LD hinzu. Testen Sie mit dem [Google Rich Results Test](https://search.google.com/test/rich-results).
+
+2. **Identität maschinenlesbar machen.** Richten Sie einen NIP-05-Eintrag ein oder implementieren Sie `rel="author"` konsequent auf allen Seiten.
+
+3. **Texte bereinigen.** Überarbeiten Sie Ihre Startseite und ersetzen Sie subjektive Superlative durch objektive Beschreibungen. Was tut Ihr Produkt konkret, für wen, mit welchem Ergebnis?
+
+4. **Zugang öffnen.** Entfernen Sie unnötige Login-Hürden für öffentliche Informationen. Prüfen Sie, ob kritische Inhalte hinter JavaScript-Loadern versteckt sind.
+
+5. **Verifizierbarkeit einbauen.** Zitieren Sie Quellen. Signieren Sie Bilder. Je mehr ein Agent prüfen kann, desto sicherer fühlt er sich beim Zitieren.
+
+</Steps>
+
+Mehr zum strategischen Rahmen hinter diesen Maßnahmen: [Was ist LLM-Optimierung?](/grundlagen/was-ist-llm-optimierung/)
+
+## Fazit
+
+Agent Experience ist nicht das neue SEO — es ist dessen Nachfolger in einer Infrastruktur, die von autonomen Agenten dominiert wird. SEO hat für Google-Crawler optimiert. AX optimiert für Software, die eigenständig entscheidet, handelt und zitiert. Der entscheidende Unterschied: Der Agent muss Ihrer Seite *vertrauen können*. Das erreichen Sie nicht durch bessere Texte allein, sondern durch bessere Daten, klare Identität und maschinell prüfbare Verifizierbarkeit. Wer das jetzt implementiert, ist sichtbar. Alle anderen sind es bald nicht mehr.

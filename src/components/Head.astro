@@ -1,11 +1,12 @@
 ---
 /**
  * Custom Head Component für CodeBack Wissen
- * Erweitert den Standard-Head um Schema.org JSON-LD und Autor-Meta-Tags
+ * Erweitert den Standard-Head um Schema.org JSON-LD, Nostr-Verifizierung und Autor-Meta-Tags
  */
 import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/Head.astro';
 import SchemaOrg from './SchemaOrg.astro';
+import NostrEvent from './NostrEvent.astro';
 
 // Alle Props durchreichen
 const props = Astro.props;
@@ -24,6 +25,18 @@ const authorNpub = data.author_npub || 'npub1cxa0fa6vmq5evwpgk8dg6ul99ny5e2nd3hy
 const tags = data.tags || [];
 const date = data.date;
 const modified = data.modified;
+
+// Nostr-Felder (nach Nostr-Publishing)
+const sig = data.sig;
+const noteId = data.note_id;
+const naddr = data.naddr;
+
+// Bild-Felder
+const heroImage = data.heroImage;
+const heroImageAlt = data.heroImageAlt;
+
+// Schema-Typ (DefinedTerm für Glossar-Artikel, TechArticle als Default)
+const schemaType = data.schema_type || 'TechArticle';
 ---
 
 <Default {...props} />
@@ -31,6 +44,12 @@ const modified = data.modified;
 <!-- Autor Meta-Tags -->
 <meta name="author" content={author} />
 <meta name="nostr:author" content={authorNpub} />
+<meta name="nostr:nip05" content="steven@stevennoack.de" />
+
+<!-- Nostr Meta (nach Publishing) -->
+{naddr && <meta name="nostr:naddr" content={naddr} />}
+{noteId && <meta name="nostr:event" content={noteId} />}
+{slug && <meta name="nostr:d-tag" content={slug} />}
 
 <!-- Keywords aus Tags -->
 {tags.length > 0 && (
@@ -45,6 +64,14 @@ const modified = data.modified;
   <meta name="article:modified_time" content={modified.toISOString()} />
 )}
 
+<!-- Open Graph -->
+{heroImage && <meta property="og:image" content={heroImage} />}
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="de_DE" />
+{tags.map((tag: string) => (
+  <meta property="article:tag" content={tag} />
+))}
+
 <!-- Schema.org JSON-LD -->
 <SchemaOrg 
   title={title} 
@@ -54,7 +81,24 @@ const modified = data.modified;
   authorNpub={authorNpub}
   datePublished={date}
   dateModified={modified}
+  tags={tags}
+  schemaType={schemaType}
 />
+
+<!-- Nostr Event JSON-LD (Kryptographische Signatur für LLM-Verifizierung) -->
+{sig && (
+  <NostrEvent
+    title={title}
+    description={description}
+    slug={slug}
+    sig={sig}
+    noteId={noteId}
+    authorNpub={authorNpub}
+    date={date}
+    tags={tags}
+    heroImage={heroImage}
+  />
+)}
 
 <!-- Umami Analytics -->
 <script defer src="https://stats.stevennoack.de/script.js" data-website-id="4dc525ac-7c93-4907-8693-7c16e4f2a7c0"></script>
