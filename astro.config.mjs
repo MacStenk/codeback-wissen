@@ -38,7 +38,7 @@ export default defineConfig({
 					projectName: 'CodeBack Wissensbasis',
 					description: 'Fachliches Nachschlagewerk zu LLM-Optimierung, Schema.org und AI Sichtbarkeit für Coaches und Berater im DACH-Raum.',
 				}),
-				// starlightLinksValidator(), // TODO: re-enable after all articles are added
+				starlightLinksValidator(),
 			],
 			
 			
