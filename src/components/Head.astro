@@ -2,22 +2,28 @@
 /**
  * Custom Head Component für CodeBack Wissen
  * Erweitert den Standard-Head um Schema.org JSON-LD, Nostr-Verifizierung und Autor-Meta-Tags
+ * 
+ * WICHTIG: Starlight filtert optionale Custom-Felder aus starlightRoute.entry.data.
+ * Deshalb lesen wir die Raw-Frontmatter direkt aus der Content Collection.
  */
 import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/Head.astro';
 import SchemaOrg from './SchemaOrg.astro';
 import NostrEvent from './NostrEvent.astro';
+import { getCollection } from 'astro:content';
 
-// Alle Props durchreichen
-const props = Astro.props;
+// Starlight route data
+const route = Astro.locals.starlightRoute;
+const starlightData = route?.entry?.data || {};
 
-// Extrahiere Frontmatter-Daten - defensiv
-const entry = props?.entry;
-const data = entry?.data || {};
+const title = starlightData.title || 'CodeBack Wissen';
+const description = starlightData.description;
+const slug = route?.slug || '';
 
-const title = data.title || 'CodeBack Wissen';
-const description = data.description;
-const slug = entry?.id?.replace(/\/index$/, '').replace(/\.mdx?$/, '') || '';
+// Full entry from Content Collection (bypasses Starlight filtering)
+const allDocs = await getCollection('docs');
+const fullEntry = allDocs.find(doc => doc.id === route?.entry?.id || doc.slug === route?.slug);
+const data = fullEntry?.data || starlightData;
 
 // Custom Frontmatter-Felder
 const author = data.author || 'Steven Noack';
@@ -26,7 +32,7 @@ const tags = data.tags || [];
 const date = data.date;
 const modified = data.modified;
 
-// Nostr-Felder (nach Nostr-Publishing)
+// Nostr-Felder
 const sig = data.sig;
 const noteId = data.note_id;
 const naddr = data.naddr;
@@ -35,11 +41,11 @@ const naddr = data.naddr;
 const heroImage = data.heroImage;
 const heroImageAlt = data.heroImageAlt;
 
-// Schema-Typ (DefinedTerm für Glossar-Artikel, TechArticle als Default)
+// Schema-Typ
 const schemaType = data.schema_type || 'TechArticle';
 ---
 
-<Default {...props} />
+<Default {...Astro.props} />
 
 <!-- Autor Meta-Tags -->
 <meta name="author" content={author} />
