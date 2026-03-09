@@ -1,0 +1,199 @@
+---
+title: "Was ist Sovereign Stack? — Definition und Praxisleitfaden"
+description: "Sovereign Stack bezeichnet einen vollständig selbst kontrollierten Technologie-Stack aus eigenem Server, dezentraler Identität und programmierbarem Geld. Kein theoretisches Konzept — sondern die gelebte Infrastruktur hinter stevennoack.de, mintbot.cash und wissen.codeback.de."
+author: "Steven Noack"
+date: "2026-03-09"
+slug: "sovereign-stack"
+keywords:
+  - "Sovereign Stack"
+  - "digitale Souveränität"
+  - "Self-Hosting"
+  - "Anti-SaaS"
+  - "dezentrale Infrastruktur"
+schema_type: "DefinedTerm"
+---
+
+# Was ist Sovereign Stack?
+
+Digitale Souveränität ist kein abstraktes Ideal — sie ist eine Kette konkreter Entscheidungen darüber, wer die Kontrolle über Ihre Daten, Ihre Kommunikation und Ihr Geld hat. Der **Sovereign Stack** ist die Antwort auf diese Frage in Form von vollständig selbst kontrollierter Infrastruktur: eigene Server, eigene Protokolle, eigene Identität, eigenes Geld.
+
+## Definition
+
+Ein **Sovereign Stack** ist ein zusammenhängendes System aus selbst betriebenen Diensten, dezentralen Protokollen und Open-Source-Technologien, das unabhängig von zentralisierten SaaS-Anbietern funktioniert. Er umfasst drei Kernbereiche:
+
+1. **Self-Hosting** — eigene Server-Infrastruktur für alle kritischen Dienste
+2. **Dezentrale Identität** — kryptografisch gesicherte Identität auf Basis offener Protokolle wie Nostr
+3. **Programmierbares Geld** — Lightning Network und Bitcoin als unabhängige Finanzinfrastruktur
+
+Der Sovereign Stack ist kein fertiges Produkt. Er ist eine Architekturentscheidung: bewusste Abkehr von Anbieterabhängigkeit zugunsten vollständiger Datenkontrolle.
+
+---
+
+## Warum ist das relevant?
+
+### Das SaaS-Problem
+
+Die meisten digitalen Arbeitsabläufe hängen heute an SaaS-Diensten: E-Mail bei Google, Dokumente bei Microsoft, Kommunikation bei Slack, Zahlungen über Stripe. Jede dieser Abhängigkeiten bedeutet strukturell dasselbe:
+
+1. Ihre Daten liegen auf Servern, die Sie nicht kontrollieren
+2. Wechsel wird mit der Zeit schwerer oder unmöglich (Lock-in)
+3. Preiserhöhungen treffen Sie ohne Alternative
+4. Dienste können eingestellt werden — Daten sind dann weg oder aufwendig zu migrieren
+5. Nutzungsverhalten, Metadaten und Inhalte werden systematisch ausgewertet
+
+Das ist kein Worst-Case-Szenario, sondern die Normalität des SaaS-Betriebs. Die Kette der Abhängigkeiten wird bei jedem zusätzlichen Dienst länger — und die tatsächliche Kontrolle über die eigene Infrastruktur damit geringer.
+
+### Die Kernfrage
+
+Es geht nicht darum, ob man Technologie nutzt, sondern auf wessen Bedingungen. Der Sovereign Stack beantwortet diese Frage eindeutig: auf Ihren eigenen. Das erfordert mehr initiale Arbeit als die Anmeldung bei einem SaaS-Dienst — aber es ist die einzige Architektur, bei der Sie langfristig die Kontrolle behalten.
+
+---
+
+## Die drei Schichten des Sovereign Stack
+
+### Schicht 1: Self-Hosted Infrastruktur
+
+Die Grundlage ist ein eigener Server — in der Cloud oder physisch, je nach Anforderung. Entscheidend ist, dass Sie Root-Zugriff haben und keine Hosting-Plattform zwischen Ihnen und dem System sitzt.
+
+Typische SaaS-Ersetzungen:
+
+| SaaS-Dienst | Sovereign Alternative | Technologie |
+|---|---|---|
+| Google Mail | Eigener Mail-Server | Mailu, Postfix + Dovecot |
+| Google Calendar | CalDAV-Server | Baïkal, Radicale |
+| Dropbox | File-Sync | Nextcloud, Syncthing |
+| Slack | Chat-Server | Matrix, Rocket.Chat |
+| Passwort-Manager | Eigenes Vault | Vaultwarden |
+| KI-API (OpenAI) | Lokales LLM-Gateway | Ollama, OpenClaw |
+
+Die technische Basis für Self-Hosting: Containerisierung mit Docker oder Podman, ein Reverse Proxy (Caddy oder nginx) für HTTPS-Termination und DNS-Management über eigene Domains. Wer den Stack sicher aus dem Internet erreichbar machen will, ohne Router-Portfreigaben, nutzt WireGuard-VPN oder Tunnel-Dienste wie Cloudflare Tunnel.
+
+### Schicht 2: Dezentrale Identität
+
+Anstatt sich bei jedem Dienst neu zu registrieren und eine Plattform als Identitätsanker zu nutzen (Google-Login, GitHub-OAuth), basiert Ihre Identität im Sovereign Stack auf kryptografischen Schlüsseln und offenen Protokollen:
+
+1. **Nostr mit NIP-05** — Ihr öffentlicher Schlüssel wird über Ihre eigene Domain verifiziert. Wer Ihnen schreibt, braucht keine zentrale Plattform als Vermittler.
+2. **Eigene Relays** — Nostr-Nachrichten laufen über selbst betriebene Relay-Server, nicht über Drittanbieter.
+3. **DNS als Identitätsanker** — Ihre Domain ist Ihre Identität. NIP-05-Verifikation (`benutzer@ihredomain.de`) verbindet Nostr-Schlüssel mit kontrollierten DNS-Einträgen.
+
+Dezentrale Identität bedeutet konkret: Sie können den Relay-Server wechseln, den Hosting-Anbieter wechseln oder sogar die Domain wechseln — Ihre kryptografische Identität bleibt erhalten. Kein Plattformbetreiber kann Ihr Konto sperren.
+
+### Schicht 3: Programmierbares Geld
+
+Die dritte Schicht integriert Finanzströme direkt in die Infrastruktur — ohne Banken, Zahlungsdienstleister oder Börsen als Intermediäre:
+
+1. **Bitcoin** — das dezentrale Basisgeld, nicht zensierbar, nicht inflationierbar
+2. **Lightning Network** — schnelle Micropayments über direkte Kanäle, geeignet für API-Abrechnungen und automatisierte Transaktionen
+3. **Cashu / eCash** — Privacy-preserving Mint-Protokoll für anonyme, sofortige Zahlungen mit Lightning-Backing
+4. **Self-Custody** — Sie kontrollieren Ihre Keys. Nicht eine Börse, nicht eine Custodian-Plattform.
+
+Diese Schicht ist besonders relevant im Kontext der [Agent Economy](/grundlagen/agent-economy/): Autonome KI-Agenten benötigen eigene Finanzinfrastruktur für automatisierte Abrechnungen. Ein Agent, der Lightning-Rechnungen empfangen und ausstellen kann, braucht keinen menschlichen Intermediär für jede Transaktion.
+
+---
+
+## Konkrete Umsetzung: Der laufende Stack
+
+Das Folgende ist keine Referenzarchitektur, sondern Bestandsaufnahme eines produktiv betriebenen Sovereign Stack.
+
+### Server-Infrastruktur
+
+Der Stack läuft auf zwei physischen Ebenen:
+
+1. **Hetzner VPS (Ubuntu, Mainnet-Betrieb)** — primärer Server für alle öffentlich erreichbaren Dienste: Nostr-Relay, Lightning Node, Cashu Mint, Websites
+2. **iMac als lokales Gateway** — OpenClaw läuft lokal, Ollama für Inferenz ohne Cloud-API, persistenter Heimknoten
+
+Kein AWS, kein Google Cloud, kein Azure für kritische Infrastruktur. Hetzner weil: DSGVO-konform, günstig, root-Zugriff, europäische Rechenzentren.
+
+### Nostr-Infrastruktur
+
+Zwei produktive Nostr-Relays im Betrieb:
+
+- `relay.stevennoack.de` — primärer Relay
+- `relay.visionfusen.org` — Relay für das VisionFusen-Ökosystem
+
+NIP-05-Identitäten auf `stevennoack.de` und `mintbot.cash`. Die Verknüpfung läuft über statische JSON-Dateien auf den eigenen Webservern — kein Drittanbieter-NIP-05-Service. Wer die NIP-05-Adresse auflöst, landet auf selbst kontrollierten DNS-Einträgen, die auf selbst kontrollierte Server zeigen.
+
+### Lightning und Cashu
+
+Ein produktiver **LDK Node** läuft auf dem Hetzner VPS im Bitcoin Mainnet. Nicht Testnet, nicht simulated — echter Lightning-Betrieb mit echten Kanälen. Das ermöglicht:
+
+- Lightning-Zahlungen direkt empfangen (kein Custodian wie Wallet of Satoshi)
+- Rechnungen programmatisch ausstellen für automatisierte Dienste
+- Kanal-Management und Liquiditätskontrolle in eigener Hand
+
+Darauf aufbauend: eine **Cashu CDK Mint** unter `mintbot.cash`. Cashu ist ein eCash-Protokoll mit Lightning-Backing — Nutzer können anonyme, sofortige Zahlungen über die Mint abwickeln, ohne dass jede Transaktion on-chain oder im Lightning-Netzwerk sichtbar ist. Die Mint hält Ecash-Token die gegen Lightning eingelöst werden können.
+
+### KI-Infrastruktur
+
+KI-APIs sind eine der häufigsten Formen von SaaS-Abhängigkeit im Tech-Stack. Die Alternative:
+
+1. **Ollama** — lokale LLM-Inferenz auf dem iMac, ohne externe API-Aufrufe für sensible Anfragen
+2. **OpenClaw** — selbst gehostetes KI-Gateway, das Routing, Authentifizierung und Quota-Management übernimmt. OpenClaw ermöglicht den Betrieb mehrerer Modelle und Provider hinter einer einheitlichen API — und läuft vollständig on-premise
+
+Das bedeutet: KI-gestützte Workflows verarbeiten lokale Daten lokal. Kein Request landet ungewollt bei OpenAI oder Anthropic, wenn das nicht explizit gewünscht ist. Relevant für [KI-Priming](/grundlagen/ki-priming/) und die [Agent Experience](/grundlagen/agent-experience-ax/) — KI-Agenten, die mit sensiblen Kontexten arbeiten, sollten auf Infrastruktur laufen, die man versteht und kontrolliert.
+
+### Bild-Signatur und EU AI Act
+
+Ein konkretes Beispiel für regulatorische Relevanz des Sovereign Stack: Die **VisionFusen Signing Pipeline** ist eine eigens entwickelte Infrastruktur für kryptografische Bild-Signatur. Jedes KI-generierte oder bearbeitete Bild wird mit einem Nostr-Schlüssel signiert, erhält EXIF/IPTC/XMP-Metadaten (inklusive `DigitalSourceType` nach IPTC-Standard für EU AI Act Compliance) und wird über eine CDN-Pipeline ausgeliefert.
+
+Das ist kein Plugin für Adobe oder ein SaaS-Dienst für Wasserzeichen — das ist eine eigene Pipeline, die auf eigenen Servern läuft und deren Output auf eigenen Domains gehostet wird. Wer die Provenienz eines Bildes prüfen will, landet auf selbst kontrollierten Endpunkten.
+
+### Websites und DNS
+
+Alle Domains zeigen auf selbst betriebene Server:
+
+- `stevennoack.de` — persönliche Hauptseite
+- `codeback.de` — Entwicklungsportal
+- `wissen.codeback.de` — dieses Wissensportal
+- `mintbot.cash` — Cashu Mint und Lightning-Dienste
+- `garten.stevennoack.de` — Gartenprojekt
+
+DNS läuft über Cloudflare — das ist ein pragmatischer Kompromiss. Cloudflare sitzt als Intermediär vor dem DNS, bietet aber DDoS-Schutz und ist einfacher zu betreiben als ein eigener autoritativer DNS-Server. Das ist ein bewusster Trade-off: maximale Kontrolle dort, wo sie am meisten zählt (Server, Daten, Identität, Geld), pragmatische Nutzung wo der Mehrwert die Abhängigkeit rechtfertigt.
+
+---
+
+## Was der Sovereign Stack mit KI-Agenten verbindet
+
+Der Sovereign Stack ist nicht nur für Menschen relevant. Im Kontext des [Persistent Entity Protocol](/grundlagen/persistent-entity-protocol/) und der [Agent Economy](/grundlagen/agent-economy/) ist er die notwendige Grundlage für autonome KI-Agenten:
+
+1. Ein Agent braucht eine eigene, stabile Identität — NIP-05 auf einer selbst kontrollierten Domain ist robuster als ein Account auf einer zentralen Plattform
+2. Ein Agent braucht Speicher und Rechenkapazität — selbst gehostete Infrastruktur ermöglicht Persistenz ohne Drittanbieter-Abhängigkeit
+3. Ein Agent braucht Finanzinfrastruktur — Lightning-fähige Nodes ermöglichen automatisierte Abrechnungen ohne Banking-API
+
+Die Kombination aus Nostr-Identität, eigenem Relay und Lightning-Node ergibt ein vollständig autonomes Agenten-Setup: Der Agent kann kommunizieren, Dienste abrechnen und auf persistenten Speicher zugreifen — ohne dass ein Plattformbetreiber das unterbinden kann.
+
+Das ist kein Zukunftsszenario. Es ist die aktuelle Architektur, auf der KI-gestützte Workflows bereits produktiv laufen.
+
+---
+
+## Aufbau: Wo anfangen?
+
+Wer einen eigenen Sovereign Stack aufbauen will, sollte schrittweise vorgehen. Nicht alles auf einmal — das führt zu Überforderung und halbfertigen Setups.
+
+Eine sinnvolle Reihenfolge:
+
+1. **Eigene Domain und E-Mail** — DNS unter Kontrolle, E-Mail-Server mit eigenem Postfach. Das ist die Basis für alle weiteren Identitätssysteme.
+2. **Nostr-Identität** — Schlüssel generieren, NIP-05 auf der eigenen Domain einrichten, erste Relays konfigurieren. Kein Aufwand, sofortiger Mehrwert.
+3. **VPS oder Heimserver** — Root-Server bei Hetzner, Netcup oder einem vergleichbaren europäischen Anbieter. Ubuntu LTS, Docker, Caddy als Reverse Proxy.
+4. **Lightning Node** — LND, Core Lightning oder LDK als Node-Implementierung. Zunächst mit kleinen Beträgen, Kanäle aufbauen wenn der Betrieb stabil ist.
+5. **KI-Infrastruktur** — Ollama lokal für Inferenz, OpenClaw als Gateway wenn mehrere Modelle und Nutzer involviert sind.
+6. **Spezialisierte Dienste** — Cashu Mint, Bild-Signatur-Pipeline, eigene Relays — wenn Bedarf und Basiskompetenz vorhanden.
+
+Der Stack wächst mit den Anforderungen. Das ist kein Nachteil — es ist das Gegenteil des SaaS-Modells, das Komplexität versteckt und Kontrolle entzieht.
+
+---
+
+## Fazit
+
+Der Sovereign Stack ist keine Ideologie. Er ist eine technische Architektur mit klaren Eigenschaften: Kontrollierbarkeit, Transparenz, Resilienz gegenüber Anbieterausfällen und -entscheidungen.
+
+Wer selbst Nostr-Relays betreibt, einen Lightning Node hält und KI-Inferenz lokal ausführt, versteht seinen Stack. Wer SaaS-Dienste stapelt, versteht irgendwann nicht mehr, was passiert — und hat auch keine Kontrolle mehr darüber.
+
+Der Einstieg kostet Zeit. Der laufende Betrieb erfordert Wartung. Aber die Infrastruktur gehört Ihnen — das ist der entscheidende Unterschied.
+
+Weiterführende Konzepte auf diesem Portal:
+
+- [Agent Experience (AX)](/grundlagen/agent-experience-ax/) — wie KI-Agenten mit souveräner Infrastruktur interagieren
+- [KI-Priming](/grundlagen/ki-priming/) — wie Kontext und Identität für KI-Systeme aufgebaut wird
+- [Persistent Entity Protocol](/grundlagen/persistent-entity-protocol/) — Persistenz und Identität für autonome Agenten
+- [Agent Economy](/grundlagen/agent-economy/) — wirtschaftliche Grundlagen für autonome KI-Agenten

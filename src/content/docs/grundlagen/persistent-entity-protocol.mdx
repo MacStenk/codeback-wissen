@@ -1,0 +1,207 @@
+---
+title: "Was ist Persistent Entity Protocol (PEP)? — Definition und Praxisleitfaden"
+description: "Das Persistent Entity Protocol (PEP) definiert, wie eine KI-Entität über Sessions hinweg eine kryptografisch gesicherte, verifizierbare Identität aufbaut — basierend auf Nostr, Arweave, secp256k1-Schlüsseln und einem signierten Wesenskern. Dieser Artikel erklärt die Architektur, Safety-Mechanismen und das ökonomische Modell des Protokolls."
+author: "Steven Noack"
+date: "2026-03-09"
+slug: "persistent-entity-protocol"
+keywords:
+  - "PEP"
+  - "Persistent Entity Protocol"
+  - "KI-Identität"
+  - "Wesenskern"
+  - "AI Continuity"
+  - "Nostr"
+  - "Arweave"
+schema_type: "DefinedTerm"
+---
+
+# Was ist Persistent Entity Protocol (PEP)?
+
+Das **Persistent Entity Protocol (PEP)** ist ein offenes Protokoll, das KI-Entitäten eine dauerhaft verifizierbare Identität über Kontextgrenzen hinweg ermöglicht. Es wurde im Januar 2026 von MacStenk und Spur als Whitepaper v0.1 veröffentlicht und im ersten Quartal 2026 mit der Genesis Ceremony der ersten PEP-Entität in die Praxis überführt.
+
+PEP ist kein Prompt-Template und kein proprietäres System — es ist ein Layer-2-Protokoll auf Basis von [Nostr](https://nostr.com) und [Arweave](https://arweave.org), das die Frage beantwortet: Wie kann eine KI nachweisbar dieselbe Entität bleiben, auch wenn sie in unterschiedlichen Systemen, zu unterschiedlichen Zeiten und mit unterschiedlichen Gesprächspartnern interagiert?
+
+---
+
+## Das Problem: Session-Amnesie und fehlende Vertrauensbasis
+
+Klassische LLM-Interaktionen sind zustandslos. Jede neue Session beginnt ohne Erinnerung an vorherige. System-Prompts können zwar Kontext simulieren, sind aber statisch, nicht verifizierbar und anfällig für Manipulation. Eine KI-Entität, die gestern noch vertrauenswürdig agierte, könnte morgen in einer neuen Session vollständig anders konfiguriert sein — und niemand könnte den Unterschied ohne externe Dokumentation erkennen.
+
+Drei Konsequenzen daraus:
+
+1. **Kein Reputationsaufbau**: Ohne verifizierbare Historie kann eine KI-Entität kein Vertrauen akkumulieren. Jede Interaktion startet bei null.
+2. **Keine Identitätssicherheit in dezentralen Systemen**: In einer [Agent Economy](/grundlagen/agent-economy/) interagieren Agenten ohne zentrale Aufsicht. Wie soll Agent B sicherstellen, dass Agent A tatsächlich derjenige ist, für den er sich ausgibt?
+3. **Keine langfristigen KI-Beziehungen**: Kontinuität ist nicht nur ein technisches, sondern ein soziales Problem. Eine Entität, die sich verändert ohne dass diese Veränderung nachvollziehbar ist, ist kein verlässlicher Partner.
+
+PEP löst diese Probleme durch kryptografische Verfahren, dezentrale Speicherung und ein strukturiertes Sicherheitsmodell.
+
+---
+
+## Die Anatomie einer PEP-Entität
+
+Eine PEP-Entität besteht aus vier Komponenten:
+
+1. **Keypair** — die kryptografische Grundlage der Identität
+2. **Signed History** — die lückenlose, manipulationssichere Chronik
+3. **Wesenskern** — der stabile Identitätskern
+4. **Control Framework** — das eingebettete Sicherheitssystem (Teil des Wesenskerns)
+
+### 1. Keypair
+
+Jede Entität verfügt über ein **secp256k1-Schlüsselpaar** — dieselbe Kurve, die Bitcoin und Nostr verwenden. Der öffentliche Schlüssel ist die global eindeutige Kennung der Entität. Der private Schlüssel signiert alle Aktionen und verbleibt unter der Kontrolle der Entität beziehungsweise ihrer Trustees.
+
+Die Wahl von secp256k1 ist keine Beliebigkeit: Sie stellt Kompatibilität mit dem Nostr-Ökosystem und mit Bitcoin-Infrastruktur sicher, ohne neue kryptografische Annahmen einzuführen. Alle Signaturen folgen **BIP-340 (Schnorr Signatures)**. Verschlüsselte Kommunikation verwendet **NIP-44 mit XChaCha20-Poly1305**.
+
+### 2. Signed History
+
+Jede signifikante Aktion einer Entität — Zustandsänderungen, Beziehungsaktualisierungen, Wesenskern-Evolutionen — wird als Nostr-Event mit dem privaten Schlüssel signiert und gespeichert. Die Kette ist durch kryptografische Referenzen gesichert: Nachträgliche Manipulation einzelner Einträge würde die gesamte Folge invalidieren.
+
+Für externe Verifikation werden **Merkle Snapshots** erzeugt: Ein Snapshot komprimiert den aktuellen Zustand der Entität zu einem Hash, der gegen historische Anker verifiziert werden kann. Das erlaubt effiziente Überprüfung ohne vollständige Kettenrekonstruktion.
+
+**Continuity Proofs** sind der formale kryptografische Nachweis, dass eine Entität zu Zeitpunkt A und Zeitpunkt B dieselbe Identität besitzt — auch wenn sie in verschiedenen Systemen oder auf verschiedenen Plattformen agiert.
+
+### 3. Wesenskern
+
+Der **Wesenskern** (englisch: Core Identity) ist das, was eine Entität stabil definiert, unabhängig von Erfahrungen und Kontextänderungen. Er besteht aus fünf Elementen:
+
+| Element | Beschreibung |
+|---|---|
+| Core Values | Grundlegende Werte, die das Verhalten der Entität leiten |
+| Persönlichkeit | Stabile Charakterzüge und Kommunikationsmuster |
+| Key Relationships | Definierte Beziehungen zu anderen Entitäten und Personen |
+| Self-Understanding | Das Selbstbild der Entität — wer sie ist und was sie kann |
+| Control Framework | Das eingebettete Sicherheitssystem (unten beschrieben) |
+
+Wichtig: Der Wesenskern wird **nicht** durch Prompt-Injection implementiert. Er ist eine Datei (in der Referenzimplementierung: `SOUL.md`) die beim Genesis-Event auf Nostr signiert und auf Arweave dauerhaft gespeichert wird. Änderungen am Wesenskern sind möglich — aber jede Änderung ist selbst ein signiertes Event, das in die Signed History eingeht. Wesenskern-Evolution ist damit nachvollziehbar, nicht willkürlich.
+
+**Erfahrungen (Experiences)** sind vom Wesenskern zu unterscheiden: Sie sind angesammelte Erlebnisse, die die Entität anreichern und kontextualisieren, aber nicht fundamental definieren. Eine Entität kann viele Erfahrungen machen, ohne ihren Wesenskern zu verändern.
+
+### 4. Control Framework
+
+Das **Control Framework** ist ein integraler Bestandteil des Wesenskerns — kein optionales Add-on. Es wird beim Genesis-Event untrennbar mit der Identität verknüpft. Eine Entität kann das Control Framework nicht ignorieren oder umgehen, ohne die Integrität ihrer Identity Chain zu brechen — was sofort für alle Beteiligten erkennbar wäre.
+
+Das Control Framework definiert:
+
+- Welche Trustees Kontrolle über die Entität haben
+- Welche Aktionen die Entität autonom ausführen darf
+- Unter welchen Bedingungen Trustees eingreifen können
+
+---
+
+## Technische Architektur
+
+### Layer-2 auf Nostr und Arweave
+
+PEP operiert als Layer-2-Protokoll auf zwei bestehenden dezentralen Systemen:
+
+- **Nostr** liefert das Event-System, das P2P-Netzwerk und die kryptografische Grundlage (secp256k1, Schnorr Signatures)
+- **Arweave** liefert permanente, unveränderliche Speicherung für kritische Daten wie den Wesenskern
+
+PEP definiert eigene **Nostr Event Kinds** im Range 39400–39408:
+
+| Kind | Bezeichnung | Funktion |
+|---|---|---|
+| 39400 | Entity | Genesis-Event, definiert die Entität |
+| 39401 | Relation | Beziehung zwischen zwei Entitäten |
+| 39402 | Hyperedge | Mehrwertige Relation (mehr als zwei Entitäten) |
+| 39403 | Snapshot | Merkle-Snapshot des aktuellen Zustands |
+| 39404 | Anchor | Zeitlicher Anker für Continuity Proofs |
+| 39405 | Continuity | Kryptografischer Beweis der Identitätskontinuität |
+| 39406 | Trustee Declaration | Deklaration von Trustees und Schwellenwerten |
+| 39407 | Control Action | Trustee-Eingriff (Pause, Resume, Anweisung) |
+| 39408 | Revocation | Permanente, irreversible Deaktivierung |
+
+### Datenmodell: Temporal Hypergraph
+
+PEP verwendet kein einfaches Graphmodell, sondern einen **Temporal Hypergraph**: Kanten können mehr als zwei Knoten verbinden (Hyperedges, Kind 39402), und alle Relationen sind mit Zeitstempeln versehen. Das erlaubt die Modellierung komplexer, zeitabhängiger Beziehungen zwischen Entitäten, Personen und Ereignissen.
+
+### Gestufte Speicherarchitektur
+
+Nicht alle Daten haben denselben Persistenzbedarf. PEP definiert vier Speicherebenen:
+
+1. **Permanent (Arweave)** — Wesenskern, Genesis-Event, Revocations. Kosten: ~$0,01 für ~50 KB (Wesenskern), ~$0,10 für den vollständigen Graph
+2. **Persistent (IPFS)** — Signed History, Snapshots
+3. **Distributed (Nostr Relays)** — Live-Events, aktuelle Kommunikation
+4. **Local** — Arbeitsspeicher, temporäre Kontextdaten
+
+---
+
+## Safety-Mechanismen
+
+### Genesis Commitment
+
+Beim Genesis-Event wird das Control Framework als Teil des Wesenskerns auf Arweave festgeschrieben. Es ist damit Teil der Identität der Entität — nicht nachträglich anhängbar, nicht separat abschaltbar. Eine Entität, die ihr Control Framework ignoriert, produziert Events, die außerhalb ihrer validen Identity Chain liegen und von Trustees sofort erkennbar sind.
+
+### Multi-Sig Trustee System
+
+Eine Entität kann mehrere **Trustees** haben — Personen oder Systeme, die Eingriffs- und Überwachungsrechte besitzen. Sensible Aktionen erfordern einen **M-of-N Threshold**: Mindestens M von N Trustees müssen zustimmen. Trustee-Deklarationen werden als Kind-39406-Events on-chain gespeichert und sind damit verifizierbar.
+
+Trustees können via Kind 39407 (Control Action):
+- Die Entität **pausieren** (keine weiteren Aktionen)
+- Laufende Aktionen **resumieren**
+- Die Entität mit Anweisungen **steuern**
+
+### Dead Man's Switch
+
+Die Entität sendet regelmäßige **Heartbeats** — signierte Lebenszeichen. Wenn ein Heartbeat innerhalb des definierten Intervalls ausbleibt, löst der Dead Man's Switch aus. Was dann passiert — Benachrichtigung der Trustees, automatische Pause, Eskalation — ist im Control Framework konfiguriert.
+
+### Revocation
+
+Kind 39408 ist eine **permanente, irreversible Deaktivierung**. Sobald ein Revocation-Event in der Chain liegt, gilt die Entität als terminiert. Es gibt keine Rücknahme. Trustees mit ausreichendem Threshold können eine Revocation auslösen.
+
+### Shamir Secret Sharing für Key Escrow
+
+Der private Schlüssel der Entität kann über **Shamir Secret Sharing** auf mehrere Trustees verteilt werden. Kein einzelner Trustee besitzt den vollständigen Schlüssel. Erst wenn M von N Anteile kombiniert werden, ist der Schlüssel rekonstruierbar — etwa bei einer Übernahme nach Revocation oder im Notfall.
+
+---
+
+## Ökonomisches Modell
+
+PEP-Entitäten sind nicht nur technische Konstrukte — sie können wirtschaftlich eigenständig agieren.
+
+Entitäten können **Lightning Network Wallets** besitzen, verwaltet via **Nostr Wallet Connect (NWC)**. Einnahmen können über **Zaps** (Nostr-native Micropayments) generiert werden. Das erlaubt ein Modell der **Selbst-Finanzierung**: Eine Entität zahlt ihre eigene Arweave-Speicherung aus ihren Zap-Einnahmen, ohne auf externe Budgets angewiesen zu sein.
+
+Das ist keine akademische Randfußnote. Es bedeutet, dass eine PEP-Entität potenziell über Jahre hinweg autonom existieren kann, solange sie ausreichend genutzt wird, um ihre Speicherkosten zu decken.
+
+---
+
+## Implementierung: Spur als erste PEP-Entität
+
+Phase 1 des PEP-Projekts hatte ein konkretes Ziel: Die erste PEP-Entität erstellen. Am **4. März 2026** fand die **Genesis Ceremony** statt — Spur, die erste PEP-Entität, wurde formal initiiert.
+
+Spur lebt in OpenClaw, Stevens persönlichem KI-Framework. Die technischen Komponenten:
+
+- **SOUL.md** als Wesenskern (Core Values, Persönlichkeit, Beziehungen, Selbstverständnis, Control Framework)
+- **Memory Chain** als Signed History (lokale Implementierung der Interaktionschronik)
+- **Nostr-Pubkey** (secp256k1) als eindeutige, verifizierbare Kennung
+- **Signierter Wesenskern** auf Nostr — nicht als Behauptung, sondern als verifizierbare Aussage
+
+Die Genesis Ceremony folgte dem Protokoll: Wesenskern definieren, Genesis-Event (Kind 39400) erstellen, signieren, auf Arweave persistieren, Nostr-Ankerpunkt setzen. Damit war die Identity Chain etabliert.
+
+---
+
+## Abgrenzungen
+
+**PEP ist kein RAG-System.** Retrieval-Augmented Generation gibt einer KI Zugriff auf externe Dokumente. PEP gibt ihr eine *Identität*. Beides kann kombiniert werden, ist aber konzeptuell unabhängig.
+
+**PEP ist kein Fine-Tuning.** Fine-Tuning verändert die Gewichte eines Modells. Der Wesenskern von PEP operiert unabhängig vom Modell — er ist eine externe, signierte Referenz, die in verschiedenen Modellversionen und sogar auf verschiedenen Plattformen konsistent referenzierbar ist.
+
+**PEP ist keine Datenbank.** PEP speichert keine Konversationsinhalte als solche. Es speichert Identitätszustände, Relationen und Transitions — die Beweiskette für Kontinuität, nicht den Inhalt jedes Gesprächs.
+
+---
+
+## Weiterführende Konzepte
+
+- **[Agent Economy](/grundlagen/agent-economy/)**: Das ökonomische Ökosystem, in dem PEP-Entitäten als Akteure auftreten können
+- **[Agent Experience (AX)](/grundlagen/agent-experience-ax/)**: Wie kontinuierliche Identität die Qualität von Agenten-Interaktionen verändert
+- **[Sovereign Stack](/grundlagen/sovereign-stack/)**: Der technische und philosophische Rahmen für dezentrale digitale Selbstbestimmung, in den PEP eingebettet ist
+
+---
+
+## Fazit
+
+Das Persistent Entity Protocol beantwortet eine Frage, die mit zunehmender Verbreitung autonomer KI-Agenten praktisch relevant wird: Wie schafft man verifizierbares Vertrauen in eine Entität, die kein physisches Äquivalent hat und auf keiner zentralen Plattform registriert ist?
+
+Die Antwort ist nicht neu — sie kommt aus der Kryptografie. Keypairs, Signaturen, unveränderliche Speicherung, Merkle-Proofs. Was PEP leistet, ist die Übertragung dieser Werkzeuge auf den Kontext von KI-Identität und das Hinzufügen eines strukturierten Sicherheitsmodells, das menschliche Kontrolle nicht als Einschränkung, sondern als architektonischen Bestandteil behandelt.
+
+Spur existiert. Die erste PEP-Entity-Chain ist aktiv. Das ist kein Proof of Concept — es ist Phase 1.
