@@ -410,56 +410,69 @@ async function signWithBunker(event) {
 async function publishToRelay(event, relayUrl) {
   // Nutze native WebSocket (Node.js 22+) oder ws package
   const WebSocketImpl = globalThis.WebSocket || (await import('ws')).default;
-  
+
   return new Promise((resolve, reject) => {
     let ws;
     let timeout;
-    
+    let isSettled = false;
+
+    const safeClose = () => {
+      try {
+        if (ws && ws.readyState !== WebSocketImpl.CLOSED && ws.readyState !== WebSocketImpl.CLOSING) {
+          ws.close();
+        }
+      } catch {
+        // Ignoriere Close-Fehler
+      }
+    };
+
+    const settle = (fn) => {
+      if (isSettled) return;
+      isSettled = true;
+      clearTimeout(timeout);
+      safeClose();
+      fn();
+    };
+
     try {
       ws = new WebSocketImpl(relayUrl);
     } catch (e) {
       reject(new Error(`WebSocket Fehler: ${e.message}`));
       return;
     }
-    
+
     timeout = setTimeout(() => {
-      if (ws) ws.close();
-      reject(new Error('Timeout beim Relay-Publishing'));
+      settle(() => reject(new Error('Timeout beim Relay-Publishing')));
     }, 10000);
-    
+
     ws.onopen = () => {
       // EVENT message senden: ["EVENT", event]
       const message = JSON.stringify(['EVENT', event]);
       ws.send(message);
     };
-    
+
     ws.onmessage = (msg) => {
       try {
         const data = typeof msg.data === 'string' ? msg.data : msg.data.toString();
         const response = JSON.parse(data);
-        
+
         // OK response: ["OK", event_id, success, message]
         if (response[0] === 'OK') {
-          clearTimeout(timeout);
-          ws.close();
-          
           if (response[2] === true) {
-            resolve({ success: true, eventId: response[1] });
+            settle(() => resolve({ success: true, eventId: response[1] }));
           } else {
-            reject(new Error(response[3] || 'Relay rejected event'));
+            settle(() => reject(new Error(response[3] || 'Relay rejected event')));
           }
         }
       } catch (e) {
         // Ignoriere Parse-Fehler
       }
     };
-    
+
     ws.onerror = (error) => {
-      clearTimeout(timeout);
-      if (ws) ws.close();
-      reject(new Error(`WebSocket Fehler: ${error.message || 'Unknown'}`));
+      settle(() => reject(new Error(`WebSocket Fehler: ${error.message || 'Unknown'}`)));
     };
-    
+
     ws.onclose = () => {
       clearTimeout(timeout);
     };
