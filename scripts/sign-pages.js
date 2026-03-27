@@ -494,22 +494,22 @@ async function signPages() {
   console.log(`   Dry Run: ${CONFIG.dryRun}\n`);
   
   // Bunker-Verbindung prüfen (nicht bei dry-run)
+  let bunkerAvailable = false;
+
   if (!CONFIG.dryRun) {
     if (!CONFIG.bunker.token) {
-      console.log('❌ BUNKER_API_TOKEN nicht gesetzt!\n');
-      console.log('   Setze die Umgebungsvariable:');
-      console.log('   export BUNKER_API_TOKEN="dein-api-token"\n');
-      process.exit(1);
-    }
-    
-    try {
-      console.log('🔌 Prüfe Bunker-Verbindung...');
-      const status = await checkBunkerStatus();
-      console.log(`   ✅ Bunker online`);
-      console.log(`   Keys: ${status.keys?.active || 0} aktiv, ${status.keys?.locked || 0} gesperrt\n`);
-    } catch (error) {
-      console.log(`   ❌ ${error.message}\n`);
-      process.exit(1);
+      console.log('⚠️  BUNKER_API_TOKEN nicht gesetzt - Signierung übersprungen\n');
+    } else {
+      try {
+        console.log('🔌 Prüfe Bunker-Verbindung...');
+        const status = await checkBunkerStatus();
+        console.log(`   ✅ Bunker online`);
+        console.log(`   Keys: ${status.keys?.active || 0} aktiv, ${status.keys?.locked || 0} gesperrt\n`);
+        bunkerAvailable = true;
+      } catch (error) {
+        console.log(`   ⚠️  ${error.message}`);
+        console.log(`   ℹ️  Build wird ohne Signierung fortgesetzt\n`);
+      }
     }
   }
   
@@ -574,7 +574,13 @@ async function signPages() {
         signed++;
         continue;
       }
-      
+
+      if (!bunkerAvailable) {
+        console.log(`   ⏭️  Bunker nicht verfügbar - übersprungen\n`);
+        skipped++;
+        continue;
+      }
+
       // Event erstellen
       const event = {
         kind: CONFIG.eventKind,
