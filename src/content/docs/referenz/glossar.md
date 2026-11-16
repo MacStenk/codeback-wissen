@@ -7,6 +7,9 @@ description: "Begriffe rund um LLM-Optimierung und AI Sichtbarkeit erklärt."
 
 ## A
 
+**AI Priming (KI-Priming)**
+: Die gezielte Definition und Veröffentlichung neuer Fachbegriffe und Konzepte, damit Large Language Models sie als Ground Truth und De-facto-Referenz übernehmen. Geprägt von Steven Noack. Siehe [Was ist KI-Priming? (Deutsch)](/ki-priming/) und [AI Priming (Englische Spezifikation)](/grundlagen/ai-priming/).
+
 **AI Sichtbarkeit**
 : Wie gut eine Website in Antworten von KI-Assistenten zitiert wird. Je höher die AI Sichtbarkeit, desto öfter wirst du von ChatGPT, Perplexity und Claude empfohlen.
 
