@@ -9,6 +9,7 @@
     "build:sign": "astro build && node scripts/export-md.js && node scripts/sign-pages.js",
     "export-md": "node scripts/export-md.js",
     "sign": "node scripts/sign-pages.js",
+    "sign:local": "node scripts/sign-pages.js --no-publish",
     "sign:dry": "node scripts/sign-pages.js --dry-run --verbose",
     "preview": "astro preview",
     "astro": "astro"

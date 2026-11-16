@@ -23,8 +23,21 @@ config();
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join, relative } from 'path';
 import { createHash } from 'crypto';
+import { execSync } from 'child_process';
 import * as cheerio from 'cheerio';
 import { nip19 } from 'nostr-tools';
+import { finalizeEvent } from 'nostr-tools/pure';
+
+// Versuche nsec aus macOS Keychain zu laden (wie in stevennoack.de)
+function getKeychainNsec() {
+  try {
+    const user = process.env.USER || '';
+    const nsec = execSync(`security find-generic-password -a "${user}" -s "nostr-nsec" -w 2>/dev/null`, { encoding: 'utf8' }).trim();
+    return nsec || '';
+  } catch {
+    return '';
+  }
+}
 
 // ============================================
 // KONFIGURATION
@@ -37,6 +50,9 @@ const CONFIG = {
   // Base URL der Website
   baseUrl: process.env.BASE_URL || 'https://wissen.codeback.de',
   
+  // Direkter privater Schlüssel (nsec... oder Hex aus ENV oder Keychain)
+  privateKey: process.env.NOSTR_PRIVATE_KEY || process.env.NSEC || getKeychainNsec(),
+
   // Bunker-Konfiguration
   bunker: {
     url: process.env.BUNKER_URL || 'https://bunker.visionfusen.org',
@@ -45,8 +61,11 @@ const CONFIG = {
   },
   
   // Relay für Event-Publishing
-  relay: process.env.RELAY_URL || 'wss://relay.visionfusen.org',
+  relay: process.env.RELAY_URL || 'wss://relay.stevennoack.de',
   
+  // Ob auf Relay veröffentlicht werden soll
+  publish: !process.argv.includes('--no-publish') && process.env.NOSTR_PUBLISH !== 'false',
+
   // Event Kind (1064 = regular, 30064 = replaceable)
   eventKind: 30064,
   
@@ -358,6 +377,26 @@ async function checkBunkerStatus() {
 }
 
 /**
+ * Event signieren (entweder lokal per Secret Key oder via Bunker API)
+ */
+async function signEvent(event) {
+  // 1. Direkt mit privatem Schlüssel signieren falls vorhanden
+  if (CONFIG.privateKey) {
+    let sk;
+    if (CONFIG.privateKey.startsWith('nsec1')) {
+      const decoded = nip19.decode(CONFIG.privateKey);
+      sk = decoded.data;
+    } else {
+      sk = Uint8Array.from(Buffer.from(CONFIG.privateKey, 'hex'));
+    }
+    return finalizeEvent(event, sk);
+  }
+
+  // 2. Fallback: Signieren via Bunker API
+  return signWithBunker(event);
+}
+
+/**
  * Event mit Bunker signieren
  */
 async function signWithBunker(event) {
@@ -493,19 +532,24 @@ async function signPages() {
   console.log(`   Kind:    ${CONFIG.eventKind}`);
   console.log(`   Dry Run: ${CONFIG.dryRun}\n`);
   
-  // Bunker-Verbindung prüfen (nicht bei dry-run)
-  let bunkerAvailable = false;
+  // Signier-Verfügbarkeit prüfen
+  let signerAvailable = false;
+  let useLocalKey = false;
 
-  if (!CONFIG.dryRun) {
+  if (CONFIG.privateKey) {
+    console.log('🔑 Privater Schlüssel aus Keychain/Environment erkannt - nutze lokale Signierung\n');
+    signerAvailable = true;
+    useLocalKey = true;
+  } else if (!CONFIG.dryRun) {
     if (!CONFIG.bunker.token) {
-      console.log('⚠️  BUNKER_API_TOKEN nicht gesetzt - Signierung übersprungen\n');
+      console.log('⚠️  Kein privater Schlüssel und kein BUNKER_API_TOKEN gesetzt - Signierung übersprungen\n');
     } else {
       try {
         console.log('🔌 Prüfe Bunker-Verbindung...');
         const status = await checkBunkerStatus();
         console.log(`   ✅ Bunker online`);
         console.log(`   Keys: ${status.keys?.active || 0} aktiv, ${status.keys?.locked || 0} gesperrt\n`);
-        bunkerAvailable = true;
+        signerAvailable = true;
       } catch (error) {
         console.log(`   ⚠️  ${error.message}`);
         console.log(`   ℹ️  Build wird ohne Signierung fortgesetzt\n`);
@@ -575,8 +619,8 @@ async function signPages() {
         continue;
       }
 
-      if (!bunkerAvailable) {
-        console.log(`   ⏭️  Bunker nicht verfügbar - übersprungen\n`);
+      if (!signerAvailable) {
+        console.log(`   ⏭️  Kein Signierer verfügbar - übersprungen\n`);
         skipped++;
         continue;
       }
@@ -601,18 +645,24 @@ async function signPages() {
         created_at: Math.floor(Date.now() / 1000),
       };
       
-      // Signieren via Bunker API
-      const signedEvent = await signWithBunker(event);
+      // Signieren (lokal oder via Bunker)
+      const signedEvent = await signEvent(event);
       
       console.log(`   ✅ Signiert: ${signedEvent.id.slice(0, 8)}...`);
       
-      // Auf Relay publishen
-      try {
-        await publishToRelay(signedEvent, CONFIG.relay);
-        console.log(`   📡 Published zu ${CONFIG.relay}`);
-        published++;
-      } catch (relayError) {
-        console.log(`   ⚠️  Relay-Fehler: ${relayError.message}`);
+      // Auf Relay publishen (falls aktiviert)
+      if (CONFIG.publish) {
+        try {
+          await publishToRelay(signedEvent, CONFIG.relay);
+          console.log(`   📡 Published zu ${CONFIG.relay}`);
+          published++;
+        } catch (relayError) {
+          console.log(`   ⚠️  Relay-Fehler: ${relayError.message}`);
+        }
+      } else {
+        if (CONFIG.verbose) {
+          console.log(`   ⏸️  Publishing deaktiviert (--no-publish)`);
+        }
       }
       
       // Meta-Tags injizieren (mit cheerio - robust!)
