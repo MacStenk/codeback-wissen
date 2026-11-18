@@ -145,8 +145,8 @@ Führungskräfte im Mittelstand, die...
 
 Neben gutem Content brauchst du:
 
-1. **[Schema.org Markup](/grundlagen/schema-org-fuer-ki/)** - Sagt der KI maschinenlesbar wer du bist
-2. **[llms.txt](/anleitungen/llms-txt-erstellen/)** - Übersicht deiner wichtigsten Inhalte
+1. **Text im HTML**: Deine Inhalte stehen ohne JavaScript im Quelltext
+2. **Kein noindex**: Deine Seiten dürfen in den Suchindex
 3. **[robots.txt prüfen](/anleitungen/robots-txt-fuer-ki/)** - Sicherstellen dass KI dich crawlen darf
 
 ## Konkrete Schritte für diese Woche
@@ -167,9 +167,9 @@ Neben gutem Content brauchst du:
 - Call-to-Action
 
 ### Tag 4: Technisches
-- llms.txt erstellen
+- Prüfen, ob der Text ohne JavaScript im Quelltext steht
 - robots.txt prüfen
-- Schema.org (oder prüfen lassen)
+- [LLM-Checker](https://codeback.de/llm-checker/) laufen lassen
 
 ### Tag 5: Prüfen
 - [LLM Readability Check](/tools/llm-readability-checker/)
@@ -197,4 +197,4 @@ Ja. Die Prinzipien gelten für Berater, Therapeuten, Trainer, Experten aller Art
 
 1. [Prüfe deine aktuelle Sichtbarkeit](/tools/ai-radar-einfuehrung/)
 2. [Überarbeite deine Website](/anleitungen/website-optimieren/)
-3. [Erstelle deine llms.txt](/anleitungen/llms-txt-erstellen/)
+3. [Prüfe deine Seite mit dem LLM-Checker](https://codeback.de/llm-checker/)

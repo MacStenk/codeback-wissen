@@ -75,10 +75,10 @@ Die KI zitiert Websites die:
 - Für wen?
 - Wo?
 
-**Strukturierte Daten haben**
-- Schema.org Markup
+**Lesbar ausliefern**
+- Text ohne JavaScript im HTML
 - Semantisches HTML
-- llms.txt
+- Such-Bots in der robots.txt erlaubt
 
 **Direkt zitierbar sind**
 - Konkrete Aussagen statt Marketing-Phrasen
@@ -109,11 +109,11 @@ Schönes Design hilft nicht wenn die Daten fehlen die Maschinen brauchen.
 **Klare Expertise zeigen**
 "Maria Müller ist Business Coach für Führungskräfte im Mittelstand. ICF-zertifiziert, 15 Jahre Erfahrung."
 
-**Schema.org implementieren**
-Sag der KI maschinenlesbar wer du bist und was du machst.
+**Text ohne JavaScript ausliefern**
+Sprachmodelle lesen, was im HTML steht. Inhalte, die erst per JavaScript erscheinen, sehen die großen KI-Crawler nicht.
 
-**llms.txt erstellen**
-Eine Datei die KI-Systemen direkt erklärt was auf deiner Website wichtig ist.
+**Such-Bots zulassen**
+PerplexityBot und andere Such-Bots müssen in robots.txt und Firewall erlaubt sein.
 
 **Zitierbare Sätze schreiben**
 Jeder Absatz sollte als Antwort auf eine Frage funktionieren können.
@@ -138,7 +138,7 @@ Nein. Google bleibt wichtig. Aber wer nur für Google optimiert, verpasst den Wa
 
 ### Kann ich für beides optimieren?
 
-Ja. Viele Maßnahmen helfen beiden: Klare Struktur, guter Content, schnelle Seiten. Schema.org und llms.txt sind zusätzlich nötig.
+Ja. Viele Maßnahmen helfen beiden: Klare Struktur, guter Content, schnelle Seiten. Für Perplexity muss zusätzlich PerplexityBot die Seite abrufen dürfen.
 
 ### Wann wird Perplexity wichtiger als Google?
 
@@ -148,5 +148,5 @@ Niemand weiß es genau. Aber wer jetzt anfängt zu optimieren, hat einen Vorspru
 
 1. [Verstehe die Perplexity Ranking Faktoren](/grundlagen/perplexity-ranking-faktoren/)
 2. [Prüfe deine aktuelle Sichtbarkeit](/tools/ai-radar-einfuehrung/)
-3. [Implementiere Schema.org](/grundlagen/schema-org-fuer-ki/)
-4. [Erstelle deine llms.txt](/anleitungen/llms-txt-erstellen/)
+3. [Erlaube Such-Bots in der robots.txt](/anleitungen/robots-txt-fuer-ki/)
+4. [Prüfe deine Seite mit dem LLM-Checker](https://codeback.de/llm-checker/)

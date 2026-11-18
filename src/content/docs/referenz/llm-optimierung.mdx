@@ -127,11 +127,10 @@ LLMs verarbeiten strukturierte Inhalte besser als Fließtext. Nutzen Sie:
 - **Bullet-Points** für Kernaussagen
 - **TL;DR-Blöcke** am Artikelanfang
 
-### 6. Schema.org-Markup implementieren
+### 6. Optional: Schema.org für Google
 
-Strukturierte Daten helfen LLMs, Ihre Inhalte semantisch zu verstehen. Besonders relevant sind:
+Für KI-Antworten ist Schema.org nach heutigem Stand nicht nötig ([Belege](https://codeback.de/llm-optimierung/)). Für Rich Results in der Google-Suche sind diese Typen verbreitet:
 
-- **FAQPage-Schema** für häufig gestellte Fragen
 - **Article-Schema** für Blogbeiträge
 - **HowTo-Schema** für Anleitungen
 - **Organization-Schema** für Unternehmensinfos
@@ -175,7 +174,7 @@ Nutzen Sie diese Checkliste vor jeder Veröffentlichung:
     - [ ] Keine generischen Marketing-Floskeln am Anfang?
   </TabItem>
   <TabItem label="Technik">
-    - [ ] FAQPage-Schema implementiert?
+    - [ ] FAQ-Abschnitt als sichtbarer Text vorhanden?
     - [ ] XML-Sitemap aktuell?
     - [ ] robots.txt erlaubt OpenAI-Bot und andere KI-Crawler?
     - [ ] Ladezeit unter 3 Sekunden?
@@ -254,7 +253,7 @@ Der Markt für KI-Suche wächst exponentiell. Einige Prognosen:
 3. **Technische Implementierung**
    
    Die technische Basis muss stimmen:
-   - Schema.org-Markup: Implementieren Sie FAQPage-Schema für alle FAQ-Bereiche
+   - Text ohne JavaScript: Liefern Sie die Inhalte im HTML aus, die großen KI-Crawler führen kein JavaScript aus
    - Crawler-Zugang: Stellen Sie sicher, dass GPTBot, PerplexityBot und andere KI-Crawler in Ihrer robots.txt erlaubt sind
    - Sitemap-Aktualität: Halten Sie Ihre XML-Sitemap auf dem neuesten Stand
    - Ladezeit: Optimieren Sie Core Web Vitals für schnelle Auslieferung

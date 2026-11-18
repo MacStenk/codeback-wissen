@@ -11,102 +11,61 @@ import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/
 
 - Prüft: Ist deine Website bereit für ChatGPT, Perplexity, Claude?
 - Score: 0-100 (je höher, desto besser)
-- Bereiche: Technik, Struktur, Meta-Daten, LLM-spezifisch
+- Sechs Messungen: robots.txt, Text ohne JavaScript, Erreichbarkeit, Sperr-Anweisungen, Antwortzeit, Titel und H1
 - Kostenlos und ohne Anmeldung
 - Ergebnis in Sekunden
 
 ## Was wird geprüft
 
 <CardGrid>
-  <Card title="1. Robots" icon="setting">
-    Dürfen KI-Crawler rein?
+  <Card title="1. robots.txt (25 Punkte)" icon="setting">
+    Dürfen die Such- und Nutzer-Bots rein?
     
-    GPTBot, ClaudeBot, PerplexityBot erlaubt?
+    OAI-SearchBot, Claude-SearchBot, PerplexityBot, Googlebot, Bingbot, ChatGPT-User, Claude-User, Perplexity-User
   </Card>
-  <Card title="2. llms.txt" icon="document">
-    Gibt es eine llms.txt?
+  <Card title="2. Text ohne JavaScript (25 Punkte)" icon="open-book">
+    Steht der Inhalt schon im ausgelieferten HTML?
     
-    Vorhanden? Vollständig? Strukturiert?
+    Die großen KI-Crawler führen kein JavaScript aus.
   </Card>
-  <Card title="3. Schema.org" icon="list-format">
-    Strukturierte Daten?
+  <Card title="3. Erreichbar (20 Punkte)" icon="approve-check">
+    Antwortet die Seite mit Status 200?
     
-    JSON-LD vorhanden? Welche Typen?
+    Ohne Login-Wand und ohne Weiterleitungsschleife.
   </Card>
-  <Card title="4. Content" icon="open-book">
-    Ist der Content zitierbar?
+  <Card title="4. Keine Sperr-Anweisungen (20 Punkte)" icon="warning">
+    Kein noindex, nosnippet, max-snippet:0 oder none?
     
-    Struktur, Klarheit, Meta-Daten
+    Geprüft im Meta-Tag robots und im Header X-Robots-Tag.
   </Card>
 </CardGrid>
 
-## Die Prüfbereiche im Detail
+Dazu kommen je 5 Punkte für Antwortzeit und Größe sowie für Titel und H1-Überschrift.
 
-<Tabs>
-  <TabItem label="Robots" icon="setting">
-Prüft ob KI-Crawler deine Website besuchen dürfen.
+## Die Messungen im Detail
 
-| Prüfpunkt | Gut | Schlecht |
-|-----------|-----|----------|
-| robots.txt | `Allow: /` | `Disallow: /` |
-| GPTBot | Erlaubt | Blockiert |
-| ClaudeBot | Erlaubt | Blockiert |
-| PerplexityBot | Erlaubt | Blockiert |
+| Messung | Punkte | Volle Punkte, wenn |
+|---------|--------|--------------------|
+| robots.txt lässt die KI-Bots herein | 25 | alle acht Such- und Nutzer-Bots erlaubt sind (anteilig pro Bot) |
+| Inhalt ohne JavaScript lesbar | 25 | mindestens 500 Zeichen Text im HTML stehen (ab 150 Zeichen 13 Punkte) |
+| Erreichbar | 20 | die Seite mit Status 200 antwortet, ohne Login-Wand |
+| Keine Sperr-Anweisungen | 20 | weder noindex noch nosnippet, max-snippet:0 oder none gesetzt ist |
+| Antwortzeit und Größe | 5 | die Seite in unter 5 Sekunden lädt (3) und das HTML unter 2 MB bleibt (2) |
+| Titel und Überschrift | 5 | ein Title-Tag (3) und eine H1 (2) vorhanden sind |
 
-**Score 100:** Alle Crawler erlaubt  
-**Score 0:** Alle Crawler blockiert
-  </TabItem>
-  <TabItem label="llms.txt" icon="document">
-Prüft ob und wie gut deine llms.txt ist.
-
-| Prüfpunkt | Punkte |
-|-----------|--------|
-| llms.txt existiert | +30 |
-| Enthält Beschreibung | +20 |
-| Enthält Kontakt | +15 |
-| Enthält Seitenlinks | +15 |
-| Gut strukturiert | +20 |
-
-**Score 0:** Keine llms.txt vorhanden
-  </TabItem>
-  <TabItem label="Schema.org" icon="list-format">
-Prüft strukturierte Daten.
-
-| Prüfpunkt | Punkte |
-|-----------|--------|
-| JSON-LD vorhanden | +30 |
-| Person oder Organization | +25 |
-| Kontaktdaten | +15 |
-| Service/Angebote | +15 |
-| Breadcrumbs | +15 |
-
-**Score 0:** Kein Schema.org gefunden
-  </TabItem>
-  <TabItem label="Content" icon="open-book">
-Prüft die Content-Qualität für KI.
-
-| Prüfpunkt | Punkte |
-|-----------|--------|
-| Meta-Title vorhanden | +20 |
-| Meta-Description | +20 |
-| H1 Überschrift | +15 |
-| Klare Struktur (H2, H3) | +20 |
-| Ausreichend Content | +25 |
-  </TabItem>
-</Tabs>
+<Aside type="note" title="Nur zur Info, ohne Punkte">
+HTTPS, llms.txt, Schema.org, Trainings-Bots (GPTBot, ClaudeBot, Google-Extended, CCBot), noarchive und Sperren durch Firewall oder CDN zeigt der Checker an, sie zählen aber nicht in den Score. Google nutzt llms.txt nicht und braucht Schema.org für KI-Antworten nicht ([Belege](https://codeback.de/llm-optimierung/)).
+</Aside>
 
 ## Gesamt-Score
 
-Der Gesamt-Score ist der Durchschnitt aller Bereiche:
+Der Gesamt-Score ist die Summe der sechs Messungen, höchstens 100. Er wird auf 40 gedeckelt, wenn eine dieser Bedingungen zutrifft:
 
-```
-Robots:   100
-llms.txt:  65
-Schema:    90
-Content:   75
-─────────────
-Gesamt:    82
-```
+- robots.txt sperrt alle KI-Bots
+- Ohne JavaScript steht kein lesbarer Text im HTML (0 Punkte bei dieser Messung)
+- Die Seite trägt noindex
+
+In diesen Fällen können Sprachmodelle die Seite praktisch nicht nutzen, egal wie gut der Rest ist.
 
 ## Score-Interpretation
 
@@ -121,45 +80,47 @@ Gesamt:    82
 ## Beispiel-Ergebnisse
 
 <Tabs>
-  <TabItem label="Gut optimiert" icon="approve-check">
+  <TabItem label="Gut lesbar" icon="approve-check">
 ```
 Domain: example-coach.de
-Gesamt-Score: 84
+Gesamt-Score: 100
 
-Robots:     100  Alle Crawler erlaubt
-llms.txt:    65  Vorhanden, ausbaufähig
-Schema:      90  Person + Service
-Content:     75  Gute Struktur
-
-Empfehlung: llms.txt erweitern
+robots.txt:          25  Alle Such- und Nutzer-Bots erlaubt
+Ohne JavaScript:     25  Text steht im HTML
+Erreichbar:          20  Status 200
+Sperr-Anweisungen:   20  Keine
+Zeit und Größe:       5  Schnell, klein
+Titel und H1:         5  Vorhanden
 ```
   </TabItem>
-  <TabItem label="WordPress Standard" icon="warning">
+  <TabItem label="Ein Bot gesperrt" icon="warning">
 ```
 Domain: wordpress-coach.de
-Gesamt-Score: 52
+Gesamt-Score: 97
 
-Robots:     100  OK
-llms.txt:     0  Fehlt komplett
-Schema:      48  Nur Basics via Plugin
-Content:     60  Meta-Daten unvollständig
+robots.txt:          22  PerplexityBot gesperrt
+Ohne JavaScript:     25  Text steht im HTML
+Erreichbar:          20  Status 200
+Sperr-Anweisungen:   20  Keine
+Zeit und Größe:       5  Schnell, klein
+Titel und H1:         5  Vorhanden
 
-Empfehlung: llms.txt erstellen, 
-            Schema.org erweitern
+Empfehlung: PerplexityBot in der robots.txt erlauben
 ```
   </TabItem>
-  <TabItem label="Problematisch" icon="close">
+  <TabItem label="Nur JavaScript" icon="close">
 ```
 Domain: problem-site.de
-Gesamt-Score: 23
+Gesamt-Score: 40 (gedeckelt, Summe 75)
 
-Robots:      50  GPTBot blockiert
-llms.txt:     0  Fehlt
-Schema:       0  Fehlt
-Content:     40  Kaum Struktur
+robots.txt:          25  Alle erlaubt
+Ohne JavaScript:      0  Kein Text im HTML
+Erreichbar:          20  Status 200
+Sperr-Anweisungen:   20  Keine
+Zeit und Größe:       5  Schnell, klein
+Titel und H1:         5  Vorhanden
 
-Empfehlung: Grundlagen fehlen,
-            komplett überarbeiten
+Empfehlung: Inhalte serverseitig ausliefern
 ```
   </TabItem>
 </Tabs>
@@ -174,9 +135,9 @@ Empfehlung: Grundlagen fehlen,
    
    [Anleitung: robots.txt für KI →](/anleitungen/robots-txt-fuer-ki/)
 
-2. **llms.txt erstellen**
+2. **Text ohne JavaScript ausliefern**
    
-   [Anleitung: llms.txt erstellen →](/anleitungen/llms-txt-erstellen/)
+   [Website optimieren →](/anleitungen/website-optimieren/)
 
 3. **Erneut prüfen**
 
@@ -188,9 +149,9 @@ Empfehlung: Grundlagen fehlen,
 1. **Schwächsten Bereich identifizieren**
 
 2. **Gezielt verbessern**
-   - llms.txt schwach? → [Anleitung](/anleitungen/llms-txt-erstellen/)
-   - Schema.org schwach? → [Anleitung](/grundlagen/schema-org-fuer-ki/)
-   - Content schwach? → [Website optimieren](/anleitungen/website-optimieren/)
+   - robots.txt sperrt Such-Bots? → [Anleitung](/anleitungen/robots-txt-fuer-ki/)
+   - noindex oder nosnippet gesetzt? → Meta-Tag robots und Header X-Robots-Tag prüfen
+   - Zu wenig Text ohne JavaScript? → [Website optimieren](/anleitungen/website-optimieren/)
 
 3. **Erneut prüfen**
 
@@ -221,13 +182,12 @@ Nach jeder größeren Änderung und alle 4-8 Wochen zur Kontrolle.
 
 Nein. Der Score zeigt dass du technisch bereit bist. Ob du zitiert wirst, hängt auch von Content-Relevanz und Wettbewerb ab. Für den Reality-Check nutze [AI Radar](/tools/ai-radar-einfuehrung/).
 
-### Warum hat meine Seite einen niedrigen Content-Score?
+### Warum hat meine Seite wenig Punkte bei „Inhalt ohne JavaScript lesbar“?
 
-Häufige Gründe:
-- Meta-Description fehlt
-- Keine klare H1-Überschrift
-- Zu wenig strukturierter Text
-- Keine H2/H3 Unterüberschriften
+Der Checker zählt den sichtbaren Text im ausgelieferten HTML, nachdem Skripte und Styles entfernt sind. Ab 500 Zeichen gibt es volle Punkte. Häufige Gründe für wenig Text:
+- Die Seite wird erst im Browser per JavaScript aufgebaut (Single-Page-App ohne Server-Rendering)
+- Inhalte stecken in Bildern statt im Text
+- Die Seite enthält kaum Text
 
 ### Kann ich den Score manipulieren?
 

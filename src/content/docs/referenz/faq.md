@@ -27,7 +27,7 @@ KI-Crawler sind aktiver als Google. Erste Veränderungen kannst du nach 2-4 Woch
 
 ### Muss ich programmieren können?
 
-Für die Grundlagen nicht. llms.txt ist eine einfache Textdatei. Schema.org kann über WordPress-Plugins oder Website-Baukästen implementiert werden.
+Für die Grundlagen nicht. robots.txt und Texte bearbeitest du selbst. Schema.org (optional, für Google) kann über WordPress-Plugins oder Website-Baukästen implementiert werden.
 
 ### Funktioniert das mit WordPress?
 
@@ -45,7 +45,7 @@ Für die ersten Schritte nicht. Für fortgeschrittene Schema.org-Implementierung
 
 ### Was kostet LLM-Optimierung?
 
-Die Grundlagen (llms.txt, robots.txt prüfen, Content verbessern) kosten nur deine Zeit. Tools wie der LLM Readability Checker sind kostenlos. Professionelle Unterstützung gibt es zu verschiedenen Preisen.
+Die Grundlagen (robots.txt prüfen, Content verbessern) kosten nur deine Zeit. Tools wie der LLM Readability Checker sind kostenlos. Professionelle Unterstützung gibt es zu verschiedenen Preisen.
 
 ### Gibt es kostenlose Tools?
 
@@ -63,7 +63,7 @@ Mit den [Ersten Schritten zur AI-Sichtbarkeit](/grundlagen/erste-schritte-ai-sic
 
 ### Wie lange dauert die Umsetzung?
 
-Die Grundlagen (robots.txt, Über-Seite, FAQ, llms.txt) sind in 2-4 Stunden machbar. Tiefere Optimierung ist ein fortlaufender Prozess.
+Die Grundlagen (robots.txt, Über-Seite, FAQ) sind in 2-4 Stunden machbar. Tiefere Optimierung ist ein fortlaufender Prozess.
 
 ### Kann ich das selbst machen?
 

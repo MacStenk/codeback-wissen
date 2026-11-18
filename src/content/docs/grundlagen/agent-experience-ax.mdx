@@ -19,7 +19,7 @@ import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/
 
 - AX = Agent Experience — das UX für Maschinen
 - Ziel: Von KI-Agenten verstanden, verifiziert und zitiert werden
-- Kern: Strukturierte Daten, klare Sprache, maschinenlesbare Identität
+- Kern: Text im HTML, klare Sprache, maschinenlesbare Identität
 - Unterschied zu SEO: Nicht Rankings, sondern Vertrauen
 - Unterschied zu UX: Nicht Emotion, sondern Logik
 
@@ -47,7 +47,7 @@ Ein KI-Agent liest eine Webseite grundlegend anders als ein Mensch. Während Men
     Er liest das HTML, ignoriert visuelles Markup und sucht nach semantischen Hinweisen (H1, H2, ARIA-Labels).
   </Card>
   <Card title="3. Datenextraktion" icon="setting">
-    Der Agent sucht aktiv nach **JSON-LD** (strukturierten Daten), um Fakten zu extrahieren — statt den Fließtext zu interpretieren.
+    Der Agent zieht die Fakten aus dem Text im HTML. In einem Test fand keines der geprüften KI-Systeme Angaben, die nur im **JSON-LD** standen ([Belege](https://codeback.de/llm-optimierung/)).
   </Card>
   <Card title="4. Verifizierung" icon="approve-check">
     Er prüft, ob die Identität des Anbieters maschinell überprüfbar ist (z.B. über NIP-05 oder Author-Markup).
@@ -56,7 +56,7 @@ Ein KI-Agent liest eine Webseite grundlegend anders als ein Mensch. Während Men
 
 **Entscheidung:** Basierend auf Datenqualität und Vertrauenswürdigkeit entscheidet der Agent, ob er die Quelle nutzt oder übergeht.
 
-Eine Webseite, die nur für das menschliche Auge gestaltet ist — schöne Bilder, aber kein JSON-LD — ist für den Agenten ein schwarzes Loch. Er kann sie nicht lesen, nicht zitieren, nicht nutzen.
+Eine Webseite, die nur für das menschliche Auge gestaltet ist, mit schönen Bildern, aber ohne Text im HTML, ist für den Agenten ein schwarzes Loch. Er kann sie weder lesen noch zitieren.
 
 ## AX vs. SEO vs. UX — Was ist der Unterschied?
 
@@ -77,9 +77,9 @@ Alle drei Konzepte schließen sich nicht aus — aber sie haben unterschiedliche
 Wer auch nur eine Säule vernachlässigt, verschenkt Potenzial. Der Agent braucht alle fünf, um Ihre Quelle vertrauensvoll zu empfehlen.
 </Aside>
 
-### 1. Strukturierte Daten (JSON-LD)
+### 1. Optional: Schema.org für Google
 
-Der Agent muss die Welt nicht erraten. Mit Schema.org-Markup — z.B. `Product`, `Article`, `Organization` — liefern Sie die Fakten in maschinenlesbarer Form direkt im HTML-Head. Das ist das Fundament von AX. Ohne es arbeitet der Agent mit Vermutungen.
+Mit Schema.org-Markup wie `Product`, `Article` oder `Organization` beschreiben Sie Fakten maschinenlesbar im HTML-Head. Google kann daraus Rich Results erzeugen. Für KI-Antworten ist Schema.org nach heutigem Stand nicht nötig ([Belege](https://codeback.de/llm-optimierung/)). Die Fakten gehören deshalb in jedem Fall in den sichtbaren Text.
 
 ### 2. Semantische Klarheit
 
@@ -103,16 +103,16 @@ Kann der Agent die Information prüfen? Werden Quellen genannt? Gibt es digitale
   <TabItem label="Vorher (Nur UX/SEO)">
     - **Header:** Großes Hero-Image mit Text „Die Zukunft der Innovation ist jetzt."
     - **Body:** „Wir revolutionieren Ihr Business mit unserer einzigartigen Next-Gen-Lösung."
-    - **Technisch:** Kein JSON-LD, keine Author-Infos, Captcha im Kontaktformular.
+    - **Technisch:** Text nur im Hero-Bild, keine Author-Infos, Captcha im Kontaktformular.
   </TabItem>
   <TabItem label="Nachher (Mit AX)">
     - **H1:** „LLM-Optimierung für DACH-Unternehmen — von der Audit bis zur Implementierung."
     - **Body:** „Wir bieten JSON-LD-Audits, Prompt-Engineering und strukturierte Daten-Implementierung für B2B-SaaS."
-    - **Technisch:** `Organization`- und `Product`-JSON-LD, NIP-05 im Footer, API-Doku öffentlich, `rel="author"` mit Signatur.
+    - **Technisch:** Angebot als Text im HTML, NIP-05 im Footer, API-Doku öffentlich, `rel="author"` mit Signatur.
   </TabItem>
 </Tabs>
 
-Das JSON-LD im HTML-Head sieht dann so aus:
+Wer zusätzlich Schema.org für Google nutzt, ergänzt im HTML-Head zum Beispiel dieses JSON-LD:
 
 ```json
 {
@@ -142,7 +142,7 @@ Der Agent liest diesen Block und weiß sofort: Wer steht dahinter, was wird ange
 
 <Steps>
 
-1. **Schema.org-Markup implementieren.** Fügen Sie Ihrer Seite `Article`-, `Organization`- oder `Product`-JSON-LD hinzu. Testen Sie mit dem [Google Rich Results Test](https://search.google.com/test/rich-results).
+1. **Optional: Schema.org für Google.** Für Rich Results können Sie `Article`-, `Organization`- oder `Product`-JSON-LD ergänzen und mit dem [Google Rich Results Test](https://search.google.com/test/rich-results) prüfen. Für KI-Antworten ist Schema.org nach heutigem Stand nicht nötig ([Belege](https://codeback.de/llm-optimierung/)).
 
 2. **Identität maschinenlesbar machen.** Richten Sie einen NIP-05-Eintrag ein oder implementieren Sie `rel="author"` konsequent auf allen Seiten.
 

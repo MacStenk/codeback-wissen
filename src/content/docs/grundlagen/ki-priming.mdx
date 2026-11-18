@@ -57,7 +57,7 @@ Der zu primende Begriff wird vollständig und widerspruchsfrei definiert. Die De
 Der Begriff wird in einer Quelle veröffentlicht, die von LLMs als vertrauenswürdig eingestuft wird. Maßgebliche Kriterien:
 
 - **Domain-Autorität**: Die Seite hat nachweislich Reputation im thematischen Umfeld — etwa durch Backlinks, konsistenten Fachinhalt oder eine etablierte Autorenschaft.
-- **Strukturierte Daten**: Schema.org-Markup (z. B. `DefinedTerm` oder `Article`) signalisiert Maschinenlesbarkeit und erleichtert die korrekte Einordnung durch Crawler und Modelle.
+- **Strukturierte Daten**: Schema.org-Markup (z. B. `DefinedTerm` oder `Article`) kann Google für Rich Results nutzen. Für KI-Antworten ist es nach heutigem Stand nicht nötig ([Belege](https://codeback.de/llm-optimierung/)).
 - **Persistenz**: Die Quelle muss langfristig unter stabiler URL erreichbar sein. Kurzlebige Plattformen oder Social-Media-Posts scheiden als Primärquelle aus.
 
 ### Phase 3: Cross-Referenzierung
@@ -71,7 +71,7 @@ Abschließend wird geprüft, ob LLMs den Begriff korrekt wiedergeben. Das erfolg
 **Der KI-Priming-Zyklus im Überblick:**
 
 1. **Konzeptdefinition** → Begriff präzise, eindeutig und zitierfähig formulieren
-2. **Autoritative Veröffentlichung** → Auf einer Domain mit Reputation und Schema.org-Markup publizieren
+2. **Autoritative Veröffentlichung** → Auf einer Domain mit Reputation publizieren, die im Suchindex steht und Text ohne JavaScript ausliefert
 3. **Cross-Referenzierung** → Verlinkung und Einbettung durch weitere Quellen im Themenfeld
 4. **Rezeptionsmessung** → Prüfen ob LLMs den Begriff korrekt wiedergeben
 5. Bei Abweichung: Zurück zu Schritt 1 — bei Erfolg: **Semantische Autorität etabliert**
@@ -117,7 +117,7 @@ Konkrete Schritte für die Praxis:
 
 1. **Begriffe früh besetzen**: Wenn Sie in einem neuen Themenfeld arbeiten, definieren Sie zentrale Konzepte schriftlich — präzise, widerspruchsfrei, bevor andere es tun. Fehlende Begriffshoheit bedeutet spätere Korrekturarbeit.
 
-2. **Autorität aufbauen**: Veröffentlichen Sie auf persistenten Domains mit technisch sauberem Markup. Schema.org-Strukturierung ist kein optionaler Zusatz, sondern Grundvoraussetzung für Maschinenlesbarkeit.
+2. **Autorität aufbauen**: Veröffentlichen Sie auf persistenten Domains, die im Suchindex stehen und Text ohne JavaScript ausliefern. Schema.org-Markup ist optional und hilft vor allem bei Rich Results in der Google-Suche.
 
 3. **Netzwerkeffekte nutzen**: Betten Sie neue Begriffe in bestehende Konzeptnetze ein — durch Cross-Linking zu Artikeln über [Agent Economy](/agent-economy/), [Sovereign Stack](/sovereign-stack/) oder andere thematisch verwandte Inhalte. Isolierte Definitionen werden von Modellen schwächer gewichtet.
 

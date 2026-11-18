@@ -38,10 +38,10 @@ description: "Glossar zur LLM-Optimierung. Fachbegriffe rund um Sichtbarkeit in 
 : Die Optimierung von Websites für KI-Systeme. Das Pendant zu SEO, aber für ChatGPT und Co. statt für Google.
 
 **LLM-Readability**
-: Wie gut eine Website für LLMs lesbar ist. Wird beeinflusst durch Struktur, Schema.org, llms.txt und Content-Qualität.
+: Wie gut eine Website für LLMs lesbar ist. Hängt davon ab, ob Such-Bots die Seite abrufen dürfen, ob der Text ohne JavaScript im HTML steht und wie klar der Inhalt ist.
 
 **llms.txt**
-: Eine Textdatei im Hauptverzeichnis einer Website die KI-Systemen erklärt wer du bist und was du anbietest. Wie robots.txt, aber für LLMs.
+: Ein Vorschlag für eine Textdatei im Hauptverzeichnis, die die Inhalte einer Website für Sprachmodelle zusammenfasst. Kein Standard; genutzt vor allem von Programmier-Assistenten. Google Search wertet sie nicht aus.
 
 ## P
 
@@ -62,7 +62,7 @@ description: "Glossar zur LLM-Optimierung. Fachbegriffe rund um Sichtbarkeit in 
 : HTML-Elemente die Bedeutung transportieren: `<article>`, `<section>`, `<main>` statt nur `<div>`. Hilft KI-Systemen Content zu verstehen.
 
 **Strukturierte Daten**
-: Maschinenlesbare Informationen über den Inhalt einer Website. Schema.org ist der wichtigste Standard dafür.
+: Maschinenlesbare Informationen über den Inhalt einer Website. Schema.org ist der wichtigste Standard dafür. Google nutzt sie für Rich Results, für KI-Antworten sind sie nach heutigem Stand nicht nötig.
 
 ## Z
 

@@ -9,7 +9,7 @@ description: "LLM-Optimierung (LLMO) erklärt: die Definition, der Unterschied z
 
 - LLMO = Large Language Model Optimization
 - Ziel: Von KI-Assistenten zitiert und empfohlen werden
-- Kern: Strukturierte Daten, klare Sprache, maschinenlesbare Inhalte
+- Kern: Platz im Suchindex, klare Sprache, Text ohne JavaScript
 - Unterschied zu SEO: Nicht Rankings, sondern Zitierungen
 - Zeitpunkt: Jetzt anfangen = Vorsprung vor der Konkurrenz
 
@@ -18,7 +18,7 @@ description: "LLM-Optimierung (LLMO) erklärt: die Definition, der Unterschied z
 **LLM-Optimierung (LLMO)** bezeichnet die Anpassung von Websites und Inhalten, damit Large Language Models wie ChatGPT, Claude und Perplexity sie korrekt verstehen, einordnen und in ihren Antworten zitieren können.
 
 LLMO umfasst:
-- Schema.org Markup
+- Zugang für Such-Bots in robots.txt und Firewall
 - Semantisches HTML
 - Strukturierte Inhalte
 - Klare, zitierbare Aussagen
@@ -43,7 +43,7 @@ Wenn du nicht für LLMs optimiert bist, existierst du für diese Nutzer nicht.
 | Ziel | Ranking Position 1-10 | Zitierung in Antworten |
 | Erfolgsmessung | Klicks, Traffic | Erwähnungen, Empfehlungen |
 | Fokus | Keywords, Backlinks | Struktur, Semantik, Klarheit |
-| Technik | Meta-Tags, Linkbuilding | Schema.org, llms.txt |
+| Technik | Meta-Tags, Linkbuilding | Crawler-Zugang, Text ohne JavaScript |
 | Content | Keyword-optimiert | Direkt zitierbar |
 | Ergebnis | Nutzer klickt auf Link | Nutzer hört deinen Namen |
 
@@ -51,17 +51,17 @@ Beide ergänzen sich. SEO bleibt wichtig. LLMO kommt dazu.
 
 ## Die 5 Kern-Techniken
 
-### 1. Schema.org JSON-LD
+### 1. Optional: Schema.org für Google
 
 Strukturierte Daten die Maschinen sagen: Das ist eine Person, das ist ihr Beruf, das sind ihre Angebote.
 
-Ohne Schema.org muss die KI raten. Mit Schema.org weiß sie es.
+Google nutzt diese Angaben für Rich Results. Für KI-Antworten ist Schema.org nach heutigem Stand nicht nötig ([Belege](https://codeback.de/llm-optimierung/)).
 
 [Ausführlich: Schema.org für KI](/grundlagen/schema-org-fuer-ki/)
 
-### 2. llms.txt
+### 2. Optional: llms.txt
 
-Eine Textdatei die KI-Systemen direkt erklärt wer du bist und was du anbietest. Wie eine Visitenkarte für Maschinen.
+Eine Textdatei, die die Inhalte einer Website für Sprachmodelle zusammenfasst. Sie ist ein Vorschlag, kein Standard, und wird vor allem von Programmier-Assistenten genutzt. Google Search wertet sie nicht aus.
 
 [Anleitung: llms.txt erstellen](/anleitungen/llms-txt-erstellen/)
 

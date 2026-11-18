@@ -44,8 +44,8 @@ Das Ergebnis: Eine fertige Antwort mit Quellenangaben. Der Nutzer bekommt direkt
 | Keywords | Exakte Matches wichtig | Semantisches Verständnis |
 | Backlinks | Sehr wichtig | Weniger relevant |
 | Struktur | Nice-to-have | Kritisch wichtig |
-| Schema.org | Hilft bei Rich Snippets | Direkt ausgelesen |
-| llms.txt | Irrelevant | Kann entscheidend sein |
+| Schema.org | Hilft bei Rich Snippets | Kein belegter Zugewinn |
+| llms.txt | Irrelevant | Kaum abgerufen |
 
 ## Was SEO-Profis oft übersehen
 
@@ -79,8 +79,8 @@ Für LLMs ist eine Textwand schwer zu parsen. Klare Überschriften, Absätze und
 
 ### Speziell für LLMs wichtig:
 
-- [llms.txt Datei](/anleitungen/llms-txt-erstellen/)
-- [Schema.org Markup](/grundlagen/schema-org-fuer-ki/)
+- Text ohne JavaScript im HTML
+- [Such-Bots in der robots.txt erlaubt](/anleitungen/robots-txt-fuer-ki/)
 - FAQ-Sektionen mit echten Fragen
 - Direkte Antworten statt Marketing-Sprache
 - Klare Aussagen wer du bist und was du machst
@@ -111,7 +111,7 @@ Wer jetzt anfängt, hat einen Vorsprung.
 
 ### Schadet LLM-Optimierung meinem Google-Ranking?
 
-Nein. Die meisten LLMO-Maßnahmen (klare Struktur, Schema.org, guter Content) helfen auch bei Google.
+Nein. Die meisten LLMO-Maßnahmen (klare Struktur, guter Content) helfen auch bei Google.
 
 ### Kann ich nur für LLMs optimieren und Google ignorieren?
 
@@ -123,10 +123,10 @@ Mit Tools wie [AI Radar](/tools/ai-radar-einfuehrung/). Du prüfst ob und wo du 
 
 ### Was ist wichtiger: llms.txt oder Schema.org?
 
-Beides. Schema.org ist etablierter und wird von mehr Systemen gelesen. llms.txt ist neuer aber speziell für LLMs gemacht.
+Für KI-Antworten keins von beiden. Google braucht laut eigener Doku weder Schema.org noch llms.txt, und Ahrefs fand nach Einführung von Schema.org keinen messbaren Zugewinn bei ChatGPT ([Belege](https://codeback.de/llm-optimierung/)). Schema.org kann bei Rich Results in der Google-Suche helfen, llms.txt vor allem Programmier-Assistenten.
 
 ## Nächste Schritte
 
 1. [Prüfe deine aktuelle LLM-Readability](/tools/llm-readability-checker/)
-2. [Erstelle eine llms.txt](/anleitungen/llms-txt-erstellen/)
+2. [Erlaube Such-Bots in der robots.txt](/anleitungen/robots-txt-fuer-ki/)
 3. [Optimiere deine Website](/anleitungen/website-optimieren/)

@@ -65,7 +65,6 @@ Perplexity bevorzugt Quellen die Expertise zeigen.
 - Autor mit Namen und Qualifikationen
 - Über-Seite mit nachprüfbaren Informationen
 - Erwähnungen in anderen seriösen Quellen
-- Schema.org Person/Organization Markup
 
 **Schwache Signale:**
 - Anonymer Content
@@ -106,8 +105,7 @@ Die Grundlagen müssen stimmen:
 - [robots.txt erlaubt KI-Crawler](/anleitungen/robots-txt-fuer-ki/)
 - Seite lädt schnell
 - Content ist im HTML (nicht nur in JavaScript)
-- [llms.txt vorhanden](/anleitungen/llms-txt-erstellen/)
-- [Schema.org Markup](/grundlagen/schema-org-fuer-ki/)
+- Kein noindex oder nosnippet
 
 ## Was NICHT mehr so wichtig ist
 
@@ -136,8 +134,8 @@ Wie oft ein Begriff vorkommt ist fast irrelevant. Semantisches Verständnis erse
 | Direkte Antworten | Hilft | Entscheidend |
 | Autor-Expertise | Indirekt (E-E-A-T) | Direkt geprüft |
 | Aktualität | Themenabhängig | Generell wichtiger |
-| Schema.org | Rich Snippets | Wird ausgelesen |
-| llms.txt | Irrelevant | Kann helfen |
+| Schema.org | Rich Snippets | Kein belegter Effekt |
+| llms.txt | Irrelevant | Kein Beleg für Nutzung |
 
 ## So optimierst du für Perplexity
 
@@ -149,8 +147,8 @@ Wie oft ein Begriff vorkommt ist fast irrelevant. Semantisches Verständnis erse
 
 ### Mittelfristig (diesen Monat)
 
-1. **[llms.txt erstellen](/anleitungen/llms-txt-erstellen/)**
-2. **[Schema.org einbauen](/grundlagen/schema-org-fuer-ki/)**
+1. **Text ohne JavaScript prüfen**: Steht der Inhalt im Quelltext?
+2. **[robots.txt prüfen](/anleitungen/robots-txt-fuer-ki/)**: Ist PerplexityBot erlaubt?
 3. **Content aktualisieren** - Datum hinzufügen, veraltetes raus
 
 ### Langfristig (kontinuierlich)
@@ -181,4 +179,4 @@ Gut für dich. In Nischen ist weniger Konkurrenz. Klarer, strukturierter Content
 
 1. [Prüfe deine aktuelle Sichtbarkeit](/tools/ai-radar-einfuehrung/)
 2. [Optimiere deine Website](/anleitungen/website-optimieren/)
-3. [Erstelle deine llms.txt](/anleitungen/llms-txt-erstellen/)
+3. [Prüfe deine Seite mit dem LLM-Checker](https://codeback.de/llm-checker/)
