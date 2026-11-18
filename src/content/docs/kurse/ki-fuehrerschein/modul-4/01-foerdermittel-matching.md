@@ -1,6 +1,6 @@
 ---
 title: "KI-Fördermittel-Matching"
-description: "Modul 4: Fördermittel — KI-Fördermittel-Matching"
+description: "Lektion 4.1: Passende Fördermittel für deinen Verein finden. Ein Überblick über Bund, Länder, Stiftungen und EU und wie ein Sprachmodell bei der Suche hilft."
 sidebar:
   order: 1
 ---

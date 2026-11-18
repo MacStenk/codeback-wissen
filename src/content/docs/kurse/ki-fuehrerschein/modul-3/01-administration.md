@@ -1,6 +1,6 @@
 ---
 title: "Intelligente Administration"
-description: "Modul 3: Verwaltung — Intelligente Administration"
+description: "Lektion 3.1: Die zehn zeitfressendsten Verwaltungsaufgaben im Ehrenamt und für jede einen konkreten Ablauf mit einem Sprachmodell."
 sidebar:
   order: 1
 ---

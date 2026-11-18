@@ -1,6 +1,6 @@
 ---
 title: "Social Media auf Autopilot"
-description: "Modul 2: Kommunikation — Social Media auf Autopilot"
+description: "Lektion 2.2: Mit einem Prompt einen Monatsplan für Facebook und Instagram erstellen, damit die Vereinsseiten ohne viel Zeitaufwand aktiv bleiben."
 sidebar:
   order: 2
 ---

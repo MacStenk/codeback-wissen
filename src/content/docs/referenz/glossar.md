@@ -1,6 +1,6 @@
 ---
 title: "Glossar"
-description: "Begriffe rund um LLM-Optimierung und AI Sichtbarkeit erklärt."
+description: "Glossar zur LLM-Optimierung. Fachbegriffe rund um Sichtbarkeit in ChatGPT, Perplexity und Claude von A bis Z, jeweils in wenigen Sätzen erklärt."
 ---
 
 > **Kurzfassung:** Alle wichtigen Begriffe zu LLM-Optimierung, KI-Sichtbarkeit und dem neuen Internet - kurz und verständlich erklärt.

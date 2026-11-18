@@ -1,6 +1,6 @@
 ---
 title: "Schritt-für-Schritt zur Kostenerstattung"
-description: "Modul 5: Refinanzierung — Schritt-für-Schritt zur Kostenerstattung"
+description: "Bonusmodul: Welche Förderprogramme die Kosten für den KI-Führerschein übernehmen und wie du die Erstattung für deinen Verein Schritt für Schritt beantragst."
 sidebar:
   order: 1
 ---

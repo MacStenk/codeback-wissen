@@ -1,6 +1,6 @@
 ---
 title: "Der KI-Texter"
-description: "Modul 2: Kommunikation — Der KI-Texter"
+description: "Lektion 2.1: Newsletter, Einladungen und Pressemitteilungen für den Verein mit einem Sprachmodell schreiben. Ein Ablauf von den Stichwörtern bis zum fertigen Text."
 sidebar:
   order: 1
 ---

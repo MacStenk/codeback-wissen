@@ -1,6 +1,6 @@
 ---
 title: "Selbsttest Modul 1"
-description: "Teste dein Wissen aus Modul 1: Digitales Fundament"
+description: "Selbsttest zu Modul 1 des KI-Führerscheins: zehn Fragen zu digitaler Basis, KI-Grundlagen und Datenschutz im Verein. Bestanden ab sieben richtigen."
 sidebar:
   order: 4
 ---

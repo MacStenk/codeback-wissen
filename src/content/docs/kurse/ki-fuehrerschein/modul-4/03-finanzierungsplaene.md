@@ -1,6 +1,6 @@
 ---
 title: "Fristen, Projektskizzen & Finanzierungspläne"
-description: "Modul 4: Fördermittel — Fristen, Projektskizzen & Finanzierungspläne"
+description: "Lektion 4.3: Finanzierungsplan und Projektskizze für den Förderantrag mit Vorlagen erstellen und dabei die Fristen im Blick behalten."
 sidebar:
   order: 3
 ---

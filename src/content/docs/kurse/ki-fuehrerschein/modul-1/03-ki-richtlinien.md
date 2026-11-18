@@ -1,6 +1,6 @@
 ---
 title: "KI-Richtlinien & DSGVO"
-description: "Modul 1: Digitales Fundament — KI-Richtlinien & DSGVO"
+description: "Lektion 1.3: Warum dein Verein KI-Richtlinien braucht, was die DSGVO bei Mitgliederdaten verlangt und wie der Vorstand Haftung vermeidet."
 sidebar:
   order: 3
 ---

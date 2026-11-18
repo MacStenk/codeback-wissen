@@ -1,6 +1,6 @@
 ---
 title: "Selbsttest Modul 3"
-description: "Teste dein Wissen aus Modul 3: Verwaltung"
+description: "Selbsttest zu Modul 3 des KI-Führerscheins: Fragen zu Verwaltung, Mitgliederbindung und Vereins-Wiki. Prüfe, ob du die Abläufe sicher anwenden kannst."
 sidebar:
   order: 4
 ---

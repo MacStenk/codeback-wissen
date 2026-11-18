@@ -1,6 +1,6 @@
 ---
 title: "Prompting für Vereine"
-description: "Modul 2: Kommunikation — Prompting für Vereine"
+description: "Lektion 2.3: Eigene Prompts schreiben, wenn keine Vorlage passt. Mit der RICE-Methode baust du Schritt für Schritt vollständige Prompts für den Verein."
 sidebar:
   order: 3
 ---

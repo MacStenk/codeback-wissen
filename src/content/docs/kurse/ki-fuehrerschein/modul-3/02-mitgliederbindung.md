@@ -1,6 +1,6 @@
 ---
 title: "Mitgliederbindung & Churn Prediction"
-description: "Modul 3: Verwaltung — Mitgliederbindung & Churn Prediction"
+description: "Lektion 3.2: Warnsignale in Mitgliederlisten und Anmeldedaten erkennen, bevor Mitglieder kündigen. Was Churn im Verein bedeutet und wie du gegensteuerst."
 sidebar:
   order: 2
 ---

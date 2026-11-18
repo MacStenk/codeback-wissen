@@ -1,6 +1,6 @@
 ---
 title: "Vorstands-Wissensmanagement"
-description: "Modul 3: Verwaltung — Vorstands-Wissensmanagement"
+description: "Lektion 3.3: Ein Vereins-Wiki aufbauen, damit das Wissen nicht mit dem Kassenwart geht. Was hineingehört und wie du damit anfängst."
 sidebar:
   order: 3
 ---

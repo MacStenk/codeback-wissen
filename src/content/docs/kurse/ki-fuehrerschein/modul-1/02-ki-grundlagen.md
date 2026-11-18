@@ -1,6 +1,6 @@
 ---
 title: "KI-Grundlagen für Laien"
-description: "Modul 1: Digitales Fundament — KI-Grundlagen für Laien"
+description: "Lektion 1.2 im KI-Führerschein: Was ein Sprachmodell macht, wenn du ihm eine Frage stellst, und wo seine Grenzen für die Vereinsarbeit liegen."
 sidebar:
   order: 2
 ---

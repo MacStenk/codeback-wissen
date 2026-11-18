@@ -1,6 +1,6 @@
 ---
 title: "Selbsttest Modul 4"
-description: "Teste dein Wissen aus Modul 4: Fördermittel"
+description: "Selbsttest zu Modul 4 des KI-Führerscheins: zehn Fragen zu Förderprogrammen, Antragssprache und Finanzierungsplänen. Bestanden ab acht richtigen."
 sidebar:
   order: 4
 ---

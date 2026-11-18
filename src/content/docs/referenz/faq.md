@@ -1,6 +1,6 @@
 ---
 title: "FAQ"
-description: "Häufig gestellte Fragen zu LLM-Optimierung und AI Sichtbarkeit."
+description: "Brauche ich LLM-Optimierung wirklich? Ersetzt sie klassisches SEO? Antworten auf die häufigsten Fragen zur Sichtbarkeit in ChatGPT und Perplexity."
 ---
 
 > **Kurzfassung:** Die wichtigsten Fragen zu LLM-Optimierung, AI Sichtbarkeit und wie du von ChatGPT, Perplexity und Claude gefunden wirst.

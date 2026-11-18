@@ -1,6 +1,6 @@
 ---
 title: "Vom Vereins-Deutsch ins Beamten-Deutsch"
-description: "Modul 4: Fördermittel — Vom Vereins-Deutsch ins Beamten-Deutsch"
+description: "Lektion 4.2: Vereinsprojekte in die Sprache von Förderanträgen übersetzen lassen, mit Wirkungslogik und SMART-Zielen, ohne die Fachsprache selbst zu lernen."
 sidebar:
   order: 2
 ---

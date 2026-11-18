@@ -1,6 +1,6 @@
 ---
 title: "Selbsttest Modul 2"
-description: "Teste dein Wissen aus Modul 2: Kommunikation"
+description: "Selbsttest zu Modul 2 des KI-Führerscheins: zehn Fragen zu Vereinstexten, Social Media und Prompting. Die Antworten stehen in den Lektionen 2.1 bis 2.3."
 sidebar:
   order: 4
 ---

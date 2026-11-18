@@ -1,6 +1,6 @@
 ---
 title: "Die digitale Basis schaffen"
-description: "Modul 1: Digitales Fundament — Die digitale Basis schaffen"
+description: "KI-Führerschein für Vereine, Lektion 1.1: Wie du Mitgliederliste, Protokolle und Dokumente aus Ordnern und Excel in eine digitale Basis bringst."
 sidebar:
   order: 1
 ---
