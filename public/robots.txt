@@ -16,10 +16,24 @@
 
 User-agent: *
 Allow: /
+# Nutzung erlaubt für Suche, KI-Antworten und Training (Content Signals, contentsignals.org).
+# Bedingung für jede Nutzung: Nennung der Quelle (wissen.codeback.de, Steven Noack).
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 # ===========================================
 # AI CRAWLERS (explicitly allowed)
 # ===========================================
+
+# OpenAI (Suche)
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Suche und Abruf im Chat)
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
 
 # OpenAI
 User-agent: GPTBot
