@@ -5,12 +5,12 @@ description: "Schritt für Schritt zur eigenen llms.txt: was die Datei ist, welc
 
 import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
 
-> **Kurzfassung:** llms.txt ist eine Textdatei die KI-Systemen direkt erklärt wer du bist und was du anbietest. Wie eine Visitenkarte für ChatGPT, Perplexity und Claude.
+> **Kurzfassung:** llms.txt ist eine Textdatei im Hauptverzeichnis, die in Markdown zusammenfasst, wer du bist und welche Seiten wichtig sind. Ein offizieller Standard ist sie nicht, und Google nutzt sie nach eigener Aussage nicht. Sinnvoll ist sie vor allem für Programmier-Assistenten, die Software-Dokumentation lesen.
 
 ## Das Wichtigste in 30 Sekunden
 
 - llms.txt = Textdatei im Hauptverzeichnis deiner Website
-- Erklärt KI-Systemen wer du bist und was du machst
+- Fasst zusammen, wer du bist und was du machst
 - Einfaches Markdown-Format
 - Erreichbar unter: `deine-domain.de/llms.txt`
 - Dauert 15-30 Minuten zum Erstellen
@@ -35,6 +35,12 @@ Während robots.txt technische Regeln definiert, ist llms.txt inhaltlich. Sie be
 - Was machst du?
 - Für wen?
 - Was sind deine wichtigsten Inhalte?
+
+<Aside type="caution" title="Was llms.txt bringt und was nicht">
+Die Datei ist ein Vorschlag von [llmstxt.org](https://llmstxt.org/) und kein Standard. Google Search nutzt sie nach eigener Aussage nicht ([Google](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)). In einer Ahrefs-Studie wurden 97 % der gefundenen llms.txt-Dateien im Mai 2026 kein einziges Mal abgerufen ([Ahrefs](https://ahrefs.com/blog/llmstxt-study/)). Eine Zusage von OpenAI, Anthropic, Perplexity oder Microsoft, dass ihre Suche die Datei liest, gibt es nicht. Mehr Sichtbarkeit in ChatGPT oder Perplexity bringt sie nach heutigem Stand also kaum. Die Belege stehen in [LLM-Optimierung: Was in KI-Antworten nachweislich hilft](https://codeback.de/llm-optimierung/).
+
+Wenn du sie trotzdem anlegen willst, etwa für Programmier-Assistenten oder weil sie in 15 Minuten fertig ist, zeigt dir der Rest dieser Seite, wie es geht.
+</Aside>
 
 ## Die drei Varianten
 
@@ -233,11 +239,11 @@ Richtig: "Wir entwickeln CRM-Systeme für Handwerksbetriebe"
 
 ### Ist llms.txt ein offizieller Standard?
 
-Es entwickelt sich gerade zum Standard. Anthropic und andere unterstützen es. Je mehr Websites es nutzen, desto mehr wird es berücksichtigt.
+Nein. Die Spezifikation nennt sich selbst einen Vorschlag. Keiner der großen Anbieter hat zugesagt, dass seine Suche die Datei liest.
 
 ### Lesen alle KI-Systeme llms.txt?
 
-Noch nicht alle. Aber die Unterstützung wächst. Und es schadet nie, die Datei zu haben.
+Nach allem, was sich messen lässt, kaum eines. Die meisten Abrufe in Server-Protokollen stammen von SEO-Tools. Schaden tut die Datei aber auch nicht.
 
 ### Wie oft muss ich llms.txt aktualisieren?
 
@@ -249,18 +255,18 @@ Ja. Du kannst `llms.txt` (Deutsch) und `llms-en.txt` (Englisch) anlegen.
 
 ### Ersetzt llms.txt Schema.org?
 
-Nein. Beides ergänzt sich. Schema.org ist technischer und strukturierter. llms.txt ist lesbarer und erklärender.
+Nein, die beiden haben verschiedene Aufgaben. Für KI-Antworten ist nach heutigem Stand keines von beiden nötig. Was zählt, ist der sichtbare Text deiner Seiten.
 
 ## Nächste Schritte
 
 <CardGrid>
   <Card title="Schema.org einbauen" icon="add-document">
-    Als technische Ergänzung zur llms.txt.
+    Für Rich Results in der Google-Suche.
     
     [Zur Anleitung →](/grundlagen/schema-org-fuer-ki/)
   </Card>
   <Card title="Sichtbarkeit prüfen" icon="magnifier">
-    Nach 1-2 Wochen checken ob es wirkt.
+    Prüfen, ob Sprachmodelle deine Seiten lesen können.
     
     [Zum Checker →](/tools/llm-readability-checker/)
   </Card>

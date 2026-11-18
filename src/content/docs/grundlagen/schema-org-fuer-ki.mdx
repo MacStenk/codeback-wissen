@@ -5,15 +5,15 @@ description: "Schema.org für Sprachmodelle: die wichtigsten Schema-Typen, wo de
 
 import { Steps, Tabs, TabItem, Aside, Card, CardGrid } from '@astrojs/starlight/components';
 
-> **Kurzfassung:** Schema.org ist wie eine Visitenkarte für Maschinen. Es sagt KI-Systemen exakt wer du bist, was du machst und für wen - ohne dass sie raten müssen.
+> **Kurzfassung:** Schema.org beschreibt in strukturierten Daten, wer hinter einer Website steht und was sie anbietet. Für Antworten von ChatGPT, Perplexity oder Google AI Overviews ist es nach heutigem Stand nicht nötig. Nützlich bleibt es für Rich Results in der Google-Suche und um Angaben zu dir eindeutig festzuhalten.
 
 ## Das Wichtigste in 30 Sekunden
 
-- Schema.org = strukturierte Daten die Maschinen verstehen
-- Ohne Schema: KI muss deinen Text interpretieren (fehleranfällig)
-- Mit Schema: KI weiß exakt was gemeint ist
-- Format: JSON-LD im HTML-Head
-- Wichtigste Typen: Person, Organization, Service, FAQPage
+- Schema.org = strukturierte Daten im JSON-LD-Format, meist im HTML-Head
+- Google sagt: Für KI-Antworten braucht es kein Schema.org-Markup
+- Messungen zeigen keinen Zugewinn an KI-Zitaten durch JSON-LD
+- Nützlich bleibt es für Rich Results in der Google-Suche
+- Wichtigste Typen: Person, Organization, Service
 
 ## Was ist Schema.org?
 
@@ -34,34 +34,17 @@ Schema.org ist ein standardisiertes Vokabular das sagt:
 - "Das sind ihre Angebote"
 - "Das ist ihr Standort"
 
-## Warum ist das wichtig für KI?
+## Was Schema.org für KI-Antworten bringt
 
-<Tabs>
-  <TabItem label="Ohne Schema.org" icon="close">
-```
-KI liest: "Herzlich willkommen! Ich begleite Sie 
-auf Ihrem Weg zum Erfolg..."
+Lange galt Schema.org als Pflicht für KI-Sichtbarkeit. Auch auf dieser Seite stand das so. Die Belege sehen inzwischen anders aus:
 
-KI denkt: "Irgendwas mit Coaching? Vielleicht? 
-Keine konkreten Daten. Kann ich nicht zitieren."
-```
-  </TabItem>
-  <TabItem label="Mit Schema.org" icon="approve-check">
-```json
-{
-  "@type": "Person",
-  "name": "Maria Müller",
-  "jobTitle": "Business Coach",
-  "address": { "addressLocality": "München" }
-}
-```
+- Google schreibt in seinem Leitfaden, strukturierte Daten seien für die generative KI-Suche nicht erforderlich und es gebe kein spezielles Markup dafür ([Google](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)).
+- Bing sagt, strukturierte Daten können die Zuordnung erleichtern, garantieren aber keine Sichtbarkeit ([Bing](https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a)).
+- Ahrefs hat 1.885 Seiten untersucht, die JSON-LD neu eingebaut haben. Bei ChatGPT und Googles AI Mode gab es keinen messbaren Zugewinn ([Ahrefs](https://ahrefs.com/blog/schema-ai-citations/)).
 
-```
-KI weiß: "Maria Müller, Business Coach, München. 
-Kann ich empfehlen wenn jemand nach Coach in München fragt."
-```
-  </TabItem>
-</Tabs>
+Sprachmodelle lesen deinen sichtbaren Text. Steht dort klar, wer du bist und was du anbietest, reicht das. Die Herleitung mit allen Quellen steht in [LLM-Optimierung: Was in KI-Antworten nachweislich hilft](https://codeback.de/llm-optimierung/).
+
+Wofür sich Schema.org trotzdem lohnt: Google zeigt damit Rich Results an, etwa Sterne oder Preise. Und du hältst deine Angaben einmal maschinenlesbar fest. Wenn du das willst, zeigt der Rest dieser Seite, wie es geht.
 
 ## Die wichtigsten Schema-Typen
 
@@ -268,7 +251,7 @@ Nein. Starte mit dem wichtigsten (Person oder Organization). Füge später Servi
 
 ### Schadet falsches Schema meinem Ranking?
 
-Bei Google: möglicherweise. Bei KI: du wirst falsch kategorisiert oder ignoriert. Lieber weniger aber korrekt.
+Bei Google: möglicherweise. Bei Sprachmodellen spielt das Markup nach heutigem Stand kaum eine Rolle, sie lesen vor allem den sichtbaren Text. Falsche Angaben helfen trotzdem niemandem. Lieber weniger, dafür korrekt.
 
 ### Kann ich Schema.org ohne Programmierkenntnisse einbauen?
 
