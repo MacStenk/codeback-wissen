@@ -1,6 +1,6 @@
 ---
 title: "Perplexity vs. Google"
-description: "Warum klassische Google-Optimierung nicht mehr reicht und wie Perplexity Websites anders bewertet."
+description: "Google sortiert Links, Perplexity schreibt Antworten mit Quellen. Was dieser Unterschied für deine Website bedeutet und welche Inhalte Perplexity bevorzugt."
 ---
 
 > **Kurzfassung:** Google zeigt 10 Links - du musst klicken. Perplexity gibt eine Antwort - du wirst direkt empfohlen. Das ändert alles an der Frage wie du online gefunden wirst.

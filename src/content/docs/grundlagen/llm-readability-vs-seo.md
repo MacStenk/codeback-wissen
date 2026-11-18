@@ -1,6 +1,6 @@
 ---
 title: "LLM-Readability vs klassisches SEO"
-description: "Was unterscheidet LLM-Optimierung von klassischem SEO? Warum alte Strategien nicht mehr ausreichen."
+description: "Wie Google und Perplexity Websites unterschiedlich lesen, was SEO-Profis dabei oft übersehen und wie du eine Seite für beide gleichzeitig optimierst."
 ---
 
 > **Kurzfassung:** SEO optimiert für Google-Rankings. LLM-Readability optimiert dafür, von ChatGPT, Perplexity und Claude zitiert zu werden. Beides ist wichtig, aber die Regeln sind unterschiedlich.

@@ -1,6 +1,6 @@
 ---
 title: "KI-Sichtbarkeit für Coaches"
-description: "Warum Coaches bei ChatGPT und Perplexity gefunden werden sollten und wie das konkret funktioniert."
+description: "Wie Kunden heute bei ChatGPT und Perplexity nach Coaches suchen, warum viele dort unsichtbar bleiben und welche Seitenstruktur dich empfehlbar macht."
 ---
 
 > **Kurzfassung:** Wenn jemand fragt "Empfiehl mir einen Business Coach in München", antwortet Perplexity mit einer Liste. Stehst du drauf? Die meisten Coaches nicht - weil ihre Website für KI unsichtbar ist.

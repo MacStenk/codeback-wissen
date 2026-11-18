@@ -1,6 +1,6 @@
 ---
 title: "Was ist LLM-Optimierung?"
-description: "LLM-Optimierung (LLMO) erklärt - Wie du deine Website für ChatGPT, Perplexity und Claude sichtbar machst."
+description: "LLM-Optimierung (LLMO) erklärt: die Definition, der Unterschied zu SEO und fünf Kern-Techniken, mit denen deine Website in ChatGPT auftaucht."
 ---
 
 > **Kurzfassung:** LLM-Optimierung macht deine Website für KI-Assistenten lesbar und zitierbar. Während SEO dich bei Google sichtbar macht, sorgt LLMO dafür dass ChatGPT, Perplexity und Claude dich empfehlen.

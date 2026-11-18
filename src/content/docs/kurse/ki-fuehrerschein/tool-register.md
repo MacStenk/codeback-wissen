@@ -1,6 +1,6 @@
 ---
 title: "Tool-Register"
-description: "Aktuelle Übersicht aller empfohlenen Tools mit Preisen, Links und Alternativen."
+description: "Alle im KI-Führerschein empfohlenen Tools mit Preisen, Links und Alternativen, von Textgeneratoren über Vereinssoftware bis zur Fördermittelsuche."
 sidebar:
   order: 100
 ---

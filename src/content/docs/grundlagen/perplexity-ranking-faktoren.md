@@ -1,6 +1,6 @@
 ---
 title: "Perplexity Ranking Faktoren"
-description: "Was Perplexity AI dazu bringt, deine Website zu zitieren. Die wichtigsten Faktoren für KI-Sichtbarkeit."
+description: "Wie Perplexity seine Quellen auswählt, welche Faktoren über ein Zitat entscheiden und was im Vergleich zu Google an Gewicht verliert."
 ---
 
 > **Kurzfassung:** Perplexity rankt nicht wie Google. Es gibt keine Position 1-10, sondern: Wirst du zitiert oder nicht? Hier sind die Faktoren die darüber entscheiden.
